@@ -225,7 +225,7 @@ def main():
     with open("databank.pkl", "wb") as f:
         pickle.dump(only_databank,f)
 
-
+    print("l")
     # Creating the extra data files to be able to traceback
     formatted_date = date.today().strftime("%Y%m%d")
     with open("active"+formatted_date+".pkl", "wb") as f:
