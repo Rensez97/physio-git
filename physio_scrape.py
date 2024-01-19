@@ -34,6 +34,14 @@ def thread(job):
         speciality = blocks[3].text.split("\n")[2].strip()
         duration = blocks[4].text.split(":")[1].strip()
 
+        full_text = soup3.find("div", {"class" :"g-s-main wide-right content"}).text
+        if "praxis" in full_text.lower():
+            praxis = "Ja"
+            print("Ja",webpage)
+        else:
+            praxis = ""
+            print("Nein", webpage)
+
         contact_menu  = soup3.find("div", {"class": "g-s-right wide details-meta"})
         contact_boxes = contact_menu.find_all('div', recursive=False)
 
@@ -60,15 +68,15 @@ def thread(job):
             if item == "E-Mail:":
                 email = paragraph_list[paragraph_list.index(item)+1]
 
-        if len(contact_boxes) == 3:
-            text_paragraph2 = contact_boxes[1].find("p", {"class": "fine-print"}).text.split("\n")[1:]
-            work_street = text_paragraph2[0].strip()
-            work_zipcode = text_paragraph2[1].strip()
-            work_kanton = text_paragraph2[2].split(":")[1].strip()
-        else:
-            work_street = ""
-            work_zipcode = ""
-            work_kanton = ""
+        # if len(contact_boxes) == 3:
+        #     text_paragraph2 = contact_boxes[1].find("p", {"class": "fine-print"}).text.split("\n")[1:]
+        #     work_street = text_paragraph2[0].strip()
+        #     work_zipcode = text_paragraph2[1].strip()
+        #     work_kanton = text_paragraph2[2].split(":")[1].strip()
+        # else:
+        #     work_street = ""
+        #     work_zipcode = ""
+        #     work_kanton = ""
 
         text_paragraph3 = contact_boxes[-1].find("p", {"class": "fine-print"}).text.split("\n")[1:-1]
         if len(text_paragraph3) == 4:
@@ -95,45 +103,27 @@ def thread(job):
         
 
         result = {"Arbeitgeber": employer,
-                "Adres": employer_street,
-                "Adres extra": employer_extra,
+                "Adresse": employer_street,
+                "Adresse extra": employer_extra,
                 "Postzahl": employer_zipcode,
                 "Ort": employer_town,
                 "Kanton": employer_kanton,
-                "Omschrijving vacature": title,
+                "Praxis": praxis,
+                "<30 KM": "",
+                "Stellenbeschreibung": title,
                 "Arbeitspensum": percent,
                 "Stellenantrit per": start,
                 "Anstellungsverhältnis": duration,
-                "Vacature online per": posted, 
-                "Contactpersoon": name,
+                "Stellenangebot online per": posted,
+                "Archivierungsdatum": "",
+                "Kontakt": name,
                 "Hauptnummer": main_phone,
                 "Telefon Direkt": direct_phone,
                 "E-mail": email,
-                "Website arbeitgeber": "",
-                "Link naar vacature": webpage}
+                "Website Arbeitgeber": "",
+                "Link": webpage,
+                "Aktiv": "Ja"}
 
-        # result = {"Company ID": id, 
-        #         "Title": title,
-        #         "Percentage": percent,
-        #         "Start": start,
-        #         "Job type": job_type,
-        #         "Focus-area": speciality,
-        #         "Employment type": duration,
-        #         "Location": loc, "Company": company,
-        #         "Date posted": posted, 
-        #         "Contact name": name,
-        #         "Main phone": main_phone,
-        #         "Direct phone": direct_phone,
-        #         "E-mail": email,
-        #         "Employer": employer,
-        #         "Employer street": employer_street,
-        #         "Employer_extra": employer_extra,
-        #         "Employer_zipcode": employer_zipcode,
-        #         "Employer kanton": employer_kanton,
-        #         "Workplace street": work_street,
-        #         "Workplace zipcode": work_zipcode,
-        #         "Workplace kanton": work_kanton,
-        #         "Webpage": webpage}
     except Exception as e:
         print("Exception place 4:", e, webpage, "\n",traceback.print_exc())
         if soup3:
@@ -158,8 +148,8 @@ def physio_swiss():
 
             if len(jobs) == 0:
                 break
-            # if i > 1:
-            #     break
+            if i > 1:
+                break
 
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 futures = []
@@ -188,8 +178,6 @@ def physio_swiss():
         print("Exception place 1:", e, "\n",traceback.print_exc())
         error_list.append(e)
 
-    # df = pd.DataFrame(results)
-
     print("End Physio Swiss\n Time for completion:", time.time() - threaded_start)
 
     return results
@@ -197,42 +185,94 @@ def physio_swiss():
 
 
 def main():
+
     latest_results = physio_swiss()
-    # with open("active.pkl", "rb") as f:
-    #     latest_results = pickle.load(f)
 
-    with open("databank2.pkl", "rb") as f:
+    with open("databank_0.1.pkl", "rb") as f:
         databank = pickle.load(f)
+        databank.append({"Arbeitgeber": "test",
+                "Adresse": "test",
+                "Adresse extra": "test",
+                "Postzahl": "test",
+                "Ort": "test",
+                "Kanton": "test",
+                "Praxis": "test",
+                "<30 KM": "",
+                "Stellenbeschreibung":"test",
+                "Arbeitspensum": "test",
+                "Stellenantrit per": "test",
+                "Anstellungsverhältnis":"test",
+                "Stellenangebot online per": "test",
+                "Archivierungsdatum": "",
+                "Kontakt": "test",
+                "Hauptnummer": "test",
+                "Telefon Direkt": "test",
+                "E-mail": "test",
+                "Website Arbeitgeber": "",
+                "Link": "test",
+                "Aktiv": "Ja"})
+    
 
-    if len(databank) == 0:
-        only_databank = []
-    else:
-        only_databank = [item for item in databank if item not in latest_results]
-        print("Only databank\n:",only_databank)
+
+    for dict1, dict2 in zip(latest_results,databank):
+        for key in dict1.keys():
+            if key in ["Arbeitgeber", "Stellenbeschreibung","Arbeitspensum","Stellenangebot online per"]:
+                if dict1[key] == dict2[key]:
+                    l = 1
+                
+            # if key not in ["Archivierungsdatum", "Aktiv"]:
+            #     if dict1[key] != dict2[key]:
+            #         l = 1
+    
+
+    # with open("active20240103.pkl", "rb") as f:
+    #     latest_results = pickle.load(f)
+    #     latest_results.pop()
+
+    # with open("active.pkl", "rb") as f:
+    #     previous_results = pickle.load(f)
+
+    # with open("databank.pkl", "rb") as f:
+    #     databank = pickle.load(f)
 
 
-    # Creating the Excel file
-    df_latest_results = pd.DataFrame(latest_results)
-    df_databank = pd.DataFrame(only_databank)
-    with pd.ExcelWriter("PhysioSwiss vacatures.xlsx") as writer:
-        df_latest_results.to_excel(writer, sheet_name="Actuele Vacatures PhysioSwiss", index=False)
-        df_databank.to_excel(writer, sheet_name="Databank PhysioSwiss", index=False)
+    # formatted_date = date.today().strftime("%Y%m%d")
+    # to_archive = [item for item in previous_results if item not in latest_results]
+    # # for item in to_archive:
+    # #     item["Archivierungsdatum"] = str(formatted_date)
+    
+
+    # if len(databank) == 0:
+    #     only_databank = []
+    # else:
+    #     only_databank = [item for item in databank if item not in latest_results]
+    #     only_databank = only_databank + to_archive
+    #     print("Only databank\n:",only_databank)
 
 
-    # Creating the main data files
-    with open("active.pkl", "wb") as f:
-        pickle.dump(latest_results,f)
-    with open("databank.pkl", "wb") as f:
-        pickle.dump(only_databank,f)
+    # # Creating the Excel file
+    # df_latest_results = pd.DataFrame(latest_results)
+    # df_databank = pd.DataFrame(only_databank)
+    # df_databank.sort_values(by=['Arbeitgeber'])
+    # with pd.ExcelWriter("PhysioSwiss vacatures.xlsx") as writer:
+    #     df_latest_results.drop(columns=["Archivierungsdatum"]).to_excel(writer, sheet_name="Actuele Vacatures PhysioSwiss", index=False)
+       
+    #     df_latest_results.to_excel(writer, sheet_name="Actuele Vacatures PhysioSwiss", index=False)
+    #     df_databank.to_excel(writer, sheet_name="Databank PhysioSwiss", index=False)
 
-    print("l")
-    # Creating the extra data files to be able to traceback
-    formatted_date = date.today().strftime("%Y%m%d")
-    with open("active"+formatted_date+".pkl", "wb") as f:
-        pickle.dump(latest_results,f)
 
-    with open("databank"+formatted_date+".pkl", "wb") as f:
-        pickle.dump(only_databank,f)
+    # # Creating the main data files
+    # with open("active.pkl", "wb") as f:
+    #     pickle.dump(latest_results,f)
+    # with open("databank.pkl", "wb") as f:
+    #     pickle.dump(only_databank,f)
+
+    # # Creating the extra data files to be able to traceback
+    # with open("active"+formatted_date+".pkl", "wb") as f:
+    #     pickle.dump(latest_results,f)
+
+    # with open("databank"+formatted_date+".pkl", "wb") as f:
+    #     pickle.dump(only_databank,f)
 
 
 if __name__ == "__main__":
@@ -241,6 +281,28 @@ if __name__ == "__main__":
 
 
 
+
+    # databank.append({"Arbeitgeber": "test",
+    #             "Adresse": "test",
+    #             "Adresse extra": "test",
+    #             "Postzahl": "test",
+    #             "Ort": "test",
+    #             "Kanton": "test",
+    #             "Praxis": "test",
+    #             "<30 KM": "",
+    #             "Stellenbeschreibung":"test",
+    #             "Arbeitspensum": "test",
+    #             "Stellenantrit per": "test",
+    #             "Anstellungsverhältnis":"test",
+    #             "Stellenangebot online per": "test",
+    #             "Archivierungsdatum": "",
+    #             "Kontakt": "test",
+    #             "Hauptnummer": "test",
+    #             "Telefon Direkt": "test",
+    #             "E-mail": "test",
+    #             "Website Arbeitgeber": "",
+    #             "Link": "test",
+    #             "Aktiv": "Ja"})
 
 
 
