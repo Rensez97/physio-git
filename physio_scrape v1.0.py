@@ -110,7 +110,7 @@ def create_dfs(databank):
 
 def store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date):
     print("Storing all data locally...")
-    with pd.ExcelWriter(f"Physioswiss Stellen Aktiv {formatted_date}.xlsx") as writer:
+    with pd.ExcelWriter(f"data/Physioswiss Stellen Aktiv {formatted_date}.xlsx") as writer:
         df_latest_list[0].to_excel(writer, sheet_name="Alle aktiven Stellen", index=False)
         df_latest_list[1].to_excel(writer, sheet_name="Basel", index=False)
         df_latest_list[2].to_excel(writer, sheet_name="Bern", index=False)
@@ -120,7 +120,7 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
         df_latest_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
         df_latest_list[7].to_excel(writer, sheet_name="Zurich", index=False)
 
-    with pd.ExcelWriter(f"Physioswiss Stellen Historisch {formatted_date}.xlsx") as writer:
+    with pd.ExcelWriter(f"data/Physioswiss Stellen Historisch {formatted_date}.xlsx") as writer:
         df_only_databank_list[0].to_excel(writer, sheet_name="Alle historischen Stellen", index=False)
         df_only_databank_list[1].to_excel(writer, sheet_name="Basel", index=False)
         df_only_databank_list[2].to_excel(writer, sheet_name="Bern", index=False)
@@ -132,13 +132,13 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
 
 
     # Storing the databank in a active file, and a history file
-    with open("databank.pkl", "wb") as f:
+    with open("data/databank.pkl", "wb") as f:
         pickle.dump(databank,f)
-    with open("databank "+formatted_date+".pkl", "wb") as f:
+    with open("data/databank "+formatted_date+".pkl", "wb") as f:
         pickle.dump(databank,f)
 
     # # Storing the latest_results in a active file, and a history file
-    with open("latest_results "+formatted_date+".pkl", "wb") as f:
+    with open("data/latest_results "+formatted_date+".pkl", "wb") as f:
         pickle.dump(latest_results,f)
 
     print("Local storing complete!\n")
@@ -154,13 +154,6 @@ def update_company_file(gc,databank):
     for item in databank:
         if current_df["Arbeitgeber"].isin([item["Arbeitgeber"]]).any():
             print("OLD:",item["Arbeitgeber"])
-            # row_index = current_df.loc[current_df["Arbeitgeber"] == item["Arbeitgeber"]].index[0]
-            # if current_df.at[row_index, "Adresse"] != item["Adresse"]:
-            #     current_df.at[row_index, "Adresse"] = item["Adresse"]
-            # if current_df.at[row_index, "Postzahl"] != item["Postzahl"]:
-            #     current_df.at[row_index, "Postzahl"] = item["Postzahl"]
-            # # Write the updated DataFrame back to Google Sheets
-            # spreadsheet.update([current_df.columns.values.tolist()] + current_df.values.tolist())
         else:
             print("NEW:",item["Arbeitgeber"])
             new_row = pd.DataFrame({
@@ -187,10 +180,10 @@ def update_company_file(gc,databank):
             current_df = current_df.append(new_row, ignore_index=True)
 
     current_df.sort_values(by="Arbeitgeber", inplace=True)
-    df_list = current_df.values.tolist()
-    df_list.insert(0, current_df.columns.values.tolist())
-    spreadsheet.update(range_name="",values=df_list)
-    # spreadsheet.update([current_df.columns.values.tolist()] + current_df.values.tolist())
+    # df_list = current_df.values.tolist()
+    # df_list.insert(0, current_df.columns.values.tolist())
+    # spreadsheet.update(range_name="",values=df_list)
+    spreadsheet.update(values=[current_df.columns.values.tolist()] + current_df.values.tolist(),range_name="")
     print("Company file updated!\n")
 
 
@@ -217,14 +210,14 @@ def upload_stellen_files(gc,file_name,df_list):
     stgallen.clear()
     zurich.clear()
 
-    main.update(values=[df_list[0].columns.values.tolist()] + df_list[0].values.tolist())
-    basel.update(values=[df_list[1].columns.values.tolist()] + df_list[1].values.tolist())
-    bern.update(values=[df_list[2].columns.values.tolist()] + df_list[2].values.tolist())
-    geneve.update(values=[df_list[3].columns.values.tolist()] + df_list[3].values.tolist())
-    lausanne.update(values=[df_list[4].columns.values.tolist()] + df_list[4].values.tolist())
-    luzern.update(values=[df_list[5].columns.values.tolist()] + df_list[5].values.tolist())
-    stgallen.update(values=[df_list[6].columns.values.tolist()] + df_list[6].values.tolist())
-    zurich.update(values=[df_list[7].columns.values.tolist()] + df_list[7].values.tolist())
+    main.update(values=[df_list[0].columns.values.tolist()] + df_list[0].values.tolist(),range_name="")
+    basel.update(values=[df_list[1].columns.values.tolist()] + df_list[1].values.tolist(),range_name="")
+    bern.update(values=[df_list[2].columns.values.tolist()] + df_list[2].values.tolist(),range_name="")
+    geneve.update(values=[df_list[3].columns.values.tolist()] + df_list[3].values.tolist(),range_name="")
+    lausanne.update(values=[df_list[4].columns.values.tolist()] + df_list[4].values.tolist(),range_name="")
+    luzern.update(values=[df_list[5].columns.values.tolist()] + df_list[5].values.tolist(),range_name="")
+    stgallen.update(values=[df_list[6].columns.values.tolist()] + df_list[6].values.tolist(),range_name="")
+    zurich.update(values=[df_list[7].columns.values.tolist()] + df_list[7].values.tolist(),range_name="")
     print(f"Upload of {file_name} file completed!\n")
 
 
@@ -233,28 +226,28 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list):
     cred = "testuser-key.json"
     gc = gspread.service_account(cred)
     update_company_file(gc,databank)
-    # upload_stellen_files(gc,"Physioswiss Stellen Aktiv",df_latest_list)
-    # upload_stellen_files(gc,"Physioswiss Stellen Historisch",df_only_databank_list)
+    upload_stellen_files(gc,"Physioswiss Stellen Aktiv",df_latest_list)
+    upload_stellen_files(gc,"Physioswiss Stellen Historisch",df_only_databank_list)
     print("All sheets up to date!\n")
 
 
 
 def main():
 
-    # get_website("Cabinet LymPhy","Gland")
     formatted_date = date.today().strftime("%d%m%Y")
+    print(formatted_date)
 
     zipcodes = check_zipcodes()
 
     # latest_results = physio_swiss(zipcodes)
 
-    with open("latest_results 19012024.pkl", "rb") as f:
+    with open("data/latest_results 19012024.pkl", "rb") as f:
         latest_results = pickle.load(f)
 
-    # with open("latest_results "+formatted_date+".pkl", "wb") as f:
+    # with open("data/latest_results "+formatted_date+".pkl", "wb") as f:
     #     pickle.dump(latest_results,f)
 
-    with open("databank.pkl", "rb") as f:
+    with open("data/databank.pkl", "rb") as f:
         databank = pickle.load(f)
 
     checked_databank = check_inactive(latest_results,databank,formatted_date)
