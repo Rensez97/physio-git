@@ -4,16 +4,19 @@ import pandas as pd
 import googlesearch
 import gspread
 import requests
+import os
 
 from datetime import date
 
 from scraper_functions import physio_swiss
 from helper_functions import check_zipcodes
+from dotenv import load_dotenv
 
 
 def get_website(name, place):
+    load_dotenv(encoding="latin-1")
     try:
-        key='AIzaSyDvftfSxdoS_rNmfIB3XFHeL70Uri_xSD4'
+        key = os.getenv("API_KEY")
         base = "https://places.googleapis.com/v1/places:searchText"
         payload = {
         "textQuery" : f'{name} {place}'
@@ -227,7 +230,7 @@ def upload_stellen_files(gc,file_name,df_list):
 
 def update_google_sheets(databank,df_latest_list,df_only_databank_list):
     print("Updating google sheets")
-    cred = "C:/Users/rense/Documents/Werk/Physio/testuser-key.json"
+    cred = "testuser-key.json"
     gc = gspread.service_account(cred)
     update_company_file(gc,databank)
     # upload_stellen_files(gc,"Physioswiss Stellen Aktiv",df_latest_list)
@@ -238,28 +241,28 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list):
 
 def main():
 
-    get_website("Cabinet LymPhy","Gland")
-    # formatted_date = date.today().strftime("%d%m%Y")
+    # get_website("Cabinet LymPhy","Gland")
+    formatted_date = date.today().strftime("%d%m%Y")
 
-    # zipcodes = check_zipcodes()
+    zipcodes = check_zipcodes()
 
-    # # latest_results = physio_swiss(zipcodes)
+    # latest_results = physio_swiss(zipcodes)
 
-    # with open("latest_results 19012024.pkl", "rb") as f:
-    #     latest_results = pickle.load(f)
+    with open("latest_results 19012024.pkl", "rb") as f:
+        latest_results = pickle.load(f)
 
-    # # with open("latest_results "+formatted_date+".pkl", "wb") as f:
-    # #     pickle.dump(latest_results,f)
+    # with open("latest_results "+formatted_date+".pkl", "wb") as f:
+    #     pickle.dump(latest_results,f)
 
-    # with open("databank.pkl", "rb") as f:
-    #     databank = pickle.load(f)
+    with open("databank.pkl", "rb") as f:
+        databank = pickle.load(f)
 
-    # checked_databank = check_inactive(latest_results,databank,formatted_date)
-    # updated_databank = update_databank(latest_results,checked_databank)
+    checked_databank = check_inactive(latest_results,databank,formatted_date)
+    updated_databank = update_databank(latest_results,checked_databank)
         
-    # df_latest_list, df_only_databank_list = create_dfs(updated_databank)
-    # store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
-    # update_google_sheets(updated_databank,df_latest_list,df_only_databank_list)
+    df_latest_list, df_only_databank_list = create_dfs(updated_databank)
+    store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
+    update_google_sheets(updated_databank,df_latest_list,df_only_databank_list)
 
 
     # df_latest_list, df_only_databank_list = create_dfs(databank)
