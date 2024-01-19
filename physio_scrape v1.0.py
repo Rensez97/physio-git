@@ -239,10 +239,10 @@ def main():
 
     zipcodes = check_zipcodes()
 
-    # latest_results = physio_swiss(zipcodes)
+    latest_results = physio_swiss(zipcodes)
 
-    with open("data/latest_results 19012024.pkl", "rb") as f:
-        latest_results = pickle.load(f)
+    # with open("data/latest_results 19012024.pkl", "rb") as f:
+    #     latest_results = pickle.load(f)
 
     # with open("data/latest_results "+formatted_date+".pkl", "wb") as f:
     #     pickle.dump(latest_results,f)
