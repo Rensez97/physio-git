@@ -151,6 +151,7 @@ def update_company_file(gc,databank):
     spreadsheet = gc.open(file_name).sheet1
     data = spreadsheet.get_all_values()
     current_df = pd.DataFrame(data[1:], columns=data[0])
+    new_rows = []
     for item in databank:
         if current_df["Arbeitgeber"].isin([item["Arbeitgeber"]]).any():
             print("OLD:",item["Arbeitgeber"])
@@ -177,8 +178,8 @@ def update_company_file(gc,databank):
                 "Formular ausgefüllt": "",
             })
 
-            current_df = current_df.append(new_row, ignore_index=True)
-
+            new_rows.append(new_row)
+    current_df = pd.concat([current_df] + new_rows, ignore_index=True)
     current_df.sort_values(by="Arbeitgeber", inplace=True)
     # df_list = current_df.values.tolist()
     # df_list.insert(0, current_df.columns.values.tolist())
@@ -239,10 +240,10 @@ def main():
 
     zipcodes = check_zipcodes()
 
-    latest_results = physio_swiss(zipcodes)
+#    latest_results = physio_swiss(zipcodes)
 
-    # with open("data/latest_results 19012024.pkl", "rb") as f:
-    #     latest_results = pickle.load(f)
+    with open("data/latest_results 19012024.pkl", "rb") as f:
+        latest_results = pickle.load(f)
 
     # with open("data/latest_results "+formatted_date+".pkl", "wb") as f:
     #     pickle.dump(latest_results,f)
