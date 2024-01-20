@@ -220,14 +220,6 @@ def upload_stellen_files(gc,file_name,df_list):
     luzern.batch_update([{'values':[df_list[5].columns.values.tolist()] + df_list[5].values.tolist(),'range':""}])
     stgallen.batch_update([{'values':[df_list[6].columns.values.tolist()] + df_list[6].values.tolist(),'range':""}])
     zurich.batch_update([{'values':[df_list[7].columns.values.tolist()] + df_list[7].values.tolist(),'range':""}])
-    # main.update(values=[df_list[0].columns.values.tolist()] + df_list[0].values.tolist(),range_name="")
-    # basel.update(values=[df_list[1].columns.values.tolist()] + df_list[1].values.tolist(),range_name="")
-    # bern.update(values=[df_list[2].columns.values.tolist()] + df_list[2].values.tolist(),range_name="")
-    # geneve.update(values=[df_list[3].columns.values.tolist()] + df_list[3].values.tolist(),range_name="")
-    # lausanne.update(values=[df_list[4].columns.values.tolist()] + df_list[4].values.tolist(),range_name="")
-    # luzern.update(values=[df_list[5].columns.values.tolist()] + df_list[5].values.tolist(),range_name="")
-    # stgallen.update(values=[df_list[6].columns.values.tolist()] + df_list[6].values.tolist(),range_name="")
-    # zurich.update(values=[df_list[7].columns.values.tolist()] + df_list[7].values.tolist(),range_name="")
     print(f"Upload of {file_name} file completed!\n")
 
 
@@ -281,11 +273,6 @@ def main():
     df_latest_list, df_only_databank_list = create_dfs(updated_databank)
     store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
     update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
-
-
-    # df_latest_list, df_only_databank_list = create_dfs(databank)
-    # store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
-    # update_google_sheets(databank,df_latest_list,df_only_databank_list)
-
+    
 if __name__ == "__main__":
     main()
