@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 
 def get_website(name, place,places_key):
-    load_dotenv(encoding="latin-1")
+
     try:
         base = "https://places.googleapis.com/v1/places:searchText"
         payload = {
@@ -234,6 +234,7 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_ke
 
 
 def command_input():
+    load_dotenv(encoding="latin-1")
     if len(sys.argv) == 3:
         if sys.argv[1] == "test":
             sheets_key = "testuser-key.json"
@@ -266,16 +267,16 @@ def main():
     print(formatted_date)
 
     sheets_key, places_key, latest_results = command_input()
+    get_website("Physiozentrum - Aarau", "Aarau",places_key)
+    # with open("data/databank.pkl", "rb") as f:
+    #     databank = pickle.load(f)
 
-    with open("data/databank.pkl", "rb") as f:
-        databank = pickle.load(f)
-
-    checked_databank = check_inactive(latest_results,databank,formatted_date)
-    updated_databank = update_databank(latest_results,checked_databank,places_key)
+    # checked_databank = check_inactive(latest_results,databank,formatted_date)
+    # updated_databank = update_databank(latest_results,checked_databank,places_key)
         
-    df_latest_list, df_only_databank_list = create_dfs(updated_databank)
-    store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
-    update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
+    # df_latest_list, df_only_databank_list = create_dfs(updated_databank)
+    # store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
+    # update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
 
 if __name__ == "__main__":
     main()

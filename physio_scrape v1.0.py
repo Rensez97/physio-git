@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 
 def get_website(name, place,places_key):
-    load_dotenv(encoding="latin-1")
+
     try:
         base = "https://places.googleapis.com/v1/places:searchText"
         payload = {
@@ -242,6 +242,7 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_ke
 
 
 def command_input():
+    load_dotenv(encoding="latin-1")
     if len(sys.argv) == 3:
         if sys.argv[1] == "test":
             sheets_key = "testuser-key.json"
