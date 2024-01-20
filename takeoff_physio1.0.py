@@ -238,14 +238,17 @@ def command_input():
         if sys.argv[1] == "test":
             sheets_key = "testuser-key.json"
             places_key = os.getenv("API_KEY_TEST")
-        if sys.argv[1] == "prod":
+        elif sys.argv[1] == "prod":
             sheets_key = "produser-key.json"
             places_key = os.getenv("API_KEY_PROD")
+        else:
+            print("Please provide first argument: test or prod for the credentials.")
+            sys.exit()
 
-        if sys.argv[2] == "new":
+        if sys.argv[2].strip() == "new":
             zipcodes = check_zipcodes()
             latest_results = physio_swiss(zipcodes)
-        if len(sys.argv[2]) == 8:
+        elif len(sys.argv[2]) == 8:
             with open(f"data/latest_results {sys.argv[2]}.pkl", "rb") as f:
                 latest_results = pickle.load(f)
         else:
@@ -273,6 +276,6 @@ def main():
     df_latest_list, df_only_databank_list = create_dfs(updated_databank)
     store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
     update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
-    
+
 if __name__ == "__main__":
     main()
