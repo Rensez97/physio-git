@@ -158,6 +158,11 @@ def update_company_file(gc,databank):
             print("NEW:",item["Arbeitgeber"])
             new_row = pd.DataFrame({
                 "Arbeitgeber": [item["Arbeitgeber"]],
+                "Mail geschickt": "",
+                "Telefonisch Kontakt gehabt": "",
+                "Voorbijgaan moment": "",
+                "Voorbij geweest": "",
+                "Formular ausgefüllt": "",
                 "Adresse": [item["Adresse"]],
                 "Adresse extra": [item["Adresse extra"]],
                 "Postzahl": [item["Postzahl"]],
@@ -169,12 +174,7 @@ def update_company_file(gc,databank):
                 "Hauptnummer": [item["Hauptnummer"]],
                 "Telefon Direkt": [item["Telefon Direkt"]],
                 "E-mail": [item["E-mail"]],
-                "Website Arbeitgeber": [item["Website Arbeitgeber"]],
-                "Mail geschickt": "",
-                "Telefonisch Kontakt gehabt": "",
-                "Voorbijgaan moment": "",
-                "Voorbij geweest": "",
-                "Formular ausgefüllt": "",
+                "Website Arbeitgeber": [item["Website Arbeitgeber"]]
             })
 
             current_df = current_df.append(new_row, ignore_index=True)
