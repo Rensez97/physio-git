@@ -113,8 +113,8 @@ def thread(job,zipcodes):
 
     except Exception as e:
         print("Exception place 4:", e, webpage, "\n",traceback.print_exc())
-        if soup3:
-            print(soup3)
+        # if soup3:
+        #     print(soup3)
 
     return result
 
