@@ -282,8 +282,9 @@ def main():
         with open(f"data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
 
-        checked_databank = check_inactive(latest_results,databank)
         updated_databank = update_databank(latest_results,checked_databank,places_key)
+        checked_databank = check_inactive(latest_results,databank)
+
             
         df_latest_list, df_only_databank_list = create_dfs(updated_databank)
         store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
