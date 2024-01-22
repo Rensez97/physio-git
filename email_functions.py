@@ -20,18 +20,19 @@ def setup_email(text,subject):
 
 
 def send_log_report(formatted_date):
+    subject = f"Log report of takeoff physio on {formatted_date}"
     with open(f"/home/takeoff_physio_log.log", "r") as f:
         lines = f.readlines()
         for i, line in enumerate(lines):
             if line.strip() == formatted_date:
-                log_text = ''.join(lines[i+1:])
+                text = ''.join(lines[i+1:])
                 break
 
-    subject = f"Log report of takeoff physio on {formatted_date}"
-    setup_email(log_text,subject)
+    setup_email(text,subject)
 
 
 def send_error_report(exception,trace):
     subject = f"Error during takeoff physio"
     text = f"{exception}\n\n{trace}"
+
     setup_email(text,subject)
