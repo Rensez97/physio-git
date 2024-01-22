@@ -234,7 +234,7 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_ke
 
 
 def command_input():
-    load_dotenv(encoding="latin-1")
+    load_dotenv()
     if len(sys.argv) == 3:
         if sys.argv[1] == "test":
             sheets_key = "testuser-key.json"
@@ -267,7 +267,7 @@ def main():
     print(formatted_date)
 
     sheets_key, places_key, latest_results = command_input()
-    
+
     with open("data/databank.pkl", "rb") as f:
         databank = pickle.load(f)
 
