@@ -282,13 +282,13 @@ def main():
         with open(f"data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
 
-        updated_databank = update_databank(latest_results,checked_databank,places_key)
-        checked_databank = check_inactive(latest_results,databank)
+        updated_databank = update_databank(latest_results,databank,places_key)
+        checked_databank = check_inactive(latest_results,updated_databank)
 
             
-        df_latest_list, df_only_databank_list = create_dfs(updated_databank)
-        store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
-        update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
+        df_latest_list, df_only_databank_list = create_dfs(checked_databank)
+        store_local(checked_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
+        update_google_sheets(checked_databank,df_latest_list,df_only_databank_list,sheets_key)
 
         if log == True:
             send_log_report(formatted_date)
