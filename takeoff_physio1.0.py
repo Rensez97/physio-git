@@ -108,9 +108,9 @@ def create_dfs(databank):
 
 
 
-def store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date):
+def store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date,version):
     print("Storing all data locally...")
-    with pd.ExcelWriter(f"data/Physioswiss Stellen Aktiv {formatted_date}.xlsx") as writer:
+    with pd.ExcelWriter(f"data/Physioswiss Stellen Aktiv {formatted_date}-{version}.xlsx") as writer:
         df_latest_list[0].to_excel(writer, sheet_name="Alle aktiven Stellen", index=False)
         df_latest_list[1].to_excel(writer, sheet_name="Basel", index=False)
         df_latest_list[2].to_excel(writer, sheet_name="Bern", index=False)
@@ -120,7 +120,7 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
         df_latest_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
         df_latest_list[7].to_excel(writer, sheet_name="Zurich", index=False)
 
-    with pd.ExcelWriter(f"data/Physioswiss Stellen Historisch {formatted_date}.xlsx") as writer:
+    with pd.ExcelWriter(f"data/Physioswiss Stellen Historisch {formatted_date}-{version}.xlsx") as writer:
         df_only_databank_list[0].to_excel(writer, sheet_name="Alle historischen Stellen", index=False)
         df_only_databank_list[1].to_excel(writer, sheet_name="Basel", index=False)
         df_only_databank_list[2].to_excel(writer, sheet_name="Bern", index=False)
@@ -132,13 +132,13 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
 
 
     # Storing the databank in a active file, and a history file
-    with open("data/databank.pkl", "wb") as f:
+    with open(f"data/databank-{version}.pkl", "wb") as f:
         pickle.dump(databank,f)
-    with open("data/databank "+formatted_date+".pkl", "wb") as f:
+    with open(f"data/databank {formatted_date}-{version}.pkl", "wb") as f:
         pickle.dump(databank,f)
 
     # # Storing the latest_results in a active file, and a history file
-    with open("data/latest_results "+formatted_date+".pkl", "wb") as f:
+    with open(f"data/latest_results {formatted_date}-{version}.pkl", "wb") as f:
         pickle.dump(latest_results,f)
 
     print("Local storing complete!\n")
@@ -226,9 +226,11 @@ def command_input():
     load_dotenv()
     if len(sys.argv) == 3:
         if sys.argv[1] == "test":
+            version = "test"
             sheets_key = "testuser-key.json"
             places_key = os.getenv("API_KEY_TEST")
         elif sys.argv[1] == "prod":
+            version = "prod"
             sheets_key = "produser-key.json"
             places_key = os.getenv("API_KEY_PROD")
         else:
@@ -248,14 +250,14 @@ def command_input():
         print("Please use first argument test or prod for the credentials, and second argument new or date in format DDMMYYYY.\nFormat must be of: script.py (test or prod) (new/date(DDMMYYYY))")
         sys.exit()
 
-    return sheets_key, places_key, latest_results
+    return version, sheets_key, places_key, latest_results
 
 
 def main():
     formatted_date = date.today().strftime("%d%m%Y")
     print(formatted_date)
 
-    sheets_key, places_key, latest_results = command_input()
+    version, sheets_key, places_key, latest_results = command_input()
 
     with open("data/databank.pkl", "rb") as f:
         databank = pickle.load(f)
@@ -264,7 +266,7 @@ def main():
     updated_databank = update_databank(latest_results,checked_databank,places_key)
         
     df_latest_list, df_only_databank_list = create_dfs(updated_databank)
-    # store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
+    store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
     update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
 
 if __name__ == "__main__":
