@@ -6,12 +6,14 @@ import gspread
 import requests
 import os
 import sys
+import traceback
 
 from datetime import date
 
+from dotenv import load_dotenv
 from scraper_functions import physio_swiss
 from helper_functions import check_zipcodes
-from dotenv import load_dotenv
+from email_functions import send_error_report, send_log_report
 
 
 def get_website(name, place,places_key):
@@ -226,7 +228,7 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_ke
 
 def command_input():
     load_dotenv()
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 4:
         if sys.argv[1] == "test":
             version = "test"
             sheets_key = "testuser-key.json"
@@ -248,28 +250,49 @@ def command_input():
         else:
             print("Please provide argument: new or date(DDMMYYYY)")
             sys.exit()
+
+        if sys.argv[3].strip() == "log":
+            log = True
+        elif sys.argv[3].strip() == "no-log":
+            log = False
+        else:
+            print("Please provide argument: log or no-log")
+            sys.exit()
     else:
-        print("Please use first argument test or prod for the credentials, and second argument new or date in format DDMMYYYY.\nFormat must be of: script.py (test or prod) (new/date(DDMMYYYY))")
+        print("Please use first argument test or prod for the credentials, second argument new or date in format DDMMYYYY, and third argument log or no-log for sending log by email.\nFormat must be of: script.py (test or prod) (new/date(DDMMYYYY)) (log/no-log)")
         sys.exit()
 
-    return version, sheets_key, places_key, latest_results
+    return version, sheets_key, places_key, latest_results, log
 
 
 def main():
-    formatted_date = date.today().strftime("%d%m%Y")
-    print(formatted_date)
 
-    version, sheets_key, places_key, latest_results = command_input()
+    try:
+        formatted_date = date.today().strftime("%d%m%Y")
+        print(formatted_date)
+        send_log_report(formatted_date)
 
-    with open(f"data/databank-{version}.pkl", "rb") as f:
-        databank = pickle.load(f)
+        # version, sheets_key, places_key, latest_results, log = command_input()
 
-    checked_databank = check_inactive(latest_results,databank)
-    updated_databank = update_databank(latest_results,checked_databank,places_key)
-        
-    df_latest_list, df_only_databank_list = create_dfs(updated_databank)
-    store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
-    update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
+        # with open(f"data/databank-{version}.pkl", "rb") as f:
+        #     databank = pickle.load(f)
+
+        # checked_databank = check_inactive(latest_results,databank)
+        # updated_databank = update_databank(latest_results,checked_databank,places_key)
+            
+        # df_latest_list, df_only_databank_list = create_dfs(updated_databank)
+        # store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
+        # update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
+
+        # if log == True:
+        #     send_log_report(formatted_date)
+
+    except Exception as e:
+        log = False
+        if log == True:
+            send_error_report(e,traceback.format_exc())
+        else:
+            print(e,traceback.print_exc())
 
 if __name__ == "__main__":
     main()
