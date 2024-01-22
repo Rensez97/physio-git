@@ -53,15 +53,12 @@ def check_inactive(latest_results,databank):
                 for key in item2:
                     if item[key] != item2[key]:
                         item[key] = item2[key]
+                        print(f"Updated: {item[key]} with {item2[key]}")
                 if item["Aktiv"] == "":
                     item["Aktiv"] = "Ja"
-                    print(f"Set to active: {item}")
-            # if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
-            #     active = True
-            #     if item["Aktiv"] == "":
-            #         item["Aktiv"] = "Ja"
+                    print(f"Set to active: {item}{item2}")
         if active == False and item["Aktiv"] == "Ja":
-            print(f"Set to inactive:{item}")
+            print(f"Set to inactive:{item}{item2}")
             item["Aktiv"] = ""
             item["Archivierungsdatum"] = date.today().strftime("%d-%m-%Y")
 
@@ -77,8 +74,6 @@ def update_databank(latest_results,databank,places_key):
         for item2 in databank:
             if item["id"] == item2["id"]:
                 present = True
-            # if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
-            #     present = True
         if present == False:
             item["Website Arbeitgeber"] = get_website(item["Arbeitgeber"],item["Ort"],places_key)
             databank.append(item)
