@@ -5,15 +5,17 @@ import traceback
 
 
 from bs4 import BeautifulSoup
-from helper_functions import retry_link, convert_german_date
+from helper_functions import retry_link, convert_german_date, capitalize_first_letter
+
 
 def thread(job,zipcodes):
     error_list = []
     try:
         webpage = "https://www.physioswiss.ch"+job["href"]
         job_page = retry_link(webpage)
-
         soup3 = BeautifulSoup(job_page.text, "html.parser")
+
+        id = webpage.split("/")[-2]
         title = soup3.find("h1", {"property": "title"}).text
         grey_tags = soup3.find("div", {"class": "tags grey"})
         tags = grey_tags.find_all("span", {"class": "tag"})
@@ -56,21 +58,21 @@ def thread(job,zipcodes):
 
         text_paragraph3 = contact_boxes[-1].find("p", {"class": "fine-print"}).text.split("\n")[1:-1]
         if len(text_paragraph3) == 4:
-            employer = text_paragraph3[0].strip()
+            employer = capitalize_first_letter(text_paragraph3[0].strip())
             employer_street = text_paragraph3[1].strip()
             employer_extra = ""
             employer_zipcode = text_paragraph3[2].strip().split()[0]
             employer_town = text_paragraph3[2].strip().split()[1]
             employer_kanton = text_paragraph3[3].split(":")[1].strip()
         if len(text_paragraph3) == 5:
-            employer = text_paragraph3[0].strip()
+            employer = capitalize_first_letter(text_paragraph3[0].strip())
             employer_street = text_paragraph3[1].strip()
             employer_extra = text_paragraph3[2].strip()
             employer_zipcode = text_paragraph3[3].strip().split()[0]
             employer_town = text_paragraph3[3].strip().split()[1]
             employer_kanton = text_paragraph3[4].split(":")[1].strip()
         if len(text_paragraph3) == 6:
-            employer = text_paragraph3[0].strip()
+            employer = capitalize_first_letter(text_paragraph3[0].strip())
             employer_street = text_paragraph3[1].strip()
             employer_extra = text_paragraph3[3].strip()
             employer_zipcode = text_paragraph3[4].strip().split()[0]
@@ -89,7 +91,8 @@ def thread(job,zipcodes):
                 travel_dist = city
                 break
 
-        result = {"Arbeitgeber": employer,
+        result = {"id": id,
+                "Arbeitgeber": employer,
                 "Adresse": employer_street,
                 "Adresse extra": employer_extra,
                 "Postzahl": employer_zipcode,
@@ -113,8 +116,6 @@ def thread(job,zipcodes):
 
     except Exception as e:
         print("Exception place 4:", e, webpage, "\n",traceback.print_exc())
-        # if soup3:
-        #     print(soup3)
 
     return result
 

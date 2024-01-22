@@ -12,7 +12,7 @@ from datetime import date
 
 from dotenv import load_dotenv
 from scraper_functions import physio_swiss
-from helper_functions import check_zipcodes
+from helper_functions import check_zipcodes, capitalize_first_letter
 from email_functions import send_error_report, send_log_report
 
 
@@ -48,11 +48,20 @@ def check_inactive(latest_results,databank):
     for item in databank:
         active = False
         for item2 in latest_results:
-            if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
+            if item["id"] == item2["id"]:
                 active = True
+                for key in item2:
+                    if item[key] != item2[key]:
+                        item[key] = item2[key]
                 if item["Aktiv"] == "":
                     item["Aktiv"] = "Ja"
+                    print(f"Set to active: {item}")
+            # if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
+            #     active = True
+            #     if item["Aktiv"] == "":
+            #         item["Aktiv"] = "Ja"
         if active == False and item["Aktiv"] == "Ja":
+            print(f"Set to inactive:{item}")
             item["Aktiv"] = ""
             item["Archivierungsdatum"] = date.today().strftime("%d-%m-%Y")
 
@@ -66,8 +75,10 @@ def update_databank(latest_results,databank,places_key):
     for item in latest_results:
         present = False
         for item2 in databank:
-            if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
+            if item["id"] == item2["id"]:
                 present = True
+            # if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
+            #     present = True
         if present == False:
             item["Website Arbeitgeber"] = get_website(item["Arbeitgeber"],item["Ort"],places_key)
             databank.append(item)
@@ -79,7 +90,8 @@ def update_databank(latest_results,databank,places_key):
 
 def create_dfs(databank):
     print("Creating dataframes...")
-    df_full_databank = pd.DataFrame(databank)
+    df_id_databank = pd.DataFrame(databank)
+    df_full_databank = df_id_databank.drop(columns=['id'])
     df_full_databank["Stellenangebot online per"] = pd.to_datetime(df_full_databank["Stellenangebot online per"], format='%d-%m-%Y').dt.date
 
     df_latest_results_unsorted = df_full_databank[df_full_databank["Aktiv"] == "Ja"]
@@ -272,7 +284,6 @@ def main():
         print(formatted_date)
 
         version, sheets_key, places_key, latest_results, log = command_input()
-
         with open(f"data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
 

@@ -48,3 +48,9 @@ def convert_german_date(str_date):
     output_date = date_obj.strftime("%d-%m-%Y")
     
     return output_date
+
+
+def capitalize_first_letter(s):
+    if s and s[0].isalpha() and not s[0].isupper():
+        return s[0].upper() + s[1:]
+    return s
