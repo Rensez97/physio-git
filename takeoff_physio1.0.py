@@ -259,7 +259,7 @@ def main():
 
     version, sheets_key, places_key, latest_results = command_input()
 
-    with open("data/databank.pkl", "rb") as f:
+    with open("data/databank-{version}.pkl", "rb") as f:
         databank = pickle.load(f)
 
     checked_databank = check_inactive(latest_results,databank,formatted_date)
