@@ -50,7 +50,7 @@ def check_inactive(latest_results,databank,formatted_date):
                 active = True
         if active == False and item["Aktiv"] == "Ja":
             item["Aktiv"] = ""
-            item["Archivierungsdatum"] = formatted_date
+            item["Archivierungsdatum"] = date.today().strftime("%d-%m-%Y")
 
     print("Check inactive vacancies completed!\n")
     return databank
@@ -80,7 +80,7 @@ def create_dfs(databank):
 
     df_latest_results_unsorted = df_full_databank[df_full_databank["Aktiv"] == "Ja"]
     df_latest_results = df_latest_results_unsorted.sort_values(by=["Stellenangebot online per", "Arbeitgeber"], ascending=[False,True])
-    df_latest_results["Stellenangebot online per"] = pd.to_datetime(df_latest_results["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%Y-%m-%d')
+    df_latest_results["Stellenangebot online per"] = pd.to_datetime(df_latest_results["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
     df_latest_results_basel = df_latest_results[df_latest_results["<25 KM"] == "Basel"]
     df_latest_results_bern = df_latest_results[df_latest_results["<25 KM"] == "Bern"]
     df_latest_results_geneve = df_latest_results[df_latest_results["<25 KM"] == "Geneve"]
@@ -91,7 +91,7 @@ def create_dfs(databank):
 
     df_only_databank_unsorted = df_full_databank[df_full_databank["Aktiv"] == ""]
     df_only_databank = df_only_databank_unsorted.sort_values(by=["Archivierungsdatum", "Arbeitgeber"], ascending=[False,True])
-    df_only_databank["Stellenangebot online per"] = pd.to_datetime(df_only_databank["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%Y-%m-%d')
+    df_only_databank["Stellenangebot online per"] = pd.to_datetime(df_only_databank["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
     df_only_databank_basel = df_only_databank[df_only_databank["<25 KM"] == "Basel"]
     df_only_databank_bern = df_only_databank[df_only_databank["<25 KM"] == "Bern"]
     df_only_databank_geneve = df_only_databank[df_only_databank["<25 KM"] == "Geneve"]
@@ -190,36 +190,25 @@ def update_company_file(gc,databank):
 
 
 def upload_stellen_files(gc,file_name,df_list):
+
     print(f"Uploading the {file_name} file")
+    wb = gc.open(file_name)
+
     if "Aktiv" in file_name:
-        main = gc.open(file_name).worksheet("Alle aktiven Stellen")
+        main = "Alle aktiven Stellen"
     elif "Historisch" in file_name:
-        main = gc.open(file_name).worksheet("Alle historischen Stellen")
-    basel = gc.open(file_name).worksheet("Basel")
-    bern = gc.open(file_name).worksheet("Bern")
-    geneve = gc.open(file_name).worksheet("Geneve")
-    lausanne = gc.open(file_name).worksheet("Lausanne")
-    luzern = gc.open(file_name).worksheet("Luzern")
-    stgallen = gc.open(file_name).worksheet("St. Gallen")
-    zurich = gc.open(file_name).worksheet("Zurich")
+        main = "Alle historischen Stellen"
+    worksheets = [main, "Basel", "Bern", "Geneve", "Lausanne", "Luzern", "St. Gallen", "Zurich"]
+    ws_list = [wb.worksheet(ws) for ws in worksheets]
 
-    main.clear()
-    basel.clear()
-    bern.clear()
-    geneve.clear()
-    lausanne.clear()
-    luzern.clear()
-    stgallen.clear()
-    zurich.clear()
+    for ws in ws_list:
+        ws.clear()
 
-    main.batch_update([{'values':[df_list[0].columns.values.tolist()] + df_list[0].values.tolist(),'range':""}])
-    basel.batch_update([{'values':[df_list[1].columns.values.tolist()] + df_list[1].values.tolist(),'range':""}])
-    bern.batch_update([{'values':[df_list[2].columns.values.tolist()] + df_list[2].values.tolist(),'range':""}])
-    geneve.batch_update([{'values':[df_list[3].columns.values.tolist()] + df_list[3].values.tolist(),'range':""}])
-    lausanne.batch_update([{'values':[df_list[4].columns.values.tolist()] + df_list[4].values.tolist(),'range':""}])
-    luzern.batch_update([{'values':[df_list[5].columns.values.tolist()] + df_list[5].values.tolist(),'range':""}])
-    stgallen.batch_update([{'values':[df_list[6].columns.values.tolist()] + df_list[6].values.tolist(),'range':""}])
-    zurich.batch_update([{'values':[df_list[7].columns.values.tolist()] + df_list[7].values.tolist(),'range':""}])
+    for i, ws in enumerate(ws_list):
+        df = df_list[i]
+        data = [df.columns.values.tolist()] + df.values.tolist()
+        ws.batch_update([{'values': data, 'range': ""}])
+
     print(f"Upload of {file_name} file completed!\n")
 
 
@@ -275,7 +264,7 @@ def main():
     updated_databank = update_databank(latest_results,checked_databank,places_key)
         
     df_latest_list, df_only_databank_list = create_dfs(updated_databank)
-    store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
+    # store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date)
     update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
 
 if __name__ == "__main__":
