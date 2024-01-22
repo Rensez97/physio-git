@@ -39,7 +39,7 @@ def get_website(name, place,places_key):
 
 
 
-def check_inactive(latest_results,databank,formatted_date):
+def check_inactive(latest_results,databank):
     # Check if items from databank are also present in latest results
     # If not, change the status to non-active and add archive date
     print("Checking for inactive vacancies...")
@@ -48,6 +48,8 @@ def check_inactive(latest_results,databank,formatted_date):
         for item2 in latest_results:
             if item["Arbeitgeber"] == item2["Arbeitgeber"] and item["Stellenbeschreibung"] == item2["Stellenbeschreibung"] and item["Stellenangebot online per"] == item2["Stellenangebot online per"]:
                 active = True
+                if item["Aktiv"] == "":
+                    item["Aktiv"] = "Ja"
         if active == False and item["Aktiv"] == "Ja":
             item["Aktiv"] = ""
             item["Archivierungsdatum"] = date.today().strftime("%d-%m-%Y")
@@ -241,7 +243,7 @@ def command_input():
             zipcodes = check_zipcodes()
             latest_results = physio_swiss(zipcodes)
         elif len(sys.argv[2]) == 8:
-            with open(f"data/latest_results {sys.argv[2]}.pkl", "rb") as f:
+            with open(f"data/latest_results {sys.argv[2]}-{version}.pkl", "rb") as f:
                 latest_results = pickle.load(f)
         else:
             print("Please provide argument: new or date(DDMMYYYY)")
@@ -259,10 +261,10 @@ def main():
 
     version, sheets_key, places_key, latest_results = command_input()
 
-    with open("data/databank-{version}.pkl", "rb") as f:
+    with open(f"data/databank-{version}.pkl", "rb") as f:
         databank = pickle.load(f)
 
-    checked_databank = check_inactive(latest_results,databank,formatted_date)
+    checked_databank = check_inactive(latest_results,databank)
     updated_databank = update_databank(latest_results,checked_databank,places_key)
         
     df_latest_list, df_only_databank_list = create_dfs(updated_databank)
