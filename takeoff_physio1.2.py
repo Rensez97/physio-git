@@ -290,26 +290,23 @@ def command_input():
 
 
 def main():
-
+    
     try:
+        version, sheets_key, places_key, latest_results, filepath, log = command_input()
+
+        if log == True:
+            log_file = open("/home/takeoff_physio_log.log", 'a')
+            sys.stdout = log_file
+
         formatted_date = date.today().strftime("%d%m%Y")
         print(formatted_date)
 
-        version, sheets_key, places_key, latest_results, filepath, log = command_input()
-
-        # databank = {}
         with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
-        # with open(f"data/databank 22012024-test.pkl", "rb") as f2:
-        #     databank = pickle.load(f2)
-        # for item in databank:
-        #     item["Aktiv"] = "Ja"
-        # databank = {d.pop('id'): d for d in databank}
 
         checked_databank = check_inactive(latest_results,databank)
         updated_databank = update_databank(latest_results,checked_databank,places_key)
 
-            
         df_latest_list, df_only_databank_list = create_dfs(databank)
         store_local(updated_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version, filepath)
         update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
@@ -317,11 +314,13 @@ def main():
         if log == True:
             print("Email send with log report")
             send_log_report(formatted_date)
+            log_file.close()
 
     except Exception as e:
         if log == True:
             print("E-mail send with error")
             send_error_report(e,traceback.format_exc())
+            log_file.close()
         else:
             print(e,traceback.print_exc())
 
