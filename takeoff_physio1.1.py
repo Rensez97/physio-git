@@ -236,34 +236,35 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_ke
 def command_input():
     load_dotenv()
     if len(sys.argv) == 5:
-        if sys.argv[1] == "test":
-            version = "test"
-            sheets_key = "testuser-key.json"
-            places_key = os.getenv("API_KEY_TEST")
-        elif sys.argv[1] == "prod":
-            version = "prod"
-            sheets_key = "produser-key.json"
-            places_key = os.getenv("API_KEY_PROD")
+        if sys.argv[1].strip() == "server":
+            filepath = "/home/physio-git/"
+        elif sys.argv[1].strip() == "local":
+            filepath = ""
         else:
-            print("Please provide first argument: test or prod for the credentials.")
+            print("Please provide argument: server or local for filepath to use")
             sys.exit()
 
-        if sys.argv[2].strip() == "new":
+        if sys.argv[2] == "test":
+            version = "test"
+            sheets_key = f"{filepath}testuser-key.json"
+            places_key = os.getenv("API_KEY_TEST")
+        elif sys.argv[2] == "prod":
+            version = "prod"
+            sheets_key = f"{filepath}produser-key.json"
+            places_key = os.getenv("API_KEY_PROD")
+        else:
+            print("Please provide argument: test or prod for the credentials.")
+            sys.exit()
+
+        if sys.argv[3].strip() == "new":
             zipcodes = check_zipcodes()
             latest_results = physio_swiss(zipcodes)
-        elif len(sys.argv[2]) == 8:
-            with open(f"data/latest_results {sys.argv[2]}-{version}.pkl", "rb") as f:
+        elif len(sys.argv[3]) == 8:
+            print(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl")
+            with open(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl", "rb") as f:
                 latest_results = pickle.load(f)
         else:
             print("Please provide argument: new or date(DDMMYYYY)")
-            sys.exit()
-
-        if sys.argv[3].strip() == "server":
-            server = True
-        elif sys.argv[3].strip() == "local":
-            server = False
-        else:
-            print("Please provide argument: server or local")
             sys.exit()
 
         if sys.argv[4].strip() == "log":
@@ -274,10 +275,10 @@ def command_input():
             print("Please provide argument: log or no-log")
             sys.exit()
     else:
-        print("Please use first argument test or prod for the credentials, second argument new or date in format DDMMYYYY, third argument server or local for file path to use, and fourth argument log or no-log for sending log by email.\nFormat must be of: script.py (test or prod) (new/date(DDMMYYYY)) (server/local) (log/no-log)")
+        print("Please use first argument server or local for file path to use, second argument test or prod for the credentials, third argument new or date in format DDMMYYYY, and fourth argument log or no-log for sending log by email.\nFormat must be of: script.py (server/local) (test or prod) (new/date(DDMMYYYY)) (log/no-log)")
         sys.exit()
 
-    return version, sheets_key, places_key, latest_results, server, log
+    return version, sheets_key, places_key, latest_results, filepath, log
 
 
 def main():
@@ -286,12 +287,8 @@ def main():
         formatted_date = date.today().strftime("%d%m%Y")
         print(formatted_date)
 
-        version, sheets_key, places_key, latest_results, server, log = command_input()
+        version, sheets_key, places_key, latest_results, filepath, log = command_input()
 
-        if server == True:
-            filepath = "/home/physio-git/"
-        else:
-            filepath = ""
         with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
 
