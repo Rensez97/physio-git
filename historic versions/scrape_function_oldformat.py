@@ -7,8 +7,8 @@ import traceback
 from bs4 import BeautifulSoup
 from helper_functions import retry_link, convert_german_date, capitalize_first_letter
 
-
 def thread(job,zipcodes):
+    error_list = []
     try:
         webpage = "https://www.physioswiss.ch"+job["href"]
         job_page = retry_link(webpage)
@@ -90,7 +90,7 @@ def thread(job,zipcodes):
                 travel_dist = city
                 break
 
-        result = {id: {
+        result = {"id": id,
                 "Arbeitgeber": employer,
                 "Adresse": employer_street,
                 "Adresse extra": employer_extra,
@@ -111,7 +111,7 @@ def thread(job,zipcodes):
                 "E-mail": email,
                 "Website Arbeitgeber": "",
                 "Link": webpage,
-                "Aktiv": "Ja"}}
+                "Aktiv": "Ja"}
 
     except Exception as e:
         print("Exception place 4:", e, webpage, "\n",traceback.print_exc())
@@ -122,7 +122,10 @@ def thread(job,zipcodes):
 
 def physio_swiss(zipcodes):
     print("Physio Swiss checken...")
-    results = {}
+    f = 0
+    j = 0
+    results = []
+    error_list = []
     threaded_start = time.time()
     try:
         for i in range(1,30):
@@ -140,20 +143,26 @@ def physio_swiss(zipcodes):
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 futures = []
                 for job in jobs:
+                    j += 1
                     try:
                         futures.append(executor.submit(thread, job, zipcodes))
                     except Exception as e:
                         print("Exception place 2:", e)
+                        error_list.append(e)
                 for future in concurrent.futures.as_completed(futures):
+                    f += 1
                     try:
                         result = future.result()
-                        for key, value in result.items():
-                            if key not in results:
-                                results[key] = value
+                        results.append(result)
                     except Exception as e:
                         print("Exception place 3:", e)
+                        error_list.append(e)
+        print("Futures",f)
+        print("Jobs", j)
+        print("Results", len(results))
     except Exception as e:
         print("Exception place 1:", e, "\n",traceback.print_exc())
+        error_list.append(e)
 
     print(f"End Physio Swiss\n Time for completion:{time.time() - threaded_start}\n")
 

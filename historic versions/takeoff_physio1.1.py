@@ -56,9 +56,9 @@ def check_inactive(latest_results,databank):
                         print(f"Updated: {item[key]} with {item2[key]}")
                 if item["Aktiv"] == "":
                     item["Aktiv"] = "Ja"
-                    print(f"Set to active: {item}{item2}")
+                    print(f"Set to active: {item}")
         if active == False and item["Aktiv"] == "Ja":
-            print(f"Set to inactive:{item}{item2}")
+            print(f"Set to inactive:{item}")
             item["Aktiv"] = ""
             item["Archivierungsdatum"] = date.today().strftime("%d-%m-%Y")
 
@@ -282,34 +282,58 @@ def command_input():
 
 
 def main():
+    with open(f"data/latest_results 23012024-test.pkl", "rb") as f:
+        latest_results = pickle.load(f)
+    with open(f"data/databank-test.pkl", "rb") as f2:
+        databank = pickle.load(f2)
+    print(len(latest_results),len(databank))
+    # c = 0
+    # for item in databank:
+    #     k = 0
+    #     for item2 in latest_results:
+    #         if item["id"] == item2["id"]:
+    #             k += 1
+    #             item["Aktiv"] == "Ja"
+    #         # if item2["id"] == "247800":
+    #         #     print(item2)
+    #     if k > 1:
+    #         print(k)
+    #         print(item)
+    for item in latest_results:
+        if item["id"] == "248096":
+            print(item)
+    # for item in databank:
+    #     if item["Aktiv"] == "":
+    #         c += 1
+    #         print(item)
+    # print(c)
 
-    try:
-        formatted_date = date.today().strftime("%d%m%Y")
-        print(formatted_date)
+    # try:
+    #     formatted_date = date.today().strftime("%d%m%Y")
+    #     print(formatted_date)
 
-        version, sheets_key, places_key, latest_results, filepath, log = command_input()
+    #     version, sheets_key, places_key, latest_results, filepath, log = command_input()
 
-        with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
-            databank = pickle.load(f)
+    #     with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
+    #         databank = pickle.load(f)
 
-        updated_databank = update_databank(latest_results,databank,places_key)
-        checked_databank = check_inactive(latest_results,updated_databank)
-
+    #     updated_databank = update_databank(latest_results,databank,places_key)
+    #     checked_databank = check_inactive(latest_results,updated_databank)
             
-        df_latest_list, df_only_databank_list = create_dfs(checked_databank)
-        store_local(checked_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version, filepath)
-        update_google_sheets(checked_databank,df_latest_list,df_only_databank_list,sheets_key)
+    #     df_latest_list, df_only_databank_list = create_dfs(checked_databank)
+    #     store_local(checked_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version, filepath)
+    #     update_google_sheets(checked_databank,df_latest_list,df_only_databank_list,sheets_key)
 
-        if log == True:
-            print("Email send with log report")
-            send_log_report(formatted_date)
+    #     if log == True:
+    #         print("Email send with log report")
+    #         send_log_report(formatted_date)
 
-    except Exception as e:
-        if log == True:
-            print("E-mail send with error")
-            send_error_report(e,traceback.format_exc())
-        else:
-            print(e,traceback.print_exc())
+    # except Exception as e:
+    #     if log == True:
+    #         print("E-mail send with error")
+    #         send_error_report(e,traceback.format_exc())
+    #     else:
+    #         print(e,traceback.print_exc())
 
 if __name__ == "__main__":
     main()
