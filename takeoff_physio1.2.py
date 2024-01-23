@@ -312,15 +312,15 @@ def main():
         update_google_sheets(updated_databank,df_latest_list,df_only_databank_list,sheets_key)
 
         if log == True:
-            print("Email send with log report")
-            send_log_report(formatted_date)
+            print("Email will be send with log report")
             log_file.close()
+            send_log_report(formatted_date)
 
     except Exception as e:
         if log == True:
-            print("E-mail send with error")
-            send_error_report(e,traceback.format_exc())
+            print("E-mail will be send with error")
             log_file.close()
+            send_error_report(e,traceback.format_exc())
         else:
             print(e,traceback.print_exc())
 
