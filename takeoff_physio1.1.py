@@ -119,9 +119,9 @@ def create_dfs(databank):
 
 
 
-def store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date,version):
+def store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date,version, filepath):
     print("Storing all data locally...")
-    with pd.ExcelWriter(f"data/Physioswiss Stellen Aktiv {formatted_date}-{version}.xlsx") as writer:
+    with pd.ExcelWriter(f"{filepath}data/Physioswiss Stellen Aktiv {formatted_date}-{version}.xlsx") as writer:
         df_latest_list[0].to_excel(writer, sheet_name="Alle aktiven Stellen", index=False)
         df_latest_list[1].to_excel(writer, sheet_name="Basel", index=False)
         df_latest_list[2].to_excel(writer, sheet_name="Bern", index=False)
@@ -131,7 +131,7 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
         df_latest_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
         df_latest_list[7].to_excel(writer, sheet_name="Zurich", index=False)
 
-    with pd.ExcelWriter(f"data/Physioswiss Stellen Historisch {formatted_date}-{version}.xlsx") as writer:
+    with pd.ExcelWriter(f"{filepath}data/Physioswiss Stellen Historisch {formatted_date}-{version}.xlsx") as writer:
         df_only_databank_list[0].to_excel(writer, sheet_name="Alle historischen Stellen", index=False)
         df_only_databank_list[1].to_excel(writer, sheet_name="Basel", index=False)
         df_only_databank_list[2].to_excel(writer, sheet_name="Bern", index=False)
@@ -143,13 +143,13 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
 
 
     # Storing the databank in a active file, and a history file
-    with open(f"data/databank-{version}.pkl", "wb") as f:
+    with open(f"{filepath}data/databank-{version}.pkl", "wb") as f:
         pickle.dump(databank,f)
-    with open(f"data/databank {formatted_date}-{version}.pkl", "wb") as f:
+    with open(f"{filepath}data/databank {formatted_date}-{version}.pkl", "wb") as f:
         pickle.dump(databank,f)
 
     # # Storing the latest_results in a active file, and a history file
-    with open(f"data/latest_results {formatted_date}-{version}.pkl", "wb") as f:
+    with open(f"{filepath}data/latest_results {formatted_date}-{version}.pkl", "wb") as f:
         pickle.dump(latest_results,f)
 
     print("Local storing complete!\n")
@@ -235,7 +235,7 @@ def update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_ke
 
 def command_input():
     load_dotenv()
-    if len(sys.argv) == 4:
+    if len(sys.argv) == 5:
         if sys.argv[1] == "test":
             version = "test"
             sheets_key = "testuser-key.json"
@@ -258,18 +258,26 @@ def command_input():
             print("Please provide argument: new or date(DDMMYYYY)")
             sys.exit()
 
-        if sys.argv[3].strip() == "log":
+        if sys.argv[3].strip() == "server":
+            server = True
+        elif sys.argv[3].strip() == "local":
+            server = False
+        else:
+            print("Please provide argument: server or local")
+            sys.exit()
+
+        if sys.argv[4].strip() == "log":
             log = True
-        elif sys.argv[3].strip() == "no-log":
+        elif sys.argv[4].strip() == "no-log":
             log = False
         else:
             print("Please provide argument: log or no-log")
             sys.exit()
     else:
-        print("Please use first argument test or prod for the credentials, second argument new or date in format DDMMYYYY, and third argument log or no-log for sending log by email.\nFormat must be of: script.py (test or prod) (new/date(DDMMYYYY)) (log/no-log)")
+        print("Please use first argument test or prod for the credentials, second argument new or date in format DDMMYYYY, third argument server or local for file path to use, and fourth argument log or no-log for sending log by email.\nFormat must be of: script.py (test or prod) (new/date(DDMMYYYY)) (server/local) (log/no-log)")
         sys.exit()
 
-    return version, sheets_key, places_key, latest_results, log
+    return version, sheets_key, places_key, latest_results, server, log
 
 
 def main():
@@ -278,8 +286,13 @@ def main():
         formatted_date = date.today().strftime("%d%m%Y")
         print(formatted_date)
 
-        version, sheets_key, places_key, latest_results, log = command_input()
-        with open(f"data/databank-{version}.pkl", "rb") as f:
+        version, sheets_key, places_key, latest_results, server, log = command_input()
+
+        if server == True:
+            filepath = "/home/physio-git/"
+        else:
+            filepath = ""
+        with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
 
         updated_databank = update_databank(latest_results,databank,places_key)
@@ -287,15 +300,16 @@ def main():
 
             
         df_latest_list, df_only_databank_list = create_dfs(checked_databank)
-        store_local(checked_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version)
+        store_local(checked_databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version, filepath)
         update_google_sheets(checked_databank,df_latest_list,df_only_databank_list,sheets_key)
 
         if log == True:
+            print("Email send with log report")
             send_log_report(formatted_date)
 
     except Exception as e:
-        log = False
         if log == True:
+            print("E-mail send with error")
             send_error_report(e,traceback.format_exc())
         else:
             print(e,traceback.print_exc())
