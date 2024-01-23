@@ -266,11 +266,9 @@ def command_input():
             sys.exit()
 
         if sys.argv[3].strip() == "new":
-            zipcodes = check_zipcodes()
-            latest_results = physio_swiss(zipcodes)
+            scrape = "new"
         elif len(sys.argv[3]) == 8:
-            with open(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl", "rb") as f:
-                latest_results = pickle.load(f)
+            scrape = sys.argv[3]
         else:
             print("Please provide argument: new or date(DDMMYYYY)")
             sys.exit()
@@ -286,13 +284,13 @@ def command_input():
         print("Please use first argument server or local for file path to use, second argument test or prod for the credentials, third argument new or date in format DDMMYYYY, and fourth argument log or no-log for sending log by email.\nFormat must be of: script.py (server/local) (test or prod) (new/date(DDMMYYYY)) (log/no-log)")
         sys.exit()
 
-    return version, sheets_key, places_key, latest_results, filepath, log
+    return version, sheets_key, places_key, scrape, filepath, log
 
 
 def main():
     
     try:
-        version, sheets_key, places_key, latest_results, filepath, log = command_input()
+        version, sheets_key, places_key, scrape, filepath, log = command_input()
 
         if log == True:
             log_file = open("/home/takeoff_physio_log.log", 'a')
@@ -300,6 +298,14 @@ def main():
 
         formatted_date = date.today().strftime("%d%m%Y")
         print(formatted_date)
+
+
+        if scrape == "new":
+            zipcodes = check_zipcodes()
+            latest_results = physio_swiss(zipcodes)
+        else:
+            with open(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl", "rb") as f:
+                latest_results = pickle.load(f)
 
         with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
             databank = pickle.load(f)
