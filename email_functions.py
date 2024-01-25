@@ -25,7 +25,7 @@ def send_log_report(formatted_date):
         lines = f.readlines()
         for i, line in enumerate(lines):
             if line.strip() == formatted_date:
-                text = ''.join(lines[i+1:])
+                text = ''.join(lines[i:])
                 break
 
     setup_email(text,subject)
