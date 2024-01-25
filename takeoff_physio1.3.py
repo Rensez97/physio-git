@@ -221,7 +221,11 @@ def upload_stellen_files(gc,file_name,df_list):
 
     for i, ws in enumerate(ws_list):
         current_data = ws.get_all_values()
-        cell_range = 'A2:' + gspread.utils.rowcol_to_a1(len(current_data) + 1, len(current_data[0]))
+        if len(current_data) > 0:
+            cell_range = 'A2:' + gspread.utils.rowcol_to_a1(len(current_data) + 1, len(current_data[0]))
+        else:
+            cell_range = ''
+            
         ws.batch_clear([cell_range])
 
         df = df_list[i]
