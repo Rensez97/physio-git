@@ -225,12 +225,16 @@ def upload_stellen_files(gc,file_name,df_list):
             cell_range = 'A2:' + gspread.utils.rowcol_to_a1(len(current_data) + 1, len(current_data[0]))
         else:
             cell_range = ''
-            
+
         ws.batch_clear([cell_range])
 
         df = df_list[i]
         data = df.values.tolist()
-        cell_range = 'A2:' + gspread.utils.rowcol_to_a1(len(data) + 1, len(data[0]))
+
+        if len(data) > 0:
+            cell_range = 'A2:' + gspread.utils.rowcol_to_a1(len(data) + 1, len(data[0]))
+        else:
+            cell_range = ''
 
         data = [df.columns.values.tolist()] + data
         ws.batch_update([{'values': data, 'range': ""}])
