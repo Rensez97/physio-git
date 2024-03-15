@@ -1,8 +1,6 @@
 import pickle
 import pandas as pd
-import googlesearch
 import gspread
-import requests
 import os
 import sys
 import traceback
@@ -12,54 +10,9 @@ from datetime import date
 
 from dotenv import load_dotenv
 from scraper_functions import physio_swiss
-from helper_functions import check_zipcodes
+from helper_functions import check_zipcodes, get_website, inactivity_validation
 from email_functions import send_error_report, send_log_report
 
-
-def get_website(name, place,places_key):
-
-    try:
-        base = "https://places.googleapis.com/v1/places:searchText"
-        payload = {
-        "textQuery" : f'{name} {place}'
-        }
-        headers = {
-        'Content-Type': 'application/json',
-        'X-Goog-Api-Key': places_key,
-        'X-Goog-FieldMask': 'places.websiteUri'
-        }
-        response = requests.post(base, json=payload, headers=headers).json()
-        website = response['places'][0]['websiteUri']
-        print("MAPS:",website)
-    except:
-        search_str = f"{name} {place}"
-        result = googlesearch.search(search_str, lang="de")
-        website = next(result)
-        print("SEARCH:",website)
-
-    return website
-
-
-
-def inactivity_validation(webpage):
-    success = False
-    val = False
-    retries = 0
-    while not success and retries < 5:
-        job_page = requests.get(webpage)
-        if job_page.status_code == 200:
-            print(webpage,job_page.status_code)
-            success = True
-        elif job_page.status_code == 403:
-            print(webpage,job_page.status_code)
-            success = True
-            val = True
-        else:
-            retries += 1
-            print(webpage,job_page.status_code)
-            time.sleep(11)
-    
-    return val
 
 
 def check_inactive(latest_results,databank):
@@ -79,6 +32,7 @@ def check_inactive(latest_results,databank):
 
     print("Check inactive vacancies completed!\n")
     return databank
+
 
 
 def update_databank(latest_results,databank,places_key):
@@ -178,8 +132,10 @@ def update_company_file(gc,databank):
         if value['Arbeitgeber'] not in current_df['Arbeitgeber'].values:
             new_row = pd.DataFrame({
                 "Arbeitgeber": [value["Arbeitgeber"]],
-                "LinkedIn hinzugefügt": "",
+                "Schon jemand vermittelt": "",
+                "Jemand vorbei gewesen": "",
                 "Mail geschickt": "",
+                "LinkedIn hinzugefügt": "",
                 "Telefonisch Kontakt gehabt": "",
                 "Voorbijgaan moment": "",
                 "Voorbij geweest": "",
@@ -208,8 +164,8 @@ def update_company_file(gc,databank):
 
 
 def upload_stellen_files(gc,file_name,df_list):
-
     print(f"Uploading the {file_name} file")
+    
     wb = gc.open(file_name)
 
     if "Aktiv" in file_name:

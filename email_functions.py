@@ -36,3 +36,10 @@ def send_error_report(exception,trace):
     text = f"{exception}\n\n{trace}"
 
     setup_email(text,subject)
+
+
+def send_weekly_update(df,last_week_number):
+    subject = f"Update neue Arbeitgeber Woche {last_week_number}"
+    text = df
+    
+    setup_email(text,subject)

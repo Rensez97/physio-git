@@ -2,6 +2,7 @@ import requests
 import time
 import locale
 import datetime
+import googlesearch
 
 
 def check_zipcodes():
@@ -38,6 +39,53 @@ def retry_link(webpage):
             time.sleep(11)
     
     return job_page
+
+
+def get_website(name, place,places_key):
+
+    try:
+        base = "https://places.googleapis.com/v1/places:searchText"
+        payload = {
+        "textQuery" : f'{name} {place}'
+        }
+        headers = {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': places_key,
+        'X-Goog-FieldMask': 'places.websiteUri'
+        }
+        response = requests.post(base, json=payload, headers=headers).json()
+        website = response['places'][0]['websiteUri']
+        print("MAPS:",website)
+    except:
+        search_str = f"{name} {place}"
+        result = googlesearch.search(search_str, lang="de")
+        website = next(result)
+        print("SEARCH:",website)
+
+    return website
+
+
+
+def inactivity_validation(webpage):
+    success = False
+    val = False
+    retries = 0
+    while not success and retries < 5:
+        job_page = requests.get(webpage)
+        if job_page.status_code == 200:
+            print(webpage,job_page.status_code)
+            success = True
+        elif job_page.status_code == 403:
+            print(webpage,job_page.status_code)
+            success = True
+            val = True
+        else:
+            retries += 1
+            print(webpage,job_page.status_code)
+            time.sleep(11)
+    
+    return val
+
 
 
 def convert_german_date(str_date):
