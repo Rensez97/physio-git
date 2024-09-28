@@ -7,16 +7,13 @@ from email.message import EmailMessage
 def setup_email(text,subject):
     message = EmailMessage()
     message.set_content(text)
-    message['FROM'] = "huizzoeker@outlook.com"
+    message['FROM'] = "huizzoeker@gmail.com"
     message['TO'] = ["rensevdzee@hotmail.com"]
     message['SUBJECT'] = subject
-    context = ssl.create_default_context()
-    with smtplib.SMTP('smtp-mail.outlook.com', 587) as smtp:
-        smtp.starttls(context=context)
-        smtp.login(message['FROM'], "Ludosanders")
-        smtp.send_message(message)
-        smtp.quit()
 
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(message['FROM'], "raxakvbumsspboud")
+        smtp.send_message(message)
 
 
 def send_log_report(formatted_date):
