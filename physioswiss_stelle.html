@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+	<head><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+	<!-- If you're reading this, we need your help building a better web. https://www.webkinder.ch/ -->
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<link rel="alternate" hreflang="fr" href="https://physioswiss.ch/fr/stelleninserate/82479/physiotherapeutin-40-100-fur-zentrum-in-wetzikon-gesucht/" />
+<link rel="alternate" hreflang="de-ch" href="https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/" />
+<link rel="alternate" hreflang="it" href="https://physioswiss.ch/it/stelleninserate/82480/physiotherapeutin-40-100-fur-zentrum-in-wetzikon-gesucht/" />
+<link rel="alternate" hreflang="x-default" href="https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/" />
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.5 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>PhysiotherapeutIn (40 - 100%) für Zentrum in Wetzikon gesucht | Physioswiss</title><style id="rocket-critical-css">:root{--wk-blue:#213a8f;--wk-indigo:#6610f2;--wk-purple:#6f42c1;--wk-pink:#d63384;--wk-red:#dc3545;--wk-orange:#ee7203;--wk-yellow:#fbbc43;--wk-green:#1c9d5b;--wk-teal:#20c997;--wk-cyan:#0dcaf0;--wk-black:#000;--wk-white:#fff;--wk-gray:#6c757d;--wk-gray-dark:#343a40;--wk-gray-100:#f8f9fa;--wk-gray-200:#e9ecef;--wk-gray-300:#dee2e6;--wk-gray-400:#ced4da;--wk-gray-500:#adb5bd;--wk-gray-600:#6c757d;--wk-gray-700:#495057;--wk-gray-800:#343a40;--wk-gray-900:#212529;--wk-primary:#213a8f;--wk-secondary:#fbbc43;--wk-success:#1c9d5b;--wk-info:#0dcaf0;--wk-warning:#fbbc43;--wk-danger:#dc3545;--wk-light:#f8f9fa;--wk-dark:#212529;--wk-primary-rgb:33,58,143;--wk-secondary-rgb:251,188,67;--wk-success-rgb:28,157,91;--wk-info-rgb:13,202,240;--wk-warning-rgb:251,188,67;--wk-danger-rgb:220,53,69;--wk-light-rgb:248,249,250;--wk-dark-rgb:33,37,41;--wk-primary-text-emphasis:#0d1739;--wk-secondary-text-emphasis:#644b1b;--wk-success-text-emphasis:#0b3f24;--wk-info-text-emphasis:#055160;--wk-warning-text-emphasis:#644b1b;--wk-danger-text-emphasis:#58151c;--wk-light-text-emphasis:#495057;--wk-dark-text-emphasis:#495057;--wk-primary-bg-subtle:#d3d8e9;--wk-secondary-bg-subtle:#fef2d9;--wk-success-bg-subtle:#d2ebde;--wk-info-bg-subtle:#cff4fc;--wk-warning-bg-subtle:#fef2d9;--wk-danger-bg-subtle:#f8d7da;--wk-light-bg-subtle:#fcfcfd;--wk-dark-bg-subtle:#ced4da;--wk-primary-border-subtle:#a6b0d2;--wk-secondary-border-subtle:#fde4b4;--wk-success-border-subtle:#a4d8bd;--wk-info-border-subtle:#9eeaf9;--wk-warning-border-subtle:#fde4b4;--wk-danger-border-subtle:#f1aeb5;--wk-light-border-subtle:#e9ecef;--wk-dark-border-subtle:#adb5bd;--wk-white-rgb:255,255,255;--wk-black-rgb:0,0,0;--wk-font-sans-serif:Roboto,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--wk-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--wk-gradient:linear-gradient(180deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,0));--wk-body-font-family:var(--wk-font-sans-serif);--wk-body-font-size:1rem;--wk-body-font-weight:300;--wk-body-line-height:1.5;--wk-body-color:#213a8f;--wk-body-color-rgb:33,58,143;--wk-body-bg:#fff;--wk-body-bg-rgb:255,255,255;--wk-emphasis-color:#000;--wk-emphasis-color-rgb:0,0,0;--wk-secondary-color:rgba(33,58,143,.75);--wk-secondary-color-rgb:33,58,143;--wk-secondary-bg:#e9ecef;--wk-secondary-bg-rgb:233,236,239;--wk-tertiary-color:rgba(33,58,143,.5);--wk-tertiary-color-rgb:33,58,143;--wk-tertiary-bg:#f8f9fa;--wk-tertiary-bg-rgb:248,249,250;--wk-heading-color:#213a8f;--wk-link-color:#213a8f;--wk-link-color-rgb:33,58,143;--wk-link-decoration:underline;--wk-link-hover-color:#fbbc43;--wk-link-hover-color-rgb:251,188,67;--wk-link-hover-decoration:underline;--wk-code-color:#d63384;--wk-highlight-color:#213a8f;--wk-highlight-bg:#fef2d9;--wk-border-width:1px;--wk-border-style:solid;--wk-border-color:#dee2e6;--wk-border-color-translucent:rgba(0,0,0,.175);--wk-border-radius:0.375rem;--wk-border-radius-sm:0.25rem;--wk-border-radius-lg:0.5rem;--wk-border-radius-xl:1rem;--wk-border-radius-xxl:2rem;--wk-border-radius-2xl:var(--wk-border-radius-xxl);--wk-border-radius-pill:50rem;--wk-box-shadow:0 0.5rem 1rem rgba(0,0,0,.15);--wk-box-shadow-sm:0 0.125rem 0.25rem rgba(0,0,0,.075);--wk-box-shadow-lg:0 1rem 3rem rgba(0,0,0,.175);--wk-box-shadow-inset:inset 0 1px 2px rgba(0,0,0,.075);--wk-focus-ring-width:0.25rem;--wk-focus-ring-opacity:0.25;--wk-focus-ring-color:rgba(33,58,143,.25);--wk-form-valid-color:#1c9d5b;--wk-form-valid-border-color:#1c9d5b;--wk-form-invalid-color:#dc3545;--wk-form-invalid-border-color:#dc3545}*,:after,:before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{background-color:var(--wk-body-bg);color:var(--wk-body-color);font-family:var(--wk-body-font-family);font-size:var(--wk-body-font-size);font-weight:var(--wk-body-font-weight);line-height:var(--wk-body-line-height);margin:0;text-align:var(--wk-body-text-align);-webkit-text-size-adjust:100%}.h3,h1,h2,h3,h4,h6{color:var(--wk-heading-color);font-family:Roboto,system-ui,-apple-system,Segoe UI,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Liberation Sans,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-style:normal;font-weight:600;line-height:1.2;margin-bottom:clamp(16px,3.2px + 2vw,32px);margin-bottom:clamp(16px,3.2px + 2vi,32px);margin-top:0}h1{font-size:2.5rem}h2{font-size:2rem}h3{font-size:1.75rem}h4{font-size:1.5rem}h6{font-size:1rem}p{margin-bottom:clamp(12px,8.8px + .5vw,16px);margin-bottom:clamp(12px,8.8px + .5vi,16px);margin-top:0}ul{padding-left:2rem}ul{margin-bottom:1rem;margin-top:0}b,strong{font-weight:600}a{color:rgba(var(--wk-link-color-rgb),var(--wk-link-opacity,1));-webkit-text-decoration:underline;text-decoration:underline}figure{margin:0 0 1rem}img,svg{vertical-align:middle}button{border-radius:0}button,input,select{font-family:inherit;font-size:inherit;line-height:inherit;margin:0}button,select{text-transform:none}select{word-wrap:normal}[type=button],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{-webkit-appearance:button;font:inherit}:root{--wk-breakpoint-xs:0;--wk-breakpoint-sm:640px;--wk-breakpoint-md:768px;--wk-breakpoint-lg:1024px;--wk-breakpoint-xl:1200px;--wk-breakpoint-xxl:1440px}.container{--wk-gutter-x:2rem;--wk-gutter-y:0;margin-left:auto;margin-right:auto;padding-left:calc(var(--wk-gutter-x)*.5);padding-right:calc(var(--wk-gutter-x)*.5);width:100%}@media (min-width:640px){.container{max-width:100%}}@media (min-width:768px){.container{max-width:100%}}@media (min-width:1024px){.container{max-width:100%}}@media (min-width:1200px){.container{max-width:1344px}}.collapse:not(.show){display:none}.dropdown{position:relative}.dropdown-toggle{white-space:nowrap}.dropdown-menu{--wk-dropdown-zindex:1000;--wk-dropdown-min-width:10rem;--wk-dropdown-padding-x:0;--wk-dropdown-padding-y:0.5rem;--wk-dropdown-spacer:0.125rem;--wk-dropdown-font-size:1rem;--wk-dropdown-color:var(--wk-body-color);--wk-dropdown-bg:var(--wk-body-bg);--wk-dropdown-border-color:var(--wk-border-color-translucent);--wk-dropdown-border-radius:var(--wk-border-radius);--wk-dropdown-border-width:var(--wk-border-width);--wk-dropdown-inner-border-radius:calc(var(--wk-border-radius) - var(--wk-border-width));--wk-dropdown-divider-bg:var(--wk-border-color-translucent);--wk-dropdown-divider-margin-y:0.5rem;--wk-dropdown-box-shadow:var(--wk-box-shadow);--wk-dropdown-link-color:var(--wk-body-color);--wk-dropdown-link-hover-color:var(--wk-body-color);--wk-dropdown-link-hover-bg:var(--wk-tertiary-bg);--wk-dropdown-link-active-color:#fff;--wk-dropdown-link-active-bg:#213a8f;--wk-dropdown-link-disabled-color:var(--wk-tertiary-color);--wk-dropdown-item-padding-x:1rem;--wk-dropdown-item-padding-y:0.25rem;--wk-dropdown-header-color:#6c757d;--wk-dropdown-header-padding-x:1rem;--wk-dropdown-header-padding-y:0.5rem;background-clip:padding-box;background-color:var(--wk-dropdown-bg);border:var(--wk-dropdown-border-width) solid var(--wk-dropdown-border-color);color:var(--wk-dropdown-color);display:none;font-size:var(--wk-dropdown-font-size);list-style:none;margin:0;min-width:var(--wk-dropdown-min-width);padding:var(--wk-dropdown-padding-y) var(--wk-dropdown-padding-x);position:absolute;text-align:left;z-index:var(--wk-dropdown-zindex)}.accordion{--wk-accordion-color:var(--wk-body-color);--wk-accordion-bg:var(--wk-body-bg);--wk-accordion-border-color:var(--wk-border-color);--wk-accordion-border-width:var(--wk-border-width);--wk-accordion-border-radius:var(--wk-border-radius);--wk-accordion-inner-border-radius:calc(var(--wk-border-radius) - var(--wk-border-width));--wk-accordion-btn-padding-x:1.25rem;--wk-accordion-btn-padding-y:1rem;--wk-accordion-btn-color:var(--wk-body-color);--wk-accordion-btn-bg:var(--wk-accordion-bg);--wk-accordion-btn-icon:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23213a8f' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpath d='m2 5 6 6 6-6'/%3E%3C/svg%3E");--wk-accordion-btn-icon-width:1.25rem;--wk-accordion-btn-icon-transform:rotate(-180deg);--wk-accordion-btn-active-icon:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%230d1739' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 16 16'%3E%3Cpath d='m2 5 6 6 6-6'/%3E%3C/svg%3E");--wk-accordion-btn-focus-box-shadow:0 0 0 0.25rem rgba(33,58,143,.25);--wk-accordion-body-padding-x:1.25rem;--wk-accordion-body-padding-y:1rem;--wk-accordion-active-color:var(--wk-primary-text-emphasis);--wk-accordion-active-bg:var(--wk-primary-bg-subtle)}.accordion-item{background-color:var(--wk-accordion-bg);border:var(--wk-accordion-border-width) solid var(--wk-accordion-border-color);color:var(--wk-accordion-color)}.visually-hidden{height:1px!important;margin:-1px!important;overflow:hidden!important;padding:0!important;width:1px!important;clip:rect(0,0,0,0)!important;border:0!important;white-space:nowrap!important}.visually-hidden:not(caption){position:absolute!important}.d-flex{display:flex!important}.d-none{display:none!important}.flex-column{flex-direction:column!important}.flex-wrap{flex-wrap:wrap!important}.justify-content-center{justify-content:center!important}.justify-content-between{justify-content:space-between!important}.align-items-center{align-items:center!important}.align-self-center{align-self:center!important}.m-0{margin:0!important}.mt-0{margin-top:0!important}.mt-40{margin-top:40px!important}.mb-8{margin-bottom:8px!important}.mb-16{margin-bottom:16px!important}.mb-32{margin-bottom:32px!important}.p-4{padding:4px!important}.p-12{padding:12px!important}.px-12{padding-left:12px!important;padding-right:12px!important}.px-16{padding-left:16px!important;padding-right:16px!important}.py-12{padding-bottom:12px!important;padding-top:12px!important}.py-24{padding-bottom:24px!important;padding-top:24px!important}.pb-12{padding-bottom:12px!important}.ps-48{padding-left:48px!important}.fs-my-64{margin-bottom:clamp(32px,6.4px + 4vw,64px)!important;margin-bottom:clamp(32px,6.4px + 4vi,64px)!important;margin-top:clamp(32px,6.4px + 4vw,64px)!important;margin-top:clamp(32px,6.4px + 4vi,64px)!important}.fs-mt-32{margin-top:clamp(16px,3.2px + 2vw,32px)!important;margin-top:clamp(16px,3.2px + 2vi,32px)!important}.fs-mt-48{margin-top:clamp(24px,4.8px + 3vw,48px)!important;margin-top:clamp(24px,4.8px + 3vi,48px)!important}.fs-me-24{margin-right:clamp(12px,2.4px + 1.5vw,24px)!important;margin-right:clamp(12px,2.4px + 1.5vi,24px)!important}.fs-mb-24{margin-bottom:clamp(12px,2.4px + 1.5vw,24px)!important;margin-bottom:clamp(12px,2.4px + 1.5vi,24px)!important}.fs-mb-64{margin-bottom:clamp(32px,6.4px + 4vw,64px)!important;margin-bottom:clamp(32px,6.4px + 4vi,64px)!important}.fs-ms-24{margin-left:clamp(12px,2.4px + 1.5vw,24px)!important;margin-left:clamp(12px,2.4px + 1.5vi,24px)!important}.fs-p-16{padding:clamp(8px,1.6px + 1vw,16px)!important;padding:clamp(8px,1.6px + 1vi,16px)!important}.fs-px-16{padding-left:clamp(8px,1.6px + 1vw,16px)!important;padding-left:clamp(8px,1.6px + 1vi,16px)!important;padding-right:clamp(8px,1.6px + 1vw,16px)!important;padding-right:clamp(8px,1.6px + 1vi,16px)!important}.fs-py-12{padding-bottom:clamp(6px,1.2px + .75vw,12px)!important;padding-bottom:clamp(6px,1.2px + .75vi,12px)!important;padding-top:clamp(6px,1.2px + .75vw,12px)!important;padding-top:clamp(6px,1.2px + .75vi,12px)!important}.fs-py-16{padding-bottom:clamp(8px,1.6px + 1vw,16px)!important;padding-bottom:clamp(8px,1.6px + 1vi,16px)!important;padding-top:clamp(8px,1.6px + 1vw,16px)!important;padding-top:clamp(8px,1.6px + 1vi,16px)!important}.fs-py-48{padding-bottom:clamp(24px,4.8px + 3vw,48px)!important;padding-bottom:clamp(24px,4.8px + 3vi,48px)!important;padding-top:clamp(24px,4.8px + 3vw,48px)!important;padding-top:clamp(24px,4.8px + 3vi,48px)!important}@media (min-width:640px){.d-sm-block{display:block!important}.d-sm-none{display:none!important}}@media (min-width:768px){.d-md-block{display:block!important}.d-md-flex{display:flex!important}.d-md-none{display:none!important}.flex-md-row{flex-direction:row!important}.align-items-md-center{align-items:center!important}.my-md-32{margin-bottom:32px!important;margin-top:32px!important}.mt-md-128{margin-top:128px!important}.px-md-24{padding-left:24px!important;padding-right:24px!important}.py-md-48{padding-bottom:48px!important;padding-top:48px!important}.ps-md-64{padding-left:64px!important}}@media (min-width:1024px){.d-lg-none{display:none!important}}:root{--wk-white-rgb:255,255,255;--wk-black-rgb:0,0,0;--wk-body-color-rgb:33,58,143;--wk-body-bg-rgb:255,255,255;--wk-font-sans-serif:Roboto,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--wk-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--wk-body-font-family:var(--wk-font-sans-serif);--wk-body-font-size:clamp(1rem,0.9064788732rem + 0.3990234742vw,1.2656rem);--wk-body-font-weight:300;--wk-body-line-height:1.5;--wk-body-color:#213a8f;--wk-body-bg:#fff;--wk-xxs-font-size:clamp(0.7023319616rem,0.6366490852rem + 0.2802469393vw,0.8888713306rem);--wk-xs-font-size:clamp(0.7901234568rem,0.7162302208rem + 0.3152778067vw,0.9999802469rem);--wk-s-font-size:clamp(0.8888888889rem,0.8057589984rem + 0.3546875326vw,1.1249777778rem);--wk-l-font-size:clamp(1.125rem,1.0197887324rem + 0.4489014085vw,1.4238rem)}.desktop-navigation__menu,.desktop-navigation__sub-menu,.meta-navigation__list,.mobile-navigation__list,.mobile-navigation__list menu,.site-navigation__list{list-style:none;margin:0;padding:0}.cookie-message__close,.cookie-message__submit,.desktop-navigation__close,.desktop-navigation__toggle,.hamburger,.header-meta__action--button,.language-switcher__button,.mobile-navigation__menu-toggle,.search-form .enter-icon,.search-overlay .close-search{background:none;border:0;border-radius:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0}:focus-visible{outline-offset:4px;outline-width:2px}html{--headerHeight:104px}@media (min-width:768px){html{--headerHeight:107px}}@media (min-width:1024px){html{--headerHeight:137px}}@media (min-width:1200px){html{--headerHeight:142px}}.page-wrapper{display:flex;flex-direction:column;min-height:100vh;overflow:clip}.content-wrapper{flex-grow:1;margin-top:var(--headerHeight,clamp(64px,12.8px + 8vw,128px));margin-top:var(--headerHeight,clamp(64px,12.8px + 8vi,128px));overflow:clip;z-index:1}.content-wrapper>:first-child h1{margin-top:clamp(32px,6.4px + 4vw,64px);margin-top:clamp(32px,6.4px + 4vi,64px)}.content-wrapper>.container:last-child>:last-child{margin-bottom:clamp(64px,12.8px + 8vw,128px)!important;margin-bottom:clamp(64px,12.8px + 8vi,128px)!important}img{height:auto;max-width:100%}[id]{scroll-margin-top:clamp(64px,12.8px + 8vw,128px);scroll-margin-top:clamp(64px,12.8px + 8vi,128px)}@media (min-width:640px)and (max-width:1023.98px){.container{padding-left:32px;padding-right:32px}}.container--boxed{max-width:896px}.alignfull+.container--wide{margin-top:clamp(64px,12.8px + 8vw,128px);margin-top:clamp(64px,12.8px + 8vi,128px)}.h3,h1,h2,h3,h4,h6{-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:10 3 6}a:not(.no-underline):not(.facetwp-page):not(.gt_switcher-popup):not(.glink){-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none;text-decoration-thickness:.0556em;text-underline-offset:.18em}.breadcrumbs__inner span>a,a.no-underline{-webkit-text-decoration:none;text-decoration:none}figure{margin:0}h1{font-size:clamp(2.0272865295rem,1.837692409rem + .8089349143vw,2.5657338318rem);letter-spacing:.821px}h2{font-size:clamp(1.8020324707rem,1.6335043636rem + .719053257vw,2.2806522949rem);letter-spacing:.73px}.h3,h3{font-size:clamp(1.6018066406rem,1.4520038787rem + .6391584508vw,2.0272464844rem);letter-spacing:.649px}h4{font-size:clamp(1.423828125rem,1.2906701144rem + .5681408451vw,1.801996875rem);letter-spacing:.577px}h6{font-size:clamp(1.125rem,1.0197887324rem + .4489014085vw,1.4238rem);letter-spacing:.456px;margin-bottom:clamp(4px,.8px + .5vw,8px);margin-bottom:clamp(4px,.8px + .5vi,8px)}.is-style-lead{font-size:clamp(1.125rem,1.0197887324rem + .4489014085vw,1.4238rem);letter-spacing:.456px}.p,p{letter-spacing:.405px}.has-s-font-size,.has-xs-font-size,.has-xxs-font-size{font-weight:400;letter-spacing:normal}@media (min-width:768px){.has-s-font-size,.has-xs-font-size,.has-xxs-font-size{font-weight:300}}.has-beige-15-background-color{background-color:#f5f3f0}.has-xxs-font-size{font-size:var(--wk-xxs-font-size)}.has-xs-font-size{font-size:var(--wk-xs-font-size)}.has-s-font-size{font-size:var(--wk-s-font-size)}.cookie-message__submit,.cookie-message__submit:visited,.header .header-buttons .button,.header .header-buttons .button:visited,.header-meta .site-navigation-toggle,.header-meta .site-navigation-toggle:visited{background-color:#213a8f;border-radius:10px;color:#fff;display:inline-block;font-size:clamp(1rem,.9064788732rem + .3990234742vw,1.2656rem);font-weight:600;letter-spacing:normal;line-height:normal;overflow:hidden;padding:clamp(6px,1.2px + .75vw,12px) clamp(8px,1.6px + 1vw,16px);padding:clamp(6px,1.2px + .75vi,12px) clamp(8px,1.6px + 1vi,16px);position:relative;text-align:center;-webkit-text-decoration:none!important;text-decoration:none!important;text-rendering:geometricPrecision;vertical-align:middle;word-break:break-word}.header-meta .has-beige-15-background-color.site-navigation-toggle,.header-meta .site-navigation-toggle:visited.has-beige-15-background-color{background-color:#f5f3f0;color:#213a8f}.header .header-buttons .button,.header-meta .site-navigation-toggle{font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem)!important;letter-spacing:normal!important;line-height:1.5!important;padding:clamp(4px,.8px + .5vw,8px) clamp(8px,1.6px + 1vw,16px)!important;padding:clamp(4px,.8px + .5vi,8px) clamp(8px,1.6px + 1vi,16px)!important}.header{background-color:#fff;left:0;position:fixed;right:0;top:0;width:100%;z-index:150}.header:after,.header:before{content:"";display:block;height:100%;left:0;position:absolute;top:0;width:100vw}.header:before{background-color:#fff;z-index:0}.header:after{background-color:transparent;box-shadow:0 2px 60px 10px rgba(0,0,0,.1);z-index:1000}.header .header-wrapper{align-items:center;background-color:#fff;display:flex;flex-wrap:wrap;gap:0 clamp(24px,4.8px + 3vw,48px);gap:0 clamp(24px,4.8px + 3vi,48px);height:100%}.header .header-logo-wrapper{align-self:center}@media (max-width:1439.98px){.header .header-logo-wrapper{align-items:center;display:flex;justify-content:space-between;width:100%;z-index:100}}.header .header-logo{align-items:center;display:flex;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px)}.header .header-logo__image{height:32px;-o-object-fit:contain;object-fit:contain;width:auto}.header .header-buttons{display:inline-flex;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px);margin-left:auto;margin-right:0}.hamburger{align-items:center;background-color:#213a8f;border-radius:10px;color:#fff;display:grid;grid-template-columns:1fr;grid-template-rows:1fr;height:-moz-fit-content;height:fit-content;justify-content:center;line-height:1;padding:6px;z-index:100}.hamburger-icon{display:inline-flex;grid-column:1;grid-row:1;line-height:1}.hamburger-icon svg{height:20px;width:20px}.hamburger-icon--close{opacity:0;visibility:hidden}.hamburger-icon--open{opacity:1;visibility:visible}.header-meta{background-color:#fff;border-bottom:1px solid #f5f3f0;position:relative;z-index:101}.header-meta__container{align-items:center;display:flex;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px);justify-content:space-between;padding-bottom:clamp(4px,.8px + .5vw,8px);padding-bottom:clamp(4px,.8px + .5vi,8px);padding-top:clamp(6px,1.2px + .75vw,12px);padding-top:clamp(6px,1.2px + .75vi,12px)}.header-meta__navigations{align-items:center;display:flex;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px)}.header-meta .site-navigation-toggle{align-items:center;display:inline-flex!important;gap:4px;justify-content:space-between;min-width:142px}@media (min-width:768px){.header-meta .site-navigation-toggle{min-width:155px}}@media (min-width:1024px){.header-meta .site-navigation-toggle{min-width:164px}}.header-meta .site-navigation-toggle svg{height:clamp(8px,1.6px + 1vw,16px);height:clamp(8px,1.6px + 1vi,16px);width:clamp(8px,1.6px + 1vw,16px);width:clamp(8px,1.6px + 1vi,16px)}.header-meta__actions{align-items:center;display:flex;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px)}@media (min-width:1024px){.header-meta__actions{gap:clamp(4px,.8px + .5vw,8px);gap:clamp(4px,.8px + .5vi,8px)}}.header-meta__action{align-items:center;color:#213a8f;display:inline-flex;height:clamp(12px,2.4px + 1.5vw,24px);height:clamp(12px,2.4px + 1.5vi,24px);justify-content:center;line-height:1;position:relative;width:clamp(12px,2.4px + 1.5vw,24px);width:clamp(12px,2.4px + 1.5vi,24px)}@media (max-width:639.98px){.header-meta__action{height:16px;width:16px}}@media (max-width:639.98px){.header-meta__action svg{height:16px;width:16px}}.header-meta__login{font-size:clamp(.7023319616rem,.6366490852rem + .2802469393vw,.8888713306rem);font-weight:400;letter-spacing:.284px;line-height:1.5;margin-right:4px}@media (max-width:639.98px){.header-meta__login{font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem)}}.site-navigation{background-color:#f5f3f0}.site-navigation__container{display:flex;flex-wrap:wrap;gap:clamp(24px,4.8px + 3vw,48px);gap:clamp(24px,4.8px + 3vi,48px);justify-content:space-between;max-width:1118px}.site-navigation__column{transform:translateY(16px)}.site-navigation__column--left{width:auto}.site-navigation__column--right{max-width:766px;width:100%}.site-navigation__column-title{margin-bottom:clamp(12px,2.4px + 1.5vw,24px);margin-bottom:clamp(12px,2.4px + 1.5vi,24px);padding-left:clamp(6px,1.2px + .75vw,12px);padding-left:clamp(6px,1.2px + .75vi,12px)}@media (max-width:639.98px){.site-navigation__column-title{font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem)}}.site-navigation__list{display:grid;gap:clamp(6px,1.2px + .75vw,12px) clamp(4px,.8px + .5vw,8px);grid-gap:clamp(6px,1.2px + .75vw,12px) clamp(4px,.8px + .5vw,8px);grid-gap:clamp(6px,1.2px + .75vi,12px) clamp(4px,.8px + .5vi,8px);gap:clamp(6px,1.2px + .75vi,12px) clamp(4px,.8px + .5vi,8px);grid-template-columns:repeat(2,minmax(100px,165px));grid-template-rows:auto;width:100%}@media (min-width:480px){.site-navigation__list{grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}}@media (min-width:1024px){.site-navigation__list{gap:clamp(8px,1.6px + 1vw,16px) clamp(4px,.8px + .5vw,8px);gap:clamp(8px,1.6px + 1vi,16px) clamp(4px,.8px + .5vi,8px);grid-template-columns:repeat(auto-fill,250px)}}.site-navigation__link{border-radius:8px;color:#213a8f;display:block;font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem);line-height:1.5;padding:clamp(6px,1.2px + .75vw,12px);padding:clamp(6px,1.2px + .75vi,12px);width:100%}@media (max-width:639.98px){.site-navigation__link{font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem)}}.site-navigation__link--current{background-color:#fbbc43;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M9.5501 18L3.8501 12.3L5.2751 10.875L9.5501 15.15L18.7251 5.97498L20.1501 7.39998L9.5501 18Z'/%3E%3C/svg%3E");background-position:calc(100% - clamp(6px,1.2px + .75vw,12px)) 50%;background-position:calc(100% - clamp(6px,1.2px + .75vi,12px)) 50%;background-repeat:no-repeat;background-size:16px;padding-right:calc(clamp(6px,1.2px + .75vw,12px) + 16px + clamp(4px,.8px + .5vw,8px));padding-right:calc(clamp(6px,1.2px + .75vi,12px) + 16px + clamp(4px,.8px + .5vi,8px))}.meta-navigation__list{align-items:center;display:flex;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px)}.meta-navigation__item{display:inline-flex;line-height:1}.meta-navigation__link{font-size:clamp(.7023319616rem,.6366490852rem + .2802469393vw,.8888713306rem);font-weight:400;letter-spacing:.284px;line-height:1.5}@media (max-width:639.98px){.meta-navigation__link{font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem)}}.mobile-navigation-wrapper{display:flex;justify-content:space-around}.mobile-navigation-wrapper .mobile-navigation{width:100%}.mobile-navigation__link{color:#4d61a5;font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem);font-weight:400;letter-spacing:.284px;line-height:1.5;-webkit-text-decoration:none!important;text-decoration:none!important;width:100%}.mobile-navigation__link.mobile-navigation__link--level-1{color:#213a8f;font-size:clamp(1.423828125rem,1.2906701144rem + .5681408451vw,1.801996875rem);font-weight:700;letter-spacing:.456px;line-height:1.5;padding:clamp(6px,1.2px + .75vw,12px) 0;padding:clamp(6px,1.2px + .75vi,12px) 0}.mobile-navigation__link.mobile-navigation__link--level-2{color:#213a8f;font-size:clamp(1rem,.9064788732rem + .3990234742vw,1.2656rem);font-weight:700;letter-spacing:.32px;padding:clamp(4px,.8px + .5vw,8px) 0;padding:clamp(4px,.8px + .5vi,8px) 0}.mobile-navigation .sub-menu{display:flex;flex-direction:column;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px);max-height:0;opacity:0;overflow:hidden;position:relative;visibility:hidden;width:100%}.mobile-navigation .sub-menu .mobile-navigation__item{padding:0;width:100%}.mobile-navigation__menu-toggle{align-items:center;-webkit-appearance:none;-moz-appearance:none;appearance:none;color:var(--wk-link-color);display:flex;flex:1 0 auto;height:24px;justify-content:center;transform:rotate(0deg);width:24px}.sub-menu .mobile-navigation__menu-toggle{height:24px;width:24px}.mobile-navigation__menu-toggle svg{height:100%;vertical-align:baseline;width:100%}.mobile-navigation__item-wrap{align-items:center;display:flex;gap:clamp(12px,2.4px + 1.5vw,24px);gap:clamp(12px,2.4px + 1.5vi,24px);width:100%}.mobile-navigation__list{display:flex;flex-flow:column wrap;gap:clamp(2px,.4px + .25vw,4px);gap:clamp(2px,.4px + .25vi,4px);height:100%;justify-content:center;width:100%}.mobile-navigation__list>li>.sub-menu{gap:clamp(2px,.4px + .25vw,4px);gap:clamp(2px,.4px + .25vi,4px)}.desktop-navigation__dialog{left:0;position:absolute;right:0;top:100%;z-index:-1}.desktop-navigation__dialog[aria-hidden=true]{display:none}.desktop-navigation__dialog-background{background-color:#f5f3f0;height:100%;left:0;position:absolute;right:0;top:0;transform:scaleY(0);transform-origin:top;width:100%;z-index:1}.desktop-navigation__dialog-background--gradient{background-color:transparent;z-index:2}.desktop-navigation__dialog-background--gradient:before{background:linear-gradient(180deg,hsla(0,0%,100%,0),#f5f3f0);bottom:0;content:"";display:block;height:clamp(24px,4.8px + 3vw,48px);height:clamp(24px,4.8px + 3vi,48px);left:0;position:absolute;right:0;width:100%;z-index:3}.desktop-navigation__menu-wrapper{max-height:calc(100dvh - var(--headerHeight));opacity:0;overflow:auto;position:relative;transform:translateY(16px);z-index:2}.desktop-navigation__menu-grid{display:grid;gap:clamp(32px,6.4px + 4vw,64px);grid-template-columns:repeat(auto-fit,250px);grid-gap:clamp(32px,6.4px + 4vw,64px);grid-gap:clamp(32px,6.4px + 4vi,64px);gap:clamp(32px,6.4px + 4vi,64px);grid-template-rows:auto;max-width:1118px}.desktop-navigation__menu-grid--wide{max-width:1344px}.desktop-navigation__item,.desktop-navigation__sub-menu{display:flex;flex-direction:column;gap:clamp(12px,2.4px + 1.5vw,24px);gap:clamp(12px,2.4px + 1.5vi,24px)}.desktop-navigation__link,.desktop-navigation__sub-link{-webkit-text-decoration:none!important;text-decoration:none!important}.desktop-navigation__link,.desktop-navigation__sub-link,.desktop-navigation__toggle{font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem)}.desktop-navigation__link,.desktop-navigation__toggle{color:#213a8f;font-weight:600}.desktop-navigation__sub-link{color:#4d61a5}.desktop-navigation__toggles{display:flex;gap:clamp(12px,2.4px + 1.5vw,24px);gap:clamp(12px,2.4px + 1.5vi,24px)}.desktop-navigation__toggle{line-height:1.5}.desktop-navigation__close{color:#213a8f;height:clamp(12px,2.4px + 1.5vw,24px);height:clamp(12px,2.4px + 1.5vi,24px);opacity:0;position:absolute;right:clamp(12px,2.4px + 1.5vw,24px);right:clamp(12px,2.4px + 1.5vi,24px);top:clamp(12px,2.4px + 1.5vw,24px);top:clamp(12px,2.4px + 1.5vi,24px);width:clamp(12px,2.4px + 1.5vw,24px);width:clamp(12px,2.4px + 1.5vi,24px);z-index:2}.desktop-navigation__close svg{height:100%;width:100%}.desktop-navigation__overlay{background-color:#b59d87;height:100vh;opacity:0;position:fixed;right:0;top:0;width:100vw;z-index:0}.navigation-overlay{align-self:center;display:flex}@media (max-width:1439.98px){.navigation-overlay{background-color:#f5f3f0;display:none;height:calc(100dvh - var(--headerHeight));overflow:auto;padding:clamp(32px,6.4px + 4vw,64px) clamp(12px,2.4px + 1.5vw,24px);padding:clamp(32px,6.4px + 4vi,64px) clamp(12px,2.4px + 1.5vi,24px);position:fixed;right:0;top:var(--headerHeight);transform:translateX(100%);transform-origin:top;width:55vw;z-index:1000}}@media (max-width:767.98px){.navigation-overlay{width:70vw}}@media (max-width:639.98px){.navigation-overlay{width:100vw}}.navigation-overlay__meta{display:flex;flex-wrap:wrap;gap:clamp(12px,2.4px + 1.5vw,24px);gap:clamp(12px,2.4px + 1.5vi,24px);justify-content:space-between}.navigation-overlay__meta .meta-navigation__list{align-items:flex-start;flex-direction:column;gap:clamp(12px,2.4px + 1.5vw,24px);gap:clamp(12px,2.4px + 1.5vi,24px)}.navigation-overlay__meta .header-buttons{gap:clamp(4px,.8px + .5vw,8px);gap:clamp(4px,.8px + .5vi,8px)}@media (max-width:639.98px){.navigation-overlay__meta .header-buttons{flex-direction:column;margin:0}}.navigation-overlay__overlay{background-color:#b59d87;bottom:0;left:0;opacity:0;position:fixed;right:0;top:0;visibility:hidden;z-index:-1}@media (max-width:639.98px){.navigation-overlay__overlay{display:none}}.header-navigation-wrapper{display:none}.cookie-message{background-color:#ece8e3;border-radius:10px;bottom:12px;left:12px;padding:clamp(12px,2.4px + 1.5vw,24px) clamp(12px,2.4px + 1.5vw,24px) clamp(24px,4.8px + 3vw,48px) clamp(24px,4.8px + 3vw,48px);padding:clamp(12px,2.4px + 1.5vi,24px) clamp(12px,2.4px + 1.5vi,24px) clamp(24px,4.8px + 3vi,48px) clamp(24px,4.8px + 3vi,48px);position:fixed;right:12px;z-index:9999}@media (min-width:768px){.cookie-message{bottom:32px;left:auto;max-width:560px;right:32px;width:100%}}.cookie-message__title{margin-bottom:clamp(12px,2.4px + 1.5vw,24px);margin-bottom:clamp(12px,2.4px + 1.5vi,24px);margin-right:clamp(12px,2.4px + 1.5vw,24px);margin-right:clamp(12px,2.4px + 1.5vi,24px)}.cookie-message__inner{margin-right:clamp(12px,2.4px + 1.5vw,24px);margin-right:clamp(12px,2.4px + 1.5vi,24px)}.cookie-message__text{display:block;font-size:clamp(1rem,.9064788732rem + .3990234742vw,1.2656rem);letter-spacing:.36px;margin-bottom:clamp(16px,3.2px + 2vw,32px);margin-bottom:clamp(16px,3.2px + 2vi,32px)}.cookie-message__actions{display:contents}.cookie-message__actions .cookie-message__submit{width:100%}.cookie-message__submit{margin-bottom:clamp(6px,1.2px + .75vw,12px);margin-bottom:clamp(6px,1.2px + .75vi,12px)}.cookie-message__submit:last-child{margin-bottom:0}.cookie-message__close{display:block;height:24px;margin-bottom:clamp(8px,1.6px + 1vw,16px);margin-bottom:clamp(8px,1.6px + 1vi,16px);margin-left:auto;margin-right:0;width:24px}.cookie-message__close svg{fill:#213a8f}.breadcrumbs>span{font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem);line-height:1;vertical-align:baseline;white-space:nowrap}.breadcrumbs span{box-sizing:border-box}.breadcrumbs__inner{align-items:center;display:flex;flex-wrap:wrap;height:auto;justify-content:flex-start;row-gap:16px}.breadcrumbs__inner span>a{border-radius:8px;color:#4d61a5;padding:clamp(4px,.8px + .5vw,8px);padding:clamp(4px,.8px + .5vi,8px)}.breadcrumbs__separator{display:inline-block;height:16px;margin:0 2px;min-width:16px;vertical-align:sub;width:16px;fill:#213a8f}.breadcrumbs>span>span:first-child>a{color:#4d61a5;padding-left:20px;position:relative;z-index:2}@media (min-width:640px){.breadcrumbs>span>span:first-child>a{padding-left:24px}}.breadcrumbs>span>span:first-child>a:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z' fill='%23213A8F'/%3E %3C/svg%3E");background-position:50%;background-repeat:no-repeat;background-size:cover;color:#213a8f;content:"";flex-shrink:0;height:16px;left:0;position:absolute;-webkit-text-decoration:none;text-decoration:none;top:50%;transform:translateY(-50%);width:16px}@media (min-width:640px){.breadcrumbs>span>span:first-child>a:before{left:4px}}.breadcrumbs .breadcrumb_last{color:#213a8f;display:inline-block;max-width:100%;overflow:hidden;padding:clamp(4px,.8px + .5vw,8px);padding:clamp(4px,.8px + .5vi,8px);text-overflow:ellipsis;white-space:nowrap}.search-form .search-box-wrapper{margin:0 auto;position:relative}.search-form .search-form__field{background-color:#f5f3f0;border:1px solid #f5f3f0;border-radius:10px;font-weight:300;width:100%}.search-form .search-icon{align-items:center;display:flex;height:100%;justify-content:center;left:0;position:absolute;top:0}.search-form .search-icon svg{height:24px;width:24px}.search-form .enter-icon{align-items:center;display:flex;height:100%;justify-content:center;opacity:0;position:absolute;right:0;top:0;visibility:hidden}.search-form .enter-icon svg{height:24px;width:24px}.search-overlay{align-items:flex-end;background-color:#fff;border-top:1px solid #f5f3f0;display:flex;justify-content:center;max-height:0;opacity:0;overflow:hidden;transform:scaleY(0);transform-origin:top;visibility:hidden;width:100%;z-index:-1}.search-overlay__container{display:flex;flex-direction:column-reverse;gap:clamp(24px,4.8px + 3vw,48px);gap:clamp(24px,4.8px + 3vi,48px);width:100%}.search-overlay .close-search{align-self:flex-end}.search-overlay .close-search svg{color:#213a8f;height:24px;width:24px}.language-switcher__button{padding:8px 4px 8px 8px}.language-switcher__current-language{font-weight:400;text-transform:uppercase}.language-switcher__chevron-wrapper svg{height:20px;width:20px}.language-switcher .dropdown-menu{background-color:#ece8e3;border:none;border-radius:10px;min-width:0}.language-switcher__link{border-radius:8px;color:#213a8f;display:inline-block;font-weight:400;padding:0 8px}.wp-block-buttons{display:flex;flex-wrap:wrap;gap:clamp(8px,1.6px + 1vw,16px);gap:clamp(8px,1.6px + 1vi,16px)}p+.wp-block-buttons{margin-top:clamp(12px,2.4px + 1.5vw,24px);margin-top:clamp(12px,2.4px + 1.5vi,24px)}.facet-filter__close-button,.facet-filter__facet__accordion-button,.facet-filter__facet__dropdown-button{background:none;border:0;border-radius:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0}.facet-filter{background-color:#f5f3f0;border-radius:10px;padding:clamp(16px,3.2px + 2vw,32px);padding:clamp(16px,3.2px + 2vi,32px)}@media (max-width:767.98px){.facet-filter{border-radius:10px 10px 0 0;bottom:0;left:0;max-height:70vh;overflow:auto;padding:32px 16px 24px;position:fixed;transform:translateY(100%);width:100%;z-index:2}}.facet-filter__dialog-toggle{bottom:16px;padding:12px!important;position:fixed!important;right:16px;z-index:2}.facet-filter__dialog-toggle:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23fff' viewBox='0 0 24 24'%3E%3Cpath d='M11 20a.967.967 0 0 1-.712-.288A.968.968 0 0 1 10 19v-6L4.2 5.6c-.25-.333-.287-.683-.112-1.05S4.567 4 5 4h14c.433 0 .738.183.913.55.175.367.137.717-.113 1.05L14 13v6c0 .283-.096.52-.287.712A.968.968 0 0 1 13 20h-2Zm1-7.7L16.95 6h-9.9L12 12.3Z'/%3E%3C/svg%3E");margin-right:8px!important}.facet-filter__dialog-overlay{background-color:rgba(133,106,81,.6);height:100%;left:0;opacity:0;position:fixed;top:0;width:100%;z-index:2}.facet-filter__wrapper{gap:24px}.facet-filter__close-button svg{height:24px;width:24px}@media (max-width:767.98px){.facet-filter__facet{width:100%}}@media (min-width:768px){.wk-block-jobads-archive .facet-filter__facet{width:calc(25% - clamp(6px,1.2px + .75vw,12px)*3/4);width:calc(25% - clamp(6px,1.2px + .75vi,12px)*3/4)}}.facet-filter__facet-wrapper{gap:clamp(6px,1.2px + .75vw,12px);gap:clamp(6px,1.2px + .75vi,12px);width:100%}@media (max-width:767.98px){.facet-filter__facet-wrapper{gap:12px;width:100%}}.facet-filter__facet__accordion-button,.facet-filter__facet__dropdown-button{border:1px solid transparent;border-radius:10px;gap:clamp(4px,.8px + .5vw,8px);gap:clamp(4px,.8px + .5vi,8px);text-align:left}@media (max-width:767.98px){.facet-filter__facet__accordion-button,.facet-filter__facet__dropdown-button{gap:8px;width:100%}}.facet-filter__facet__dropdown-button__text-wrapper{display:inline-block;line-height:1.5;max-width:163px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:767.98px){.facet-filter__facet__accordion-button__text,.facet-filter__facet__dropdown-button__text{letter-spacing:.284px;line-height:1.5}}.facet-filter__facet__accordion-button__icon-wrapper svg,.facet-filter__facet__dropdown-button__icon-wrapper svg{height:16px;width:16px}.facet-filter__facet__accordion-button__chevron-wrapper,.facet-filter__facet__dropdown-button__chevron-wrapper{margin-left:auto}.facet-filter__facet__accordion-button__chevron-wrapper svg,.facet-filter__facet__dropdown-button__chevron-wrapper svg{height:16px;width:16px}.facet-filter__facet__accordion-body .facetwp-facet,.facet-filter__facet__dropdown-body .facetwp-facet{margin:0}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox{background-image:none;border-radius:8px;font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem);margin-bottom:0;padding:clamp(6px,1.2px + .75vw,12px);padding:clamp(6px,1.2px + .75vi,12px)}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox:not(:last-child),.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox:not(:last-child){margin-bottom:clamp(4px,.8px + .5vw,8px);margin-bottom:clamp(4px,.8px + .5vi,8px)}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facetwp-counter,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facetwp-counter{display:none}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facetwp-display-value,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facetwp-display-value{-webkit-hyphens:auto;hyphens:auto}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox{padding:clamp(6px,1.2px + .75vw,12px) clamp(8px,1.6px + 1vw,16px) clamp(6px,1.2px + .75vw,12px) clamp(6px,1.2px + .75vw,12px)!important;padding:clamp(6px,1.2px + .75vi,12px) clamp(8px,1.6px + 1vi,16px) clamp(6px,1.2px + .75vi,12px) clamp(6px,1.2px + .75vi,12px)!important;position:relative}@media (max-width:767.98px){.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox{padding:8px 12px!important}}@media (hover:none){.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox{padding:clamp(6px,1.2px + .75vw,12px) calc(clamp(8px,1.6px + 1vw,16px) + 16px) clamp(6px,1.2px + .75vw,12px) clamp(6px,1.2px + .75vw,12px)!important;padding:clamp(6px,1.2px + .75vi,12px) calc(clamp(8px,1.6px + 1vi,16px) + 16px) clamp(6px,1.2px + .75vi,12px) clamp(6px,1.2px + .75vi,12px)!important}}@media (hover:none)and (max-width:767.98px){.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox{padding:8px 28px 8px 12px!important}}@media (hover:none){.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox:after,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23213a8f'%3E%3Cpath d='M9.5501 18L3.8501 12.3L5.2751 10.875L9.5501 15.15L18.7251 5.97498L20.1501 7.39998L9.5501 18Z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;content:"";height:16px;opacity:0;position:absolute;right:clamp(6px,1.2px + .75vw,12px);right:clamp(6px,1.2px + .75vi,12px);top:50%;transform:translateY(-50%);width:16px}}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facet-wrapper,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facet-wrapper{align-items:center;display:flex;gap:clamp(4px,.8px + .5vw,8px);gap:clamp(4px,.8px + .5vi,8px);justify-content:space-between}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip{display:none;position:relative}@media (hover:hover){.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip{display:inline-block}}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip svg,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip svg{height:20px;width:20px}.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip-text,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip-text{background-color:#213a8f;border-radius:10px;color:#fff;font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem);height:-moz-fit-content;height:fit-content;left:calc(100% + clamp(4px,.8px + .5vw,8px));left:calc(100% + clamp(4px,.8px + .5vi,8px));padding:clamp(8px,1.6px + 1vw,16px);padding:clamp(8px,1.6px + 1vi,16px);position:absolute;top:0;visibility:hidden;width:190px;z-index:1}@media (max-width:767.98px){.facet-filter__facet__accordion-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip-text,.facet-filter__facet__dropdown-body .facetwp-facet .facetwp-checkbox .facet-wrapper .facet-tooltip-text{left:auto;right:calc(100% + clamp(4px,.8px + .5vw,8px));right:calc(100% + clamp(4px,.8px + .5vi,8px))}}.facet-filter__facet__dropdown-button{background-color:#ece8e3;min-width:285px}@media (min-width:768px){.wk-block-jobads-archive .facet-filter__facet__dropdown-button{min-width:100%;width:100%}}.facet-filter__facet__dropdown-body{background-color:#ece8e3;border:none;border-radius:10px;width:100%}.facet-filter__facet__accordion-item{background-color:#ece8e3;border:none;border-radius:10px}.facet-filter__counter .facetwp-facet-jobads_count_pager{margin:0}.facet-filter__counter .has-font-weight-300{font-weight:300}.facet-filter__reset{flex-shrink:0}.facet-filter__reset .facetwp-facet-reset{margin:0}.facet-filter__reset .facetwp-facet-reset .facetwp-reset{align-items:center;border-radius:10px;color:#213a8f;display:flex;font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem);font-weight:600;gap:clamp(4px,.8px + .5vw,8px);gap:clamp(4px,.8px + .5vi,8px);letter-spacing:.32px;padding:clamp(4px,.8px + .5vw,8px) clamp(8px,1.6px + 1vw,16px);padding:clamp(4px,.8px + .5vi,8px) clamp(8px,1.6px + 1vi,16px);-webkit-text-decoration:none;text-decoration:none}.facet-filter__reset .facetwp-facet-reset .facetwp-reset:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23213a8f' viewBox='0 0 24 24'%3E%3Cpath d='M12.05 20c-2.233 0-4.133-.775-5.7-2.325C4.783 16.125 4 14.233 4 12v-.175l-1.6 1.6-1.4-1.4 4-4 4 4-1.4 1.4-1.6-1.6V12c0 1.667.588 3.083 1.763 4.25C8.938 17.417 10.367 18 12.05 18c.433 0 .858-.05 1.275-.15.417-.1.825-.25 1.225-.45l1.5 1.5a8.247 8.247 0 0 1-1.95.825 7.698 7.698 0 0 1-2.05.275ZM19 15.975l-4-4 1.4-1.4 1.6 1.6V12c0-1.667-.587-3.083-1.762-4.25C15.063 6.583 13.633 6 11.95 6c-.433 0-.858.05-1.275.15-.417.1-.825.25-1.225.45l-1.5-1.5a8.25 8.25 0 0 1 1.95-.825A7.696 7.696 0 0 1 11.95 4c2.233 0 4.133.775 5.7 2.325C19.217 7.875 20 9.767 20 12v.175l1.6-1.6 1.4 1.4-4 4Z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;content:"";display:inline-block;height:16px;width:16px}.facet-filter .facetwp-type-search{margin:0;width:100%}@media (min-width:768px){.wk-block-jobads-archive .facet-filter .facetwp-type-search{width:calc(50% - clamp(6px,1.2px + .75vw,12px)/2);width:calc(50% - clamp(6px,1.2px + .75vi,12px)/2)}}.facet-filter .facetwp-type-search .facetwp-input-wrap,.facet-filter .facetwp-type-search .facetwp-search{min-width:auto;width:100%}.facet-filter .facetwp-type-search .facetwp-icon{left:16px;opacity:1;right:auto;transform:rotate(0deg)!important;width:16px}@media (min-width:768px){.facet-filter .facetwp-type-search .facetwp-icon{left:clamp(8px,1.6px + 1vw,16px);left:clamp(8px,1.6px + 1vi,16px)}}.facet-filter .facetwp-type-search .facetwp-icon:before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='%23213a8f' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14583 15.3708 4.8875 14.1125C3.62917 12.8542 3 11.3167 3 9.5C3 7.68333 3.62917 6.14583 4.8875 4.8875C6.14583 3.62917 7.68333 3 9.5 3C11.3167 3 12.8542 3.62917 14.1125 4.8875C15.3708 6.14583 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8125 13.5625 12.6875 12.6875C13.5625 11.8125 14 10.75 14 9.5C14 8.25 13.5625 7.1875 12.6875 6.3125C11.8125 5.4375 10.75 5 9.5 5C8.25 5 7.1875 5.4375 6.3125 6.3125C5.4375 7.1875 5 8.25 5 9.5C5 10.75 5.4375 11.8125 6.3125 12.6875C7.1875 13.5625 8.25 14 9.5 14Z'/%3E %3C/svg%3E");background-position:50%;background-repeat:no-repeat;background-size:contain;transform:rotate(0deg)!important;width:16px}.facet-filter .facetwp-type-search .facetwp-search{background-color:#ece8e3;border:1px solid transparent;border-radius:10px;color:#213a8f;font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem);font-weight:600;padding:12px 16px 12px 40px}@media (min-width:768px){.facet-filter .facetwp-type-search .facetwp-search{padding:clamp(6px,1.2px + .75vw,12px) clamp(8px,1.6px + 1vw,16px) clamp(6px,1.2px + .75vw,12px) calc(clamp(8px,1.6px + 1vw,16px) + 16px + clamp(4px,.8px + .5vw,8px));padding:clamp(6px,1.2px + .75vi,12px) clamp(8px,1.6px + 1vi,16px) clamp(6px,1.2px + .75vi,12px) calc(clamp(8px,1.6px + 1vi,16px) + 16px + clamp(4px,.8px + .5vi,8px))}}.facet-filter .facetwp-type-search .facetwp-search::-moz-placeholder{color:#213a8f}.facet-filter .facetwp-type-slider{margin-bottom:32px;margin-top:47px;padding:0 20px}.facet-filter .facetwp-type-slider .noUi-handle{background-color:#fff;border:1px solid #7a89bc;border-radius:50%;height:12px;right:-6px;width:12px}.facet-filter .facetwp-type-slider .noUi-horizontal{background-color:rgba(77,97,165,.2);border:none;height:4px}.facet-filter .facetwp-type-slider .noUi-connect{background-color:#213a8f}.facet-filter .facetwp-type-slider .facetwp-slider-reset{display:none}.facet-filter .facetwp-type-slider .facetwp-slider-label{display:none}.facet-filter__sort-count-wrapper{gap:clamp(12px,2.4px + 1.5vw,24px);gap:clamp(12px,2.4px + 1.5vi,24px)}.facet-filter__sort-wrapper{gap:clamp(4px,.8px + .5vw,8px);gap:clamp(4px,.8px + .5vi,8px)}.facetwp-facet-per_page_box,.facetwp-type-sort{display:flex;margin-bottom:0!important}.facetwp-facet-per_page_box .fs-wrap,.facetwp-type-sort .fs-wrap{min-width:180px;width:100%}@media (min-width:768px){.facetwp-facet-per_page_box .fs-wrap,.facetwp-type-sort .fs-wrap{width:auto}}.facetwp-facet-per_page_box .fs-label-wrap,.facetwp-type-sort .fs-label-wrap{background-color:#ece8e3;border:none;border-radius:10px}@media (min-width:768px){.facetwp-facet-per_page_box .fs-label-wrap,.facetwp-type-sort .fs-label-wrap{background-color:#f8f5f3}}.facetwp-facet-per_page_box .fs-label-wrap .fs-label,.facetwp-type-sort .fs-label-wrap .fs-label{font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem);font-weight:600;letter-spacing:.32px;line-height:1.5;padding:12px 28px 12px 16px}@media (min-width:768px){.facetwp-facet-per_page_box .fs-label-wrap .fs-label,.facetwp-type-sort .fs-label-wrap .fs-label{font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem);padding:8px 40px 8px 16px}}.facetwp-facet-per_page_box .fs-label-wrap .fs-arrow,.facetwp-type-sort .fs-label-wrap .fs-arrow{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='%23213a8f' viewBox='0 0 24 24'%3E%3Cpath d='m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4-6 6Z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;border:none;height:16px;right:12px;width:16px}@media (min-width:768px){.facetwp-facet-per_page_box .fs-label-wrap .fs-arrow,.facetwp-type-sort .fs-label-wrap .fs-arrow{right:16px}}.facetwp-facet-per_page_box .fs-dropdown,.facetwp-type-sort .fs-dropdown{background-color:#ece8e3;border:none;border-radius:10px;transform:translateY(8px)}@media (min-width:768px){.facetwp-facet-per_page_box .fs-dropdown,.facetwp-type-sort .fs-dropdown{background-color:#f8f5f3}}.facetwp-facet-per_page_box .fs-options.fs-options,.facetwp-type-sort .fs-options.fs-options{max-height:250px;padding:16px}.facetwp-facet-per_page_box .fs-option.fs-option,.facetwp-type-sort .fs-option.fs-option{border-radius:10px;font-size:clamp(.8888888889rem,.8057589984rem + .3546875326vw,1.1249777778rem);letter-spacing:.32px;line-height:1.5}@media (min-width:768px){.facetwp-facet-per_page_box .fs-option.fs-option,.facetwp-type-sort .fs-option.fs-option{font-size:clamp(.7901234568rem,.7162302208rem + .3152778067vw,.9999802469rem)}}.facetwp-facet-per_page_box .fs-option.fs-option:not(:last-child),.facetwp-type-sort .fs-option.fs-option:not(:last-child){margin-bottom:8px}.dropdown-menu{--wk-dropdown-spacer:clamp(6px,1.2px + 0.75vw,12px)}@supports (top:1vi){.dropdown-menu{--wk-dropdown-spacer:clamp(6px,1.2px + 0.75vi,12px)}}:not(.facet-filter__facet--office-services-dropdown)>.dropdown-menu{max-height:300px;overflow-y:auto}@media (max-width:767.98px){:not(.facet-filter__facet--office-services-dropdown)>.dropdown-menu{max-height:70vh}}.page-header-square__inner{display:grid;grid-template-columns:0 16px repeat(11,1fr minmax(0,1rem) minmax(0,1rem)) 1fr 16px 0}@media (min-width:640px)and (max-width:1023.98px){.page-header-square__inner{grid-template-columns:0 32px repeat(11,1fr minmax(0,1rem) minmax(0,1rem)) 1fr 32px 0}}.page-header-square{position:relative}.page-header-square__mask{align-items:flex-end;display:flex;height:80vw;left:0;max-height:100%;position:absolute;top:0;width:100%}@media (min-width:768px){.page-header-square__mask{align-items:flex-end;bottom:0;display:flex;height:100%;top:auto}}.page-header-square__mask svg{fill:#f5f3f0;height:auto;width:100%}.page-header-square__inner{min-height:585px;position:relative;row-gap:0}.page-header-square__content-wrapper{align-items:flex-start;grid-column:3/37;grid-row:3}@media (min-width:768px){.page-header-square__content-wrapper{grid-column:3/19;grid-row:1}}.page-header-square__content>:last-child{margin-bottom:0!important}.page-header-square__title{font-weight:300}.page-header-square__image-wrapper{align-self:center;grid-column:3/37;grid-row:2;height:auto;position:relative;width:100%}@media (min-width:768px){.page-header-square__image-wrapper{grid-column:24/37;grid-row:1}}.page-header-square__image{aspect-ratio:1/1;border-radius:10px;min-height:343px;-o-object-fit:cover;object-fit:cover}@media (min-width:768px){.page-header-square__image{max-height:none}}.page-header-square .breadcrumbs{grid-column:3/37;grid-row:1}@media (min-width:768px){.page-header-square .breadcrumbs{grid-column:3/22;height:-moz-fit-content;height:fit-content}}.tease-jobad{border-top:1px solid #dacec3;position:relative}.tease-jobad__top{gap:16px}@media (min-width:768px){.tease-jobad__top{gap:32px}}.tease-jobad__meta-wrapper{gap:16px}@media (max-width:767.98px){.tease-jobad__meta-wrapper{order:1}}@media (min-width:768px){.tease-jobad__meta-wrapper{margin-left:auto}}@media (max-width:767.98px){.tease-jobad__title-wrapper{order:3}}.tease-jobad__date,.tease-jobad__meta-wrapper,.tease-jobad__number{flex-shrink:0}.tease-jobad__link{height:100%;left:0;position:absolute;top:0;width:100%}.wk-block-jobads-archive{margin-top:clamp(48px,9.6px + 6vw,96px);margin-top:clamp(48px,9.6px + 6vi,96px)}:root{--gkt-color-brand:#2e1645;--gkt-color-dark-gray:#32373c;--gkt-color-light-gray:#f3f4f5;--gkt-color-light-gray-darken:#d7dbde;--gkt-color-primary:#0366d6;--gkt-color-success:#4ab866;--gkt-color-danger:#d94f4f;--gkt-color-warning:#f0b849;--gkt-color-info:#2ebef5;--gkt-border-radius:5px}.facetwp-facet{margin-bottom:40px}.facetwp-checkbox{background:url(https://physioswiss.ch/wp-content/plugins/facetwp/assets/images/checkbox.png) 0 50% no-repeat;background-size:14px 14px;margin-bottom:4px;padding-left:20px}.facetwp-display-value{padding-right:5px}.facetwp-hidden{display:none}.facetwp-slider-wrap{padding-bottom:15px}.facetwp-slider-reset{border:1px solid #d9d9d9;border-radius:3px;background:#fff;box-shadow:inset 0 0 1px #fff,inset 0 1px 7px #ebebeb,0 3px 6px -3px #bbb;padding:4px 8px}.facetwp-input-wrap{display:inline-block;position:relative}.facetwp-facet input.facetwp-search{margin:0;padding-right:30px;min-width:240px}.facetwp-icon{right:0;height:100%;line-height:1;position:absolute;opacity:.5}.facetwp-icon:before{display:inline-block;content:'';width:30px;height:100%;background:url(https://physioswiss.ch/wp-content/plugins/facetwp/assets/images/icon-search.png) no-repeat;background-position:5px 50%;background-size:20px 20px}.noUi-target,.noUi-target *{touch-action:none;box-sizing:border-box}.noUi-target{position:relative}.noUi-base,.noUi-connects{width:100%;height:100%;position:relative;z-index:1}.noUi-connects{overflow:hidden;z-index:0}.noUi-connect,.noUi-origin{will-change:transform;position:absolute;z-index:1;top:0;right:0;height:100%;width:100%;transform-origin:0 0;transform-style:flat}.noUi-horizontal .noUi-origin{height:0}.noUi-handle{backface-visibility:hidden;position:absolute}.noUi-touch-area{height:100%;width:100%}.noUi-horizontal{height:14px}.noUi-horizontal .noUi-handle{width:20px;height:20px;right:-10px;top:-4px}.noUi-target{background:#FAFAFA;border-radius:4px;border:1px solid #D3D3D3;padding:0 8px}.noUi-connects{border-radius:3px}.noUi-connect{background:#ddd}.noUi-handle{border:1px solid #D9D9D9;border-radius:3px;background:#FFF}.fs-wrap{width:220px;display:inline-block;position:relative;line-height:1}.fs-label-wrap{position:relative;background-color:#fff;border:1px solid #ddd}.fs-label-wrap .fs-label{padding:6px 22px 6px 8px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.fs-arrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #333;position:absolute;top:0;right:5px;bottom:0;margin:auto}.fs-dropdown{width:100%;position:absolute;background-color:#fff;border:1px solid #ddd;border-top:none;z-index:1000}.fs-dropdown .fs-options{max-height:200px;overflow:auto}.fs-search{background-color:#f8f8f8;padding:0 8px}.fs-wrap .fs-search input{border:none;box-shadow:none;background-color:transparent;outline:none;padding:0;width:100%}.fs-option,.fs-search{padding:6px 8px}.fs-option:last-child{border-bottom:none}.fs-no-results{padding:6px 8px}.fs-option{word-break:break-all}.fs-hidden{display:none}</style>
+	<link rel="canonical" href="https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/" />
+	<meta property="og:locale" content="de_DE" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="PhysiotherapeutIn (40 - 100%) für Zentrum in Wetzikon gesucht | Physioswiss" />
+	<meta property="og:description" content="Wir suchen Verstärkung für unser Team in Wetzikon" />
+	<meta property="og:url" content="https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/" />
+	<meta property="og:site_name" content="Physioswiss" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/","url":"https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/","name":"PhysiotherapeutIn (40 - 100%) für Zentrum in Wetzikon gesucht | Physioswiss","isPartOf":{"@id":"https://physioswiss.ch/#website"},"datePublished":"2024-10-08T07:10:23+00:00","dateModified":"2024-10-08T07:10:23+00:00","breadcrumb":{"@id":"https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/#breadcrumb"},"inLanguage":"de-CH","potentialAction":[{"@type":"ReadAction","target":["https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/"]}]},{"@type":"BreadcrumbList","@id":"https://physioswiss.ch/stelleninserate/82478/physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://physioswiss.ch/"},{"@type":"ListItem","position":2,"name":"PhysiotherapeutIn (40 &#8211; 100%) für Zentrum in Wetzikon gesucht"}]},{"@type":"WebSite","@id":"https://physioswiss.ch/#website","url":"https://physioswiss.ch/","name":"Physioswiss","description":"Wir engagieren uns für Sie.","publisher":{"@id":"https://physioswiss.ch/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://physioswiss.ch/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"de-CH"},{"@type":"Organization","@id":"https://physioswiss.ch/#organization","name":"Physioswiss","alternateName":"Physioswiss","url":"https://physioswiss.ch/","logo":{"@type":"ImageObject","inLanguage":"de-CH","@id":"https://physioswiss.ch/#/schema/logo/image/","url":"https://physioswiss.ch/wp-content/uploads/sites/1/logo-physio-swiss-1.svg","contentUrl":"https://physioswiss.ch/wp-content/uploads/sites/1/logo-physio-swiss-1.svg","width":213,"height":86,"caption":"Physioswiss"},"image":{"@id":"https://physioswiss.ch/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.google.com' />
+<style id='safe-svg-svg-icon-style-inline-css' type='text/css'>
+.safe-svg-cover{text-align:center}.safe-svg-cover .safe-svg-inside{display:inline-block;max-width:100%}.safe-svg-cover svg{height:100%;max-height:100%;max-width:100%;width:100%}
+
+</style>
+<style id='ghostkit-typography-inline-css' type='text/css'>
+ 
+</style>
+<link data-minify="1" rel='preload'  href='https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/sitepress-multilingual-cms/dist/css/blocks/styles.css?ver=1728475226' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"   media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='preload'  href='https://physioswiss.ch/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.min.css' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"   media='all' />
+<link rel='preload'  href='https://physioswiss.ch/wp-content/themes/physioswiss/dist/css/frontend.css' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"   media='all' />
+<link rel='preload'  href='https://physioswiss.ch/wp-content/themes/physioswiss/dist/css/shared.css' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"   media='all' />
+<link rel='preload'  href='https://physioswiss.ch/wp-content/themes/physioswiss/dist/blocks/block-styles-single-jobad.css' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"   media='all' />
+<script id="tocco-api-widget-styles-script">window.toccoTheme={"name":"wk-widget","colors":{"primary":"#213A8F","backgroundPanelHeaderFooter":"#FFF","primaryLight":"#4d61a5","secondary":"#fbbc43","secondaryLight":"#fcd07b","secondaryLighter":"#fddda1","success":"#1c9d5b","warning":"#d14040","backgroundBody":"#FFF"},"radii":{"button":"10px","buttonLarge":"10px","form":"10px","dashboard":0,"modal":"10px","menu":"10px","toaster":"10px"},"fontFamily":{"regular":"Roboto, sans-serif"},"fontWeights":{"regular":300,"bold":600}}</script><script id="tocco-api-widgets-script" src="https://tocco.physioswiss.ch/js/tocco-widget-utils/dist/tql.js" data-rocket-defer defer></script>		<script id="cookie-consent-cookie-script">
+			!function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});		</script>
+<meta name="generator" content="WPML ver:4.6.13 stt:4,3,27;" />
+		<style type="text/css">
+			.ghostkit-effects-enabled .ghostkit-effects-reveal {
+				pointer-events: none;
+				visibility: hidden;
+			}
+		</style>
+		<script type="rocketlazyloadscript">
+			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				document.documentElement.classList.add(
+					'ghostkit-effects-enabled'
+				);
+			}
+		</script>
+		<link rel="manifest" href="https://physioswiss.ch/wp-content/themes/physioswiss/manifest.json" crossorigin="use-credentials">	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<style id='wp-fonts-local' type='text/css'>
+@font-face{font-family:Inter;font-style:normal;font-weight:300 900;font-display:fallback;src:url('https://physioswiss.ch/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');font-stretch:normal;}
+@font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('https://physioswiss.ch/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}
+</style>
+<link rel="icon" href="https://physioswiss.ch/wp-content/uploads/sites/1/cropped-favicon-150x150-c-default.webp" sizes="32x32">
+<link rel="icon" href="https://physioswiss.ch/wp-content/uploads/sites/1/cropped-favicon-150x150-c-default.webp" sizes="192x192">
+<link rel="apple-touch-icon" href="https://physioswiss.ch/wp-content/uploads/sites/1/cropped-favicon-150x150-c-default.webp">
+<meta name="msapplication-TileImage" content="https://physioswiss.ch/wp-content/uploads/sites/1/cropped-favicon-150x150-c-default.webp">
+<script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>
+</head>
+
+	<body class="jobad-template-default single single-jobad postid-82478 wp-embed-responsive theme-physioswiss physiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht woocommerce-no-js no-js form-styling-active">
+		<script id="wk-font-script">!function(){"use strict";let e="https://physioswiss.ch/wp-content/themes/physioswiss/dist/css/fonts-v3.css";function t(e){return -1!==e.indexOf("404 Not Found")}function n(e){let t=document.createElement("style");t.innerHTML=e,document.getElementsByTagName("head")[0].appendChild(t)}!function s(){if(window.localStorage&&window.XMLHttpRequest){if(window.localStorage&&localStorage.font_css_cache&&!t(localStorage.font_css_cache)&&localStorage.font_css_cache_file===e)n(localStorage.font_css_cache);else{let c=new XMLHttpRequest;c.open("GET",e,!0);var a,o,l="load";a=c,o=function(){4===c.readyState&&(t(c.responseText)||""===c.responseText||200!==c.status?console.warn("Font CSS not found."):(n(c.responseText),localStorage.font_css_cache=c.responseText,localStorage.font_css_cache_file=e))},a.addEventListener?a.addEventListener(l,o,!1):a.attachEvent&&a.attachEvent("on"+l,o),c.send()}}else{let f=document.createElement("link");f.href=e,f.rel="stylesheet",f.type="text/css",document.getElementsByTagName("head")[0].appendChild(f),document.cookie="font_css_cache"}}()}();</script><noscript><link rel="stylesheet" href="https://physioswiss.ch/wp-content/themes/physioswiss/dist/css/fonts-v3.css"></noscript>
+		<div  class="page-wrapper js-page">
+							<header  class="header" data-scroll-lock-fill-gap>
+	<h1 class="visually-hidden">
+		Header
+	</h1>
+	
+<div  class="header-meta">
+	<div class="header-meta__container container">
+		<div class="header-meta__navigations">
+			<button class="site-navigation-toggle button has-beige-15-background-color "
+				data-bs-toggle="collapse"
+				type="button"
+				data-bs-target="#site-navigation"
+				aria-expanded="false"
+				data-search-close
+				data-close-navigation>
+				Kantonalverbände
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>			</button>
+			<nav class="meta-navigation d-none d-sm-block">
+				<ul class="meta-navigation__list list-unstyled">
+											<li class="meta-navigation__item">
+							<a class="meta-navigation__link no-underline" href="https://physioswiss.ch/mediencorner/" target="">
+								Mediencorner
+							</a>
+						</li>
+											<li class="meta-navigation__item">
+							<a class="meta-navigation__link no-underline" href="https://portal.physioswiss.ch/" target="_blank">
+								Inserate / Praxissuche verwalten
+							</a>
+						</li>
+											<li class="meta-navigation__item">
+							<a class="meta-navigation__link no-underline" href="https://physioswiss.ch/shop/" target="">
+								Shop
+							</a>
+						</li>
+									</ul>
+			</nav>
+		</div>
+		<div class="header-meta__actions">
+			
+		<nav class="language-switcher dropdown">
+		<button class="language-switcher__button dropdown-toggle d-flex align-items-center"
+			type="button"
+			id="language_switcher_button"
+			data-bs-toggle="dropdown"
+			aria-expanded="false">
+			<span class="language-switcher__current-language has-xxs-font-size">DE</span>
+			<figure class="language-switcher__chevron-wrapper d-flex justify-content-center align-items-center">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>			</figure>
+		</button>
+		<div class="dropdown-menu p-12" aria-labelledby="language_switcher_button">
+							<a href="https://physioswiss.ch/fr/stelleninserate/82479/physiotherapeutin-40-100-fur-zentrum-in-wetzikon-gesucht/" class="language-switcher__link no-underline has-xxs-font-size">FR</a>
+							<a href="https://physioswiss.ch/it/stelleninserate/82480/physiotherapeutin-40-100-fur-zentrum-in-wetzikon-gesucht/" class="language-switcher__link no-underline has-xxs-font-size">IT</a>
+					</div>
+	</nav>
+							<div class="header-meta__login">
+					<a class="header-meta__login-link no-underline" href="https://physioswiss.ch/anmelden/?maybe_redirect=https%3A%2F%2Fphysioswiss.ch%2Fstelleninserate%2F82478%2Fphysiotherapeutin-40-100-fuer-zentrum-in-wetzikon-gesucht%2F">Login</a>
+				</div>
+									<a class="header-meta__action header-meta__action--link no-underline" href="https://physioswiss.ch/warenkorb/">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5 22q-.824 0-1.412-.587A1.93 1.93 0 0 1 3 20V8q0-.824.587-1.412A1.93 1.93 0 0 1 5 6h2q0-2.075 1.463-3.537Q9.926 1 12 1q2.075 0 3.537 1.463Q17 3.925 17 6h2q.824 0 1.413.588Q21 7.175 21 8v12q0 .824-.587 1.413A1.93 1.93 0 0 1 19 22zm0-2h14V8H5zm7-6q2.075 0 3.537-1.463Q17 11.075 17 9h-2q0 1.25-.875 2.125A2.9 2.9 0 0 1 12 12a2.9 2.9 0 0 1-2.125-.875A2.9 2.9 0 0 1 9 9H7q0 2.075 1.463 3.537Q9.926 14 12 14M9 6h6q0-1.25-.875-2.125A2.9 2.9 0 0 0 12 3q-1.25 0-2.125.875A2.9 2.9 0 0 0 9 6"/></svg>							</a>
+						<button type="button"
+				class="header-meta__action header-meta__action--button"
+				aria-label="Suche anzeigen"
+				data-search-open
+				data-close-navigation>
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m19.6 21-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.887T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5a6.1 6.1 0 0 1-1.3 3.8l6.3 6.3zM9.5 14q1.875 0 3.188-1.312Q14 11.375 14 9.5t-1.312-3.187T9.5 5 6.313 6.313 5 9.5t1.313 3.188T9.5 14"/></svg>			</button>
+		</div>
+	</div>
+	<div class="site-navigation collapse" id="site-navigation" aria-hidden="true">
+		<div class="site-navigation__container container fs-py-48">
+			<div class="site-navigation__column site-navigation__column--left">
+				<h6 class="site-navigation__column-title">
+					Zentralverband
+				</h6>
+				<nav class="site-navigation__nav">
+					<ul class="site-navigation__list list-unstyled" name="site-navigation">
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline site-navigation__link--current" href="https://physioswiss.ch">
+									Physioswiss
+								</a>
+							</li>
+											</ul>
+				</nav>
+			</div>
+			<div class="site-navigation__column site-navigation__column--right">
+				<h6 class="site-navigation__column-title">
+					Kantonal-/Regionalverband
+				</h6>
+				<nav class="site-navigation__nav">
+					<ul class="site-navigation__list site-navigation__list--grid list-unstyled" name="site-navigation">
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/zh-gl/">
+									Zürich-Glarus
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/ag/">
+									Aargau
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/bb/">
+									beider Basel
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/be/">
+									Bern
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/fri/">
+									Freiburg
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/ge/">
+									Genf
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/gr/">
+									Graubünden
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/ju/">
+									Jura
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/ne/">
+									Neuenburg
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/sg-app/">
+									St. Gallen-Appenzell
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/sh-tg/">
+									Schaffhausen-Thurgau
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/so/">
+									Solothurn
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/ti/">
+									Tessin
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/vd/">
+									Waadt
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/vs/">
+									Wallis
+								</a>
+							</li>
+													<li class="site-navigation__item">
+								<a class="site-navigation__link no-underline "
+									href="https://physioswiss.ch/zs/">
+									Zentralschweiz
+								</a>
+							</li>
+											</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+	<div  class="header-wrapper container fs-py-16">
+		<div class="header-logo-wrapper">
+			<a class="header-logo no-underline" href="https://physioswiss.ch/" aria-label="Physioswiss">
+				<img alt="Physioswiss"  src="https://physioswiss.ch/wp-content/uploads/sites/1/logo-physio-swiss-cd-blue-213a8f.svg" width="188" height="76" loading="lazy" class="header-logo__image" />
+									<span class="visually-hidden">Physioswiss</span>
+											</a>
+			<button class="hamburger js-menu-toggle"
+				role="button"
+				type="button"
+				id="js-menu-toggle"
+				aria-expanded="false"
+				aria-controls="navigation-overlay"
+				data-search-close>
+				<span class="visually-hidden">Menü anzeigen/verstecken</span>
+				<span class="hamburger-icon hamburger-icon--open" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"/></svg></span>
+				<span class="hamburger-icon hamburger-icon--close" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z"/></svg></span>
+			</button>
+		</div>
+		
+<h2 class="visually-hidden">
+	Hauptnavigation
+</h2>
+<div class="header-navigation-wrapper d-xxl-none">
+	<div class="navigation-overlay" id="navigation-overlay" role="dialog" data-scroll-lock-scrollable data-scroll-lock-fill-gap>
+			<div class="mobile-navigation-wrapper" id="mobile-navigation-wrapper">
+				<nav id="mobile-navigation"
+			class="mobile-navigation js-navigation"
+			role="navigation"
+			aria-label="Primärnavigation"
+			itemscope
+			itemtype="http://schema.org/SiteNavigationElement">
+			<menu class="mobile-navigation__list list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-custom menu-item-object-custom menu-item-110 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+						<span  class="mobile-navigation__link mobile-navigation__link--level-1">
+			Wissen
+		</span>
+	
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Wissen anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-114 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/tarif/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Tarif
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Tarif anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-13679">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/tarif/krankenversicherung/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Krankenversicherung
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-116">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/tarif/unfallversicherung/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Unfallversicherung
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-117">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/tarif/pvk-paritaetische-vertrauenskommission/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Paritätische Vertrauenskommission (PVK)
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-118">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/tarif/tarifanwendung-gut-zu-wissen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Tarife richtig anwenden
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-493">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/tarif/kantonale-neuzulassung-zur-abrechnung-zulasten-der-obligatorischen-krankenversicherung/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Kantonale Neuzulassung (OKP)
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-119">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/tarif/tarif-browser/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Tarif-Browser
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-123 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/profession/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Profession
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Profession anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-124">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/berufsbild-physiotherapie/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Der Beruf Physiotherapeut:in
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-126">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/weiterbildung/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Weiterbildung
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-486">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/diplomanerkennung/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Diplomanerkennung und NTE
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-13542">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/selbststandigkeit/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Selbstständigkeit
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-489">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/kompetenzpool/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Kompetenzpool
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-490">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/fachgruppe-der-physiotherapie/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Fachgruppen der Physiotherapie
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-13164">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/patienteninformation/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Patienteninformationen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-495">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/profession/smarter-medicine/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Smarter Medicine
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-120 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/qualitaet/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Qualität
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Qualität anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-122">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/qualitaet/grundlagen-qualitaet/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Grundlagen Qualität
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-14725">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/gesetzliche-rahmenbedingungen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Gesetzliche Rahmenbedingungen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-13496">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/qualitaet/qualitaetsmassnahmen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Qualitätsmassnahmen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-121">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/qualitaet/cirs-meldesystem/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				CIRS-Meldesystem von Physioswiss
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-492">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/qualitaet/qualitaetszirkel/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Qualitätszirkel
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-custom menu-item-object-custom menu-item-111 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+						<span  class="mobile-navigation__link mobile-navigation__link--level-1">
+			Dienstleistungen
+		</span>
+	
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Dienstleistungen anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-498 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Für Physiotherapeut:innen
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Für Physiotherapeut:innen anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-502">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/kurse-und-veranstaltungen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Kurse und Veranstaltungen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-503">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/physioswiss-kurse/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Physioswiss-Kurse
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-500">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/physioswiss-punkte/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Physioswiss-Punkte
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1296">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/stelleninserate/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Stellenbörse
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-562">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/kleininserate/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Kleininserate
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-14582">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/praxissuche_mg/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Praxissuche
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-499">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/verbandsmagazin-physioactive/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Verbandsmagazin Physioactive
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-497">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/verordnungsformular/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Verordnungsformular
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-505 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/fuer-inserentinnen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Für Inserent:innen
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Für Inserent:innen anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-14909">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/werbeplattformen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Werbeplattformen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-507">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-inserentinnen/inserieren/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Inserieren
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-561">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/fuer-inserentinnen/inserieren-physioactive/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Inserieren Physioactive
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-custom menu-item-object-custom menu-item-112 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+						<span  class="mobile-navigation__link mobile-navigation__link--level-1">
+			Über Physioswiss
+		</span>
+	
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Über Physioswiss anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-13338 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/ueber-uns/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Über uns
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Über uns anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-535">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/ueber-uns/grundlagen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Grundlagen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-17522">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/organisation/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Organisation
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-530">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/news/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				News
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-538">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/ueber-uns/verbandsanlaesse/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Verbandsanlässe
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-540">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/ueber-uns/partnerschaften/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Partnerschaften und Vernetzungen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-541">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/ueber-uns/jobs-karriere/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Jobs/Karriere
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-543">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/ueber-uns/kontakt/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Kontakt
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-14665 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/mitgliedschaft/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Mitgliedschaft
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Mitgliedschaft anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-537">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/mitgliedschaft/mitgliedschaft-im-detail/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Mitgliedschaft im Detail
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-14631">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/mitgliedschaft/vorteile/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Vorteile der Mitgliedschaft
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-539 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/engagement-projekte/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Engagement / Projekte
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Engagement / Projekte anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-550">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/engagement-projekte/forschung-foerderpreis/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Forschung
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-548">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/engagement-projekte/studien/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Studien
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-551 menu-item-has-children has-children">
+					<span class="mobile-navigation__item-wrap">
+											<a href="https://physioswiss.ch/politik/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-2">
+				Politik
+			</a>
+			
+								<button class="mobile-navigation__menu-toggle js-menu-caret" type="button" role="button" aria-label="Submenü zu Politik anzeigen">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg>				</button>
+			</span>
+			<menu class="sub-menu list-unstyled">
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-11180">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/politik/parlamentarische-gruppe/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Parlamentarische Gruppe
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-554">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/politik/vernehmlassungen/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Vernehmlassungen
+			</a>
+			</span>
+			</li>
+										<li class="mobile-navigation__item  menu-item menu-item-type-post_type menu-item-object-page menu-item-12228">
+					<span class="mobile-navigation__item-wrap">							<a href="https://physioswiss.ch/politik/tarifeingriff/"
+				target=""
+				
+				class="mobile-navigation__link mobile-navigation__link--level-3">
+				Tarifeingriff
+			</a>
+			</span>
+			</li>
+							</menu>
+			</li>
+							</menu>
+			</li>
+							</menu>
+		</nav>
+	</div>
+		<div class="navigation-overlay__meta">
+			<nav class="meta-navigation d-sm-none">
+				<ul class="meta-navigation__list list-unstyled">
+											<li class="meta-navigation__item">
+							<a class="meta-navigation__link no-underline" href="https://physioswiss.ch/mediencorner/" target="">
+								Mediencorner
+							</a>
+						</li>
+											<li class="meta-navigation__item">
+							<a class="meta-navigation__link no-underline" href="https://portal.physioswiss.ch/" target="_blank">
+								Inserate / Praxissuche verwalten
+							</a>
+						</li>
+											<li class="meta-navigation__item">
+							<a class="meta-navigation__link no-underline" href="https://physioswiss.ch/shop/" target="">
+								Shop
+							</a>
+						</li>
+									</ul>
+			</nav>
+			<div class="header-buttons d-xxl-none">
+														<a href="https://physioswiss.ch/praxissuche/" class="button button--primary">Praxissuche</a>
+														<a href="https://physioswiss.ch/mitgliedschaft/mitgliedschaft-im-detail/" class="button button--primary">Mitglied werden</a>
+							</div>
+		</div>
+	</div>
+	<div class="navigation-overlay__overlay" data-a11y-dialog-hide></div>
+</div>
+		<div class="desktop-navigation d-none d-xxl-block">
+	<div class="desktop-navigation__toggles">
+					<button type="button"
+				class="desktop-navigation__toggle"
+				aria-controls="wissen-2"
+				aria-expanded="false"
+				data-dialog="wissen-2"
+				data-search-close>
+				Wissen
+			</button>
+					<button type="button"
+				class="desktop-navigation__toggle"
+				aria-controls="dienstleistungen-2"
+				aria-expanded="false"
+				data-dialog="dienstleistungen-2"
+				data-search-close>
+				Dienstleistungen
+			</button>
+					<button type="button"
+				class="desktop-navigation__toggle"
+				aria-controls="ueber-physioswiss-2"
+				aria-expanded="false"
+				data-dialog="ueber-physioswiss-2"
+				data-search-close>
+				Über Physioswiss
+			</button>
+			</div>
+										<div class="desktop-navigation__dialog" aria-hidden="true" id="wissen-2">
+			<div class="desktop-navigation__menu-wrapper fs-py-48">
+				<div class="desktop-navigation__menu-grid container ">
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/tarif/" class="desktop-navigation__link">Tarif</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/tarif/krankenversicherung/" class="desktop-navigation__sub-link">Krankenversicherung</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/tarif/unfallversicherung/" class="desktop-navigation__sub-link">Unfallversicherung</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/tarif/pvk-paritaetische-vertrauenskommission/" class="desktop-navigation__sub-link">Paritätische Vertrauenskommission (PVK)</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/tarif/tarifanwendung-gut-zu-wissen/" class="desktop-navigation__sub-link">Tarife richtig anwenden</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/tarif/kantonale-neuzulassung-zur-abrechnung-zulasten-der-obligatorischen-krankenversicherung/" class="desktop-navigation__sub-link">Kantonale Neuzulassung (OKP)</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/tarif/tarif-browser/" class="desktop-navigation__sub-link">Tarif-Browser</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/profession/" class="desktop-navigation__link">Profession</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/berufsbild-physiotherapie/" class="desktop-navigation__sub-link">Der Beruf Physiotherapeut:in</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/weiterbildung/" class="desktop-navigation__sub-link">Weiterbildung</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/diplomanerkennung/" class="desktop-navigation__sub-link">Diplomanerkennung und NTE</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/selbststandigkeit/" class="desktop-navigation__sub-link">Selbstständigkeit</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/kompetenzpool/" class="desktop-navigation__sub-link">Kompetenzpool</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/fachgruppe-der-physiotherapie/" class="desktop-navigation__sub-link">Fachgruppen der Physiotherapie</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/patienteninformation/" class="desktop-navigation__sub-link">Patienteninformationen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/profession/smarter-medicine/" class="desktop-navigation__sub-link">Smarter Medicine</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/qualitaet/" class="desktop-navigation__link">Qualität</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/qualitaet/grundlagen-qualitaet/" class="desktop-navigation__sub-link">Grundlagen Qualität</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/gesetzliche-rahmenbedingungen/" class="desktop-navigation__sub-link">Gesetzliche Rahmenbedingungen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/qualitaet/qualitaetsmassnahmen/" class="desktop-navigation__sub-link">Qualitätsmassnahmen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/qualitaet/cirs-meldesystem/" class="desktop-navigation__sub-link">CIRS-Meldesystem von Physioswiss</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/qualitaet/qualitaetszirkel/" class="desktop-navigation__sub-link">Qualitätszirkel</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+									</div>
+			</div>
+			<div class="desktop-navigation__dialog-background" aria-hidden="true"></div>
+			<div class="desktop-navigation__dialog-background desktop-navigation__dialog-background--gradient" aria-hidden="true"></div>
+			<div class="desktop-navigation__overlay" aria-hidden="true"></div>
+			<button class="desktop-navigation__close" type="button" data-a11y-dialog-close>
+				<span class="desktop-navigation__close-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z"/></svg></span>
+				<span class="visually-hidden">Menü schliessen</span>
+			</button>
+		</div>
+										<div class="desktop-navigation__dialog" aria-hidden="true" id="dienstleistungen-2">
+			<div class="desktop-navigation__menu-wrapper fs-py-48">
+				<div class="desktop-navigation__menu-grid container ">
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/" class="desktop-navigation__link">Für Physiotherapeut:innen</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/kurse-und-veranstaltungen/" class="desktop-navigation__sub-link">Kurse und Veranstaltungen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/physioswiss-kurse/" class="desktop-navigation__sub-link">Physioswiss-Kurse</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/physioswiss-punkte/" class="desktop-navigation__sub-link">Physioswiss-Punkte</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/stelleninserate/" class="desktop-navigation__sub-link">Stellenbörse</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/kleininserate/" class="desktop-navigation__sub-link">Kleininserate</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/praxissuche_mg/" class="desktop-navigation__sub-link">Praxissuche</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/verbandsmagazin-physioactive/" class="desktop-navigation__sub-link">Verbandsmagazin Physioactive</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-physiotherapeutinnen/verordnungsformular/" class="desktop-navigation__sub-link">Verordnungsformular</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/fuer-inserentinnen/" class="desktop-navigation__link">Für Inserent:innen</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/werbeplattformen/" class="desktop-navigation__sub-link">Werbeplattformen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-inserentinnen/inserieren/" class="desktop-navigation__sub-link">Inserieren</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/fuer-inserentinnen/inserieren-physioactive/" class="desktop-navigation__sub-link">Inserieren Physioactive</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+									</div>
+			</div>
+			<div class="desktop-navigation__dialog-background" aria-hidden="true"></div>
+			<div class="desktop-navigation__dialog-background desktop-navigation__dialog-background--gradient" aria-hidden="true"></div>
+			<div class="desktop-navigation__overlay" aria-hidden="true"></div>
+			<button class="desktop-navigation__close" type="button" data-a11y-dialog-close>
+				<span class="desktop-navigation__close-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z"/></svg></span>
+				<span class="visually-hidden">Menü schliessen</span>
+			</button>
+		</div>
+										<div class="desktop-navigation__dialog" aria-hidden="true" id="ueber-physioswiss-2">
+			<div class="desktop-navigation__menu-wrapper fs-py-48">
+				<div class="desktop-navigation__menu-grid container desktop-navigation__menu-grid--wide">
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/ueber-uns/" class="desktop-navigation__link">Über uns</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/ueber-uns/grundlagen/" class="desktop-navigation__sub-link">Grundlagen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/organisation/" class="desktop-navigation__sub-link">Organisation</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/news/" class="desktop-navigation__sub-link">News</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/ueber-uns/verbandsanlaesse/" class="desktop-navigation__sub-link">Verbandsanlässe</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/ueber-uns/partnerschaften/" class="desktop-navigation__sub-link">Partnerschaften und Vernetzungen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/ueber-uns/jobs-karriere/" class="desktop-navigation__sub-link">Jobs/Karriere</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/ueber-uns/kontakt/" class="desktop-navigation__sub-link">Kontakt</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/mitgliedschaft/" class="desktop-navigation__link">Mitgliedschaft</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/mitgliedschaft/mitgliedschaft-im-detail/" class="desktop-navigation__sub-link">Mitgliedschaft im Detail</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/mitgliedschaft/vorteile/" class="desktop-navigation__sub-link">Vorteile der Mitgliedschaft</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/engagement-projekte/" class="desktop-navigation__link">Engagement / Projekte</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/engagement-projekte/forschung-foerderpreis/" class="desktop-navigation__sub-link">Forschung</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/engagement-projekte/studien/" class="desktop-navigation__sub-link">Studien</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+											<menu class="desktop-navigation__menu list-unstyled">
+							<li class="desktop-navigation__item">
+																	<a href="https://physioswiss.ch/politik/" class="desktop-navigation__link">Politik</a>
+																									<menu class="desktop-navigation__sub-menu list-unstyled">
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/politik/parlamentarische-gruppe/" class="desktop-navigation__sub-link">Parlamentarische Gruppe</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/politik/vernehmlassungen/" class="desktop-navigation__sub-link">Vernehmlassungen</a>
+																							</li>
+																					<li class="desktop-navigation__sub-item">
+																									<a href="https://physioswiss.ch/politik/tarifeingriff/" class="desktop-navigation__sub-link">Tarifeingriff</a>
+																							</li>
+																			</menu>
+															</li>
+						</menu>
+									</div>
+			</div>
+			<div class="desktop-navigation__dialog-background" aria-hidden="true"></div>
+			<div class="desktop-navigation__dialog-background desktop-navigation__dialog-background--gradient" aria-hidden="true"></div>
+			<div class="desktop-navigation__overlay" aria-hidden="true"></div>
+			<button class="desktop-navigation__close" type="button" data-a11y-dialog-close>
+				<span class="desktop-navigation__close-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z"/></svg></span>
+				<span class="visually-hidden">Menü schliessen</span>
+			</button>
+		</div>
+	</div>
+<div class="header-buttons d-none d-xxl-inline-flex">
+					<a href="https://physioswiss.ch/praxissuche/" class="button button--primary">Praxissuche</a>
+					<a href="https://physioswiss.ch/mitgliedschaft/mitgliedschaft-im-detail/" class="button button--primary">Mitglied werden</a>
+	</div>
+	</div>
+	<div  class="search-overlay-wrapper" tabindex="-1">
+	<div class="search-overlay">
+		<h2 class="visually-hidden">
+			Suche
+		</h2>
+		<div class="search-overlay__container container container--boxed fs-mb-64 fs-mt-48">
+			<form method="get" class="search-form search-overlay__form" action="https://physioswiss.ch" data-search-form>
+				<div class="search-box-wrapper">
+					<span class="search-icon fs-ms-24 p-4" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m19.6 21-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.887T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5a6.1 6.1 0 0 1-1.3 3.8l6.3 6.3zM9.5 14q1.875 0 3.188-1.312Q14 11.375 14 9.5t-1.312-3.187T9.5 5 6.313 6.313 5 9.5t1.313 3.188T9.5 14"/></svg></span>
+										<input type="text"
+						class="search-form__field search-overlay__input fs-py-16 ps-48 ps-md-64 fs-pe-md-16 p"
+						name="s"
+						value=""
+						id="s"
+						placeholder="Suchbegriff eingeben"
+						data-search-input />
+					<button class="enter-icon fs-me-24 p-4" data-search-enter>
+						<span class="visually-hidden">Suche starten</span>
+						<span aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M16.175 13H4v-2h12.175l-5.6-5.6L12 4l8 8-8 8-1.425-1.4z"/></svg></span>
+					</button>
+				</div>
+			</form>
+			<button class="close-search" aria-hidden="true" data-search-close><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z"/></svg></button>
+		</div>
+	</div>
+</div>
+</header>
+						<main  class="content-wrapper">
+					<div  class="single-jobad__page-header mb-96">
+		<div class="single-jobad__page-header__container container pb-md-160">
+			<div class="breadcrumbs fs-mt-32 mb-8 p-md-8">
+				<span><span><a href="https://physioswiss.ch/">Home</a></span> <svg width="24" height="24" class="breadcrumbs__separator" viewBox="0 0 24 24" fill="currentColor"><path d="M12.6 12L8 7.4L9.4 6L15.4 12L9.4 18L8 16.6L12.6 12Z" /></svg> <span><a href="https://physioswiss.ch/stelleninserate/">Stellenbörse</a></span> <svg width="24" height="24" class="breadcrumbs__separator" viewBox="0 0 24 24" fill="currentColor"><path d="M12.6 12L8 7.4L9.4 6L15.4 12L9.4 18L8 16.6L12.6 12Z" /></svg> <span class="breadcrumb_last" aria-current="page">PhysiotherapeutIn (40 &#8211; 100%) für Zentrum in Wetzikon gesucht</span></span>
+			</div>
+			<div class="row mt-32">
+				<div class="single-jobad__page-header__column col-12 col-md-6 col-lg-7">
+											<a href="https://physioswiss.ch/stelleninserate/" class="single-jobad__page-header__back-to-overview button has-icon-left is-style-button-s fs-mb-64">
+							Zurück zur Übersicht
+						</a>
+										<div class="single-jobad__page-header__meta-wrapper d-flex flex-wrap fs-mb-32">
+													<p class="single-jobad__page-header__code has-s-font-size m-0">
+								Nr. J-500066
+							</p>
+												<p class="single-jobad__page-header__date has-s-font-size m-0">
+							<time datetime="2024-10-09">
+								9. Oktober 2024
+							</time>
+						</p>
+					</div>
+					<h1 class="single-jobad__page-header__title fs-mb-32 mb-md-48 mt-0">
+						PhysiotherapeutIn (40 &#8211; 100%) für Zentrum in Wetzikon gesucht
+					</h1>
+											<p class="single-jobad__page-header__post-excerpt is-style-lead fs-mb-32 mb-md-48">
+							Wir suchen Verstärkung für unser Team in Wetzikon
+						</p>
+										<div class="single-jobad__page-header__tag-wrapper d-flex align-items-center flex-wrap fs-mb-32 mb-md-48">
+																					<span class="tag d-flex align-items-center  has-xs-font-size">
+			<span class="tag__icon-wrapper d-flex justify-content-center align-items-center" aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 22q-2.7 0-4.6-1.9T7 15.5v-.575q-2.15-.35-3.575-2.013T2 9V3h3V2h2v4H5V5H4v4q0 1.65 1.175 2.825T8 13c1.65 0 2.042-.392 2.825-1.175Q12 10.65 12 9V5h-1v1H9V2h2v1h3v6q0 2.25-1.425 3.912Q11.15 14.575 9 14.925v.575q0 1.875 1.313 3.188Q11.625 20 13.5 20t3.188-1.313C18.001 17.374 18 16.75 18 15.5v-1.675a2.9 2.9 0 0 1-1.438-1.075A2.9 2.9 0 0 1 16 11q0-1.25.875-2.125A2.9 2.9 0 0 1 19 8q1.25 0 2.125.875C22 9.75 22 10.167 22 11q0 .975-.563 1.75A2.9 2.9 0 0 1 20 13.825V15.5q0 2.7-1.9 4.6T13.5 22M19 12a.97.97 0 0 0 .712-.287A.97.97 0 0 0 20 11a.97.97 0 0 0-.288-.713A.97.97 0 0 0 19 10a.97.97 0 0 0-.712.287A.97.97 0 0 0 18 11q0 .424.288.713A.97.97 0 0 0 19 12"/></svg></span>
+		Allgemeine Physiotherapie
+</span>
+																																		<span class="tag d-flex align-items-center  has-xs-font-size">
+			<span class="tag__icon-wrapper d-flex justify-content-center align-items-center" aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12q.825 0 1.412-.588Q14 10.825 14 10t-.588-1.412A1.93 1.93 0 0 0 12 8q-.825 0-1.412.588A1.93 1.93 0 0 0 10 10q0 .825.588 1.412Q11.175 12 12 12m0 7.35q3.05-2.8 4.525-5.088Q18 11.975 18 10.2q0-2.725-1.738-4.462Q14.525 4 12 4T7.737 5.737Q6.001 7.475 6 10.2q0 1.775 1.475 4.063Q8.95 16.549 12 19.35M12 22q-4.025-3.425-6.013-6.363Q4 12.701 4 10.2q0-3.75 2.412-5.975T12 2c3.175 0 3.98.742 5.587 2.225Q20.001 6.45 20 10.2q0 2.5-1.988 5.438Q16.025 18.574 12 22"/></svg></span>
+		Wetzikon, Zürich / Schaffhausen
+</span>
+																										<span class="tag d-flex align-items-center  has-xs-font-size">
+			<span class="tag__icon-wrapper d-flex justify-content-center align-items-center" aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12q-1.65 0-2.825-1.175T8 8c0-1.65.392-2.042 1.175-2.825Q10.35 4 12 4c1.65 0 2.042.392 2.825 1.175Q16 6.35 16 8c0 1.65-.392 2.042-1.175 2.825Q13.65 12 12 12m-8 8v-2.8q0-.85.438-1.563A2.9 2.9 0 0 1 5.6 14.55a14.8 14.8 0 0 1 3.15-1.163A13.8 13.8 0 0 1 12 13q1.65 0 3.25.387 1.6.388 3.15 1.163.724.375 1.163 1.087Q20 16.35 20 17.2V20zm2-2h12v-.8a.97.97 0 0 0-.5-.85q-1.35-.675-2.725-1.012a11.6 11.6 0 0 0-5.55 0Q7.85 15.675 6.5 16.35a.97.97 0 0 0-.5.85zm6-8q.825 0 1.412-.588Q14 8.825 14 8q0-.824-.588-1.412A1.93 1.93 0 0 0 12 6q-.825 0-1.412.588A1.93 1.93 0 0 0 10 8q0 .825.588 1.412Q11.175 10 12 10"/></svg></span>
+		Mitarbeit
+</span>
+																			<span class="tag d-flex align-items-center  has-xs-font-size">
+			<span class="tag__icon-wrapper d-flex justify-content-center align-items-center" aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5.85 17.1q1.275-.975 2.85-1.538A9.7 9.7 0 0 1 12 15q1.725 0 3.3.563 1.575.561 2.85 1.537a7.7 7.7 0 0 0 1.363-2.325A7.8 7.8 0 0 0 20 12q0-3.325-2.337-5.662Q15.325 4 12 4c-3.325 0-4.104.78-5.662 2.338Q4 8.675 4 12q0 1.474.487 2.775A7.7 7.7 0 0 0 5.85 17.1M12 13q-1.475 0-2.488-1.012T8.5 9.5t1.012-2.487Q10.526 6 12 6q1.475 0 2.488 1.013T15.5 9.5t-1.012 2.488Q13.475 13 12 13m0 9a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12a9.7 9.7 0 0 1 .788-3.9 10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2a9.7 9.7 0 0 1 3.9.788 10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12a9.7 9.7 0 0 1-.788 3.9 10.1 10.1 0 0 1-2.137 3.175q-1.35 1.35-3.175 2.137A9.7 9.7 0 0 1 12 22m0-2a8 8 0 0 0 2.5-.387 7.5 7.5 0 0 0 2.15-1.113 7.5 7.5 0 0 0-2.15-1.113A8 8 0 0 0 12 17a8 8 0 0 0-2.5.387A7.5 7.5 0 0 0 7.35 18.5a7.5 7.5 0 0 0 2.15 1.113A8 8 0 0 0 12 20m0-9q.65 0 1.075-.425T13.5 9.5t-.425-1.075T12 8t-1.075.425T10.5 9.5t.425 1.075T12 11"/></svg></span>
+		Festanstellung
+</span>
+																			<span class="tag d-flex align-items-center  has-xs-font-size">
+			<span class="tag__icon-wrapper d-flex justify-content-center align-items-center" aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4zM12 22a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12a9.7 9.7 0 0 1 .788-3.9 10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2a9.7 9.7 0 0 1 3.9.788 10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12a9.7 9.7 0 0 1-.788 3.9 10.1 10.1 0 0 1-2.137 3.175q-1.35 1.35-3.175 2.137A9.7 9.7 0 0 1 12 22m0-2q3.325 0 5.663-2.337Q19.999 15.325 20 12c.001-3.325-.78-4.104-2.337-5.662Q15.325 4 12 4c-3.325 0-4.104.78-5.662 2.338Q4 8.675 4 12c0 3.325.78 4.104 2.338 5.663Q8.675 19.999 12 20"/></svg></span>
+		40–100%
+</span>
+																			<span class="tag d-flex align-items-center  has-xs-font-size">
+			<span class="tag__icon-wrapper d-flex justify-content-center align-items-center" aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5 22q-.824 0-1.413-.587A1.93 1.93 0 0 1 3 20V6q0-.824.587-1.412A1.93 1.93 0 0 1 5 4h1V2h2v2h8V2h2v2h1q.824 0 1.413.588Q21 5.175 21 6v14q0 .824-.587 1.413A1.93 1.93 0 0 1 19 22zm0-2h14V10H5zM5 8h14V6H5zm7 6a.97.97 0 0 1-.713-.287A.97.97 0 0 1 11 13q0-.424.287-.713A.97.97 0 0 1 12 12q.424 0 .713.287.287.288.287.713c0 .425-.096.52-.287.713A.97.97 0 0 1 12 14m-4 0a.97.97 0 0 1-.713-.287A.97.97 0 0 1 7 13q0-.424.287-.713A.97.97 0 0 1 8 12q.424 0 .713.287Q9 12.575 9 13c0 .425-.096.52-.287.713A.97.97 0 0 1 8 14m8 0a.97.97 0 0 1-.713-.287A.97.97 0 0 1 15 13q0-.424.287-.713A.97.97 0 0 1 16 12a.97.97 0 0 1 .712.287Q17 12.575 17 13c0 .425-.096.52-.288.713A.97.97 0 0 1 16 14m-4 4a.97.97 0 0 1-.713-.288A.97.97 0 0 1 11 17a.97.97 0 0 1 .287-.712A.97.97 0 0 1 12 16a.97.97 0 0 1 .713.288Q13 16.575 13 17c0 .425-.096.52-.287.712A.97.97 0 0 1 12 18m-4 0a.97.97 0 0 1-.713-.288A.97.97 0 0 1 7 17a.97.97 0 0 1 .287-.712A.97.97 0 0 1 8 16a.97.97 0 0 1 .713.288Q9 16.575 9 17c0 .425-.096.52-.287.712A.97.97 0 0 1 8 18m8 0a.97.97 0 0 1-.713-.288A.97.97 0 0 1 15 17a.97.97 0 0 1 .287-.712A.97.97 0 0 1 16 16q.424 0 .712.288.288.287.288.712c0 .425-.096.52-.288.712A.97.97 0 0 1 16 18"/></svg></span>
+		Stellenantritt: Sofort
+</span>
+											</div>
+					<h2 class="single-jobad__page-header__specializations-heading h6 mb-12 mb-md-24">
+						Spezialleistungen
+					</h2>
+					<div class="single-jobad__page-header__tag-wrapper d-flex align-items-center flex-wrap fs-mb-128">
+																					<span class="tag d-flex align-items-center  has-xs-font-size">
+		Heimbehandlung
+</span>
+															<span class="tag d-flex align-items-center  has-xs-font-size">
+		Medizinische Trainingstherapie (MTT)
+</span>
+																		</div>
+				</div>
+				<div class="single-jobad__page-header__column col-12 col-md-6 col-lg-4 offset-lg-1">
+					<div class="single-jobad__page-header__box p-32 p-md-48 mt-32 mt-md-0">
+												<h2 class="single-jobad__page-header__box-title h4 fs-mb-32">
+							Kontaktangaben
+						</h2>
+						<address class="single-jobad__page-header__contact d-flex flex-column fs-mb-32">
+															<b>
+									Frau Maike Steinhoff
+								</b>
+																																				<a href="mailto:jobs@physiozentrum.ch?subject=J-500066"
+									target="_blank"
+									class="single-jobad__page-header__email">
+									jobs@physiozentrum.ch
+								</a>
+													</address>
+						<address class="single-jobad__page-header__address fs-mb-32">
+							<b>Arbeitgeber</b><br />
+															Physiozentrum – Wetzikon<br />
+																													Kirchgasse 4<br />
+																						8620 Wetzikon<br />
+																						<a href="https://www.physiozentrum.ch/wetzikon/"
+									target="_blank"
+									class="single-jobad__page-header__website mt-16 mt-md-8 d-inline-block">
+									Website
+								</a>
+													</address>
+																			<a href="https://www.physiozentrum.ch/jobs/"
+								target="_blank"
+								class="single-jobad__page-header__job-description-pdf button is-style-button-s mt-32">
+								zum Stellenbeschrieb
+							</a>
+											</div>
+				</div>
+			</div>
+		</div>
+		<span class="single-jobad__page-header__mask" aria-hidden="true"><svg width="375" height="1488" fill="currentColor" viewBox="0 0 375 1488"><path d="M0 0h375v1488c-83.72-11.93-131.9-19.79-214.32-15.98-69.87 3.24-105.2 6.67-160.68 15.98z"/></svg></span>
+	</div>
+	<div  class="single-jobad__content container container--boxed">
+		<h2 class="fs-mb-32">
+			Stellenbezeichnung
+		</h2>
+		<p><em>Wir vom Physiozentrum wollen den Menschen die Schmerzen nehmen und Lebensqualität zurückgeben. Dazu nutzen wir das gesamte Spektrum der Physiotherapie sowie Massagen und medizinisches Training. Schlüssel zu einer hohen Qualität sind starke Teams mit Mitarbeitern, die sich laufend weiterentwickeln. </em></p>
+
+<p>Du legst Wert auf gute Arbeitsbedingungen, magst die Abwechslung im Alltag und möchtest den fachlichen und kollegialen Rückhalt eines starken Teams nicht missen? Bleib dran, mit dieser Stelle hast du vielleicht gefunden, was du suchst!</p>
+
+<p>Zur Verstärkung unseres Teams suchen wir per sofort&nbsp;oder nach Vereinbarung eineN</p>
+
+<p><strong>PhysiotherapeutIn (40&nbsp;– 100%)</strong></p>
+
+<p>Arbeitsort: Kirchgasse 4, 8620 Wetzikon</p>
+
+<p><strong>Wir bieten dir viel:</strong></p>
+
+<ul>
+	<li>regelmässige Supervisionen mit deinem Zentrumsleiter</li>
+	<li>tolles Team: ZentrumsleiterIn (packt selbst als Physio mit an), Physios mit verschiedenen Spezialisierungen, Med. MasseurIn, Praxisassistentin (löst für dich fast alle Probleme)</li>
+	<li>moderne Infrastruktur: tolle Praxis, eigener geschlossener Therapieraum, grosser MTT-Bereich</li>
+	<li>Teilnahme an den Kursen der <a href="https://www.physioacademy.ch" rel="noopener" target="_blank">Physio Academy</a> und Weiterbildungszuschuss</li>
+	<li>5 Wochen Ferien und 1 Woche Weiterbildungsurlaub</li>
+	<li>sehr guter Lohn</li>
+</ul>
+
+<p><strong>Was wir von dir erwarten:</strong></p>
+
+<ul>
+	<li>du bist gut ausgebildet (Abschluss als PhysiotherapeutIn B.Sc.)</li>
+	<li>du ruhst dich nicht auf deinem soliden Fachwissen aus, sondern willst besser werden</li>
+	<li>du bist bereit, zusätzliche Weiterbildungen zu absolvieren, und bringst bestenfalls bereits eine Zusatzspezialisierung in einem Teilbereich der Physiotherapie mit</li>
+	<li>du bist ein Teamplayer und dir ist Harmonie am Arbeitsplatz wichtig</li>
+	<li>du nimmst deine Patienten mit ihren Beschwerden ernst und willst, dass sie gesund werden und bleiben</li>
+	<li>du legst Wert auf eine gute, digitale Dokumentation</li>
+</ul>
+
+<p>Deine künftigen Kolleginnen und Kollegen kennen noch viel mehr gute Gründe, warum du für uns arbeiten solltest. Das Video mit den wichtigsten Argumenten findest du auf unserer Jobplattform&nbsp;<a href="http://www.physiozentrum.ch/jobs/">www.physiozentrum.ch/jobs/</a>.</p>
+
+<p>Wir freuen uns auf Ihre Bewerbung. Senden Sie Ihre vollständigen Unterlagen bitte an <a href="mailto:jobs@physiozentrum.ch">jobs@physiozentrum.ch</a>.&nbsp;Für weitere Informationen oder Fragen zur Stelle erreichst du Maike Steinhoff, Leiterin Recruiting, unter +41 78 480 93 09.</p>
+		<div class="single-jobad__employer-box py-32 py-md-64 px-32 px-md-48 mt-48 mt-md-64">
+			<h3 class="h4 fs-mb-32">
+				Ihr Arbeitgeber
+			</h3>
+							<p class="mb-0">
+											<b>Physiozentrum – Wetzikon</b><br />
+																<p>Das Physiozentrum in Wetzikon wurde im Juni 2012&nbsp;eröffnet. Es bietet u.a.:</p>
+
+<ul>
+	<li>zentrale Lage&nbsp;</li>
+	<li>360&nbsp;Quadratmeter (9&nbsp;geschlossene Behandlungsräume, grosszügiges MTT)</li>
+	<li>perfekt auf die Bedürfnisse von Physios abgestimmte Infrastruktur</li>
+	<li>wenige Minuten zu den Bahnhöfen Wetzikon und Kempten, einige Schritte zur Bushaltestelle</li>
+</ul>
+
+<p>Die Grundzutaten unsereres Erfolgsrezepts bleiben gleich: Glückliche Mitarbeiter, zufriedene Patienten, überzeugte Zuweiser.&nbsp;</p>
+									</p>
+						<address class="fs-mb-32 mb-md-56">
+				<b>Adresse</b><br />
+									Physiozentrum – Wetzikon<br />
+																	Kirchgasse 4<br />
+													8620 Wetzikon<br />
+							</address>
+							<a href="https://www.physiozentrum.ch/wetzikon/" target="_blank" class="single-jobad__website button">Website</a>
+					</div>
+	</div>
+			</main>
+							<footer  class="footer fs-py-64">
+	<h1 class="visually-hidden">
+		Footer
+	</h1>
+	<div  class="container">
+		<div class="footer__row row">
+			<div class="footer__contact col-12 col-lg-4 d-flex flex-column">
+									<figure class="footer__logo-wrapper">
+						<a href="https://physioswiss.ch">
+							<span class="visually-hidden">Zur Startseite</span>
+							<span aria-hidden="true">
+								 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="a" width="75.14mm" height="30.34mm" viewBox="0 0 213 86"><defs><clipPath id="b"><rect y="0" width="212.6" height="85" fill="none"></rect></clipPath></defs><g clip-path="url(#b)" fill="none"><path d="m62.4,28.3L68,0h-28.3l-5.7,28.3H5.7L0,56.7h28.4l-5.7,28.3h28.3l5.7-28.4h28.3l5.7-28.3h-28.3Z" fill="#fbbc43"></path><path d="m194.4,64.8h7.1c.5,0,1-.1,1.4-.3.2-.1.3-.2.4-.4.1-.2.2-.3.2-.5.1-.2.1-.3,0-.5,0-.2-.1-.3-.3-.4-.4-.2-.9-.3-1.3-.3h-2.9c-1.7,0-2.9-.2-3.4-.7s-.6-1.4-.4-2.6c.2-1.1.8-2.1,1.7-2.8,1.1-.7,2.3-1,3.6-.9h7.2l-.5,2.5h-5.9c-.7,0-1.3,0-1.9.2-.2.1-.3.2-.4.3-.1.1-.2.3-.2.5,0,.1-.1.3,0,.4,0,.1.1.3.2.4.3.2.7.3,1.1.3h3c1.1-.1,2.2.2,3,.9.3.3.5.8.6,1.2.1.5.1.9-.1,1.4-.2,1-.7,2-1.5,2.7-.8.7-1.7,1-2.7,1h-8.7l.7-2.4Z" fill="#213a8f"></path><path d="m180.4,64.8h7.1c.5,0,1-.1,1.4-.3.2-.1.3-.2.4-.4.1-.2.2-.3.2-.5.1-.2.1-.3,0-.5,0-.2-.1-.3-.3-.4-.4-.2-.8-.3-1.3-.3h-2.9c-1.7,0-2.8-.2-3.4-.7-.5-.5-.6-1.4-.4-2.6.2-1.1.8-2.1,1.7-2.8,1.1-.7,2.3-1,3.6-.9h7.2l-.5,2.5h-5.9c-.7,0-1.3,0-1.9.2-.2.1-.3.2-.4.3-.1.1-.2.3-.2.5,0,.1-.1.3,0,.4,0,.1.1.3.2.4.3.2.8.3,1.2.2h3c1.1-.1,2.2.2,3,.9.3.3.5.8.6,1.2.1.5.1.9-.1,1.4-.2,1-.7,2-1.5,2.7s-1.7,1-2.7,1h-8.7l.6-2.3Z" fill="#213a8f"></path><path d="m181,51h-3.3l-.6,3.1h3.3l.6-3.1Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m176.8,55.5l-2.4,11.8h3.3l2.4-11.8s-3.3,0-3.3,0Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m171.5,55.5l-4.5,8.2-1.1-8.2h-3.6l-4.5,8.2-1.1-8.2h-12c-1.2-.1-2.4.2-3.3.9-.9.7-1.4,1.7-1.5,2.8-.1.4-.1.9,0,1.3.1.4.3.8.6,1.2.4.3.8.6,1.3.7.5.1,1,.2,1.5.1h2.7c.4,0,.9.1,1.2.3.1.1.2.3.2.4v.5c0,.2-.1.4-.2.5-.1.2-.2.3-.4.4-.4.2-.9.3-1.3.3h-8.1l-.5,2.5h9.7c.9,0,1.9-.3,2.5-1,.8-.7,1.2-1.7,1.4-2.7.1-.4.2-.9.1-1.4-.1-.5-.3-.9-.6-1.3-.4-.3-.8-.6-1.3-.7-.5-.2-1-.2-1.5-.2h-2.8c-.4,0-.8-.1-1.1-.3-.1-.1-.2-.2-.2-.4v-.4c0-.2.1-.3.2-.5.1-.1.2-.3.4-.4.6-.2,1.2-.3,1.8-.2h8.2l1.6,9.4h3.8l4.4-8.1,1.1,8.1h3.9l6.7-11.8h-3.7Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m210.5,19.3c-1.9-2.3-4.9-3.5-8.8-3.5-3.7-.1-7.3,1.1-10.2,3.5-2.8,2.3-4.7,5.6-5.3,9.2-.7,3.8-.1,6.9,1.8,9.2,1.9,2.3,4.9,3.5,8.9,3.5,3.7.1,7.3-1.1,10.1-3.4,2.8-2.3,4.7-5.6,5.3-9.2.7-3.9.1-7-1.8-9.3Zm-5,9.3c-.3,2.1-1.3,4-2.8,5.4-.7.7-1.4,1.2-2.3,1.5-.9.3-1.8.5-2.7.5-.8.1-1.6-.1-2.4-.4-.7-.4-1.4-.9-1.8-1.6-.8-1.3-1-3.2-.6-5.5.3-2.1,1.3-4,2.7-5.5.7-.7,1.4-1.2,2.3-1.5.9-.3,1.8-.5,2.7-.5.8-.1,1.6.1,2.4.4.7.3,1.4.9,1.9,1.5.8,1.5,1,3.3.6,5.7h0Z" fill="#213a8f"></path><path d="m185.9,7.2h-6.8l-1.3,6.6h6.8l1.3-6.6Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m157.3,16.2c-2.5-.1-4.9.5-6.9,1.9-1.8,1.5-2.9,3.5-3.2,5.8-.5,2.6-.3,4.4.7,5.4s3.1,1.5,6.4,1.5h5.6c.9-.1,1.8.1,2.5.6.3.2.4.5.5.8s.1.7,0,1c-.1.4-.2.7-.4,1s-.5.6-.8.8c-.9.4-1.8.7-2.8.6h-16.9l-1,5.1h20c2,0,3.9-.8,5.3-2.2,1.6-1.5,2.6-3.4,2.9-5.6.5-2.4.1-4.2-1.1-5.5-1.2-1.3-3.1-1.9-5.8-1.9h-5.9c-.8.1-1.6-.1-2.2-.5-.2-.2-.4-.5-.5-.8s-.1-.6,0-.9c0-.4.2-.7.4-1s.5-.6.8-.7c1.2-.4,2.5-.6,3.8-.5h17.5l-3.8,19.5h6.8l4.9-24.7-26.8.3h0Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m135.7,16.2l-3.7,19.2h-5.2c-1.8,0-2.9-.3-3.3-.9-.4-.6-.5-1.8-.1-3.6l2.8-14.7h-6.4l-2.9,15.2c-.7,3.4-.3,5.8,1,7.2s3.8,2.2,7.4,2.2h5.7l-.1.4c-.2,1-.7,1.9-1.5,2.6-.9.6-1.9.9-3,.9h-11.7l-1,5h12.8c3.1,0,5.6-.7,7.4-2.3,1.9-1.7,3.1-4,3.5-6.5,0-.2,1-5.1,1-5.1l3.7-19.5-6.4-.1h0Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m112.7,18.3c-1.4-1.4-3.8-2.2-7.5-2.2h-5.7l1.7-8.9h-6.2l-6.8,33.6h6.5l3.8-19.2h5.1c1.7,0,2.7.3,3.2.9s.6,1.8.3,3.4l-2.8,14.9h6.6l3-15.6c.6-3.2.2-5.5-1.2-6.9Z" fill="#213a8f" fill-rule="evenodd"></path><path d="m77.3,16.2h-12.5l-6.7,33.5h6.7l1.8-8.8h5.7c2.1,0,4.1-.3,6.1-1,1.7-.6,3.2-1.6,4.4-2.9,1.1-1.1,2-2.3,2.7-3.7.7-1.4,1.2-2.9,1.5-4.5.7-4,.3-7.1-1.4-9.3-1.8-2.2-4.5-3.3-8.3-3.3Zm2.9,12.1c-.5,2.6-1.4,4.4-2.7,5.5-1.3,1.1-3.3,1.7-5.9,1.7h-4l2.8-14h4.4c2.5,0,4.1.5,4.9,1.5.7,1.1.9,2.8.5,5.3h0Z" fill="#213a8f" fill-rule="evenodd"></path></g></svg> 
+							</span>
+						</a>
+					</figure>
+								<address class="footer__address has-s-font-size m-0">
+					Physioswiss<br>
+					Dammweg 3<br>
+					3013
+					Bern<br>
+											<div class="footer__address__link-wrapper d-flex flex-column fs-mt-16">
+																							<a class="footer__address__link" aria-label="+&#52;&#49; &#53;&#56; &#50;&#53;&#53; &#51;&#54; &#48;&#48; anrufen" href="tel:+41582553600">
+									+&#52;&#49; &#53;&#56; &#50;&#53;&#53; &#51;&#54; &#48;&#48;
+								</a>
+																														<a class="footer__address__link" aria-label="E-Mail an &#105;&#110;&#102;&#111;&#64;&#112;&#104;&#121;&#115;&#105;&#111;&#115;&#119;&#105;&#115;&#115;&#46;&#99;&#104; senden" href="mailto:&#105;&#110;&#102;&#111;&#64;&#112;&#104;&#121;&#115;&#105;&#111;&#115;&#119;&#105;&#115;&#115;&#46;&#99;&#104;">
+									&#105;&#110;&#102;&#111;&#64;&#112;&#104;&#121;&#115;&#105;&#111;&#115;&#119;&#105;&#115;&#115;&#46;&#99;&#104;
+								</a>
+													</div>
+									</address>
+									<div class="footer__social-media">
+						<div class="social-icons">
+	<h2 class="visually-hidden">
+		Social Media
+	</h2>
+					<a class="social-icons__link" href="https://www.linkedin.com/company/physioswiss/" title="LinkedIn" rel="noopener noreferrer" target="_blank">
+			<span aria-hidden="true"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M1.2 3.59q0-1.04.73-1.715T3.827 1.2q1.147 0 1.856.665.73.686.73 1.787 0 .998-.71 1.662Q4.975 6 3.787 6h-.021q-1.148-.001-1.857-.686-.71-.686-.709-1.724m.271 18.181V7.891H6.1v13.88H1.47Zm7.193 0h4.629v-7.75q0-.728.167-1.123.292-.706.886-1.194.594-.489 1.49-.489 2.336 0 2.336 3.138v7.418H22.8v-7.958q0-3.075-1.46-4.665t-3.856-1.59q-2.69 0-4.191 2.307v.041h-.021l.02-.041V7.89H8.665q.042.664.042 4.135t-.042 9.745Z"/></svg></span>
+		</a>
+				<a class="social-icons__link" href="https://twitter.com/physioswiss" title="X" rel="noopener noreferrer" target="_blank">
+			<span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18.33 2h3.37l-7.37 8.47L23 22h-6.79l-5.32-6.99L4.81 22H1.43l7.88-9.06L1 2h6.96l4.81 6.39zm-1.19 17.97h1.87L6.95 3.92H4.94l12.2 16.04Z"/></svg></span>
+		</a>
+				<a class="social-icons__link" href="https://www.youtube.com/@Physioswiss_channel" title="YouTube" rel="noopener noreferrer" target="_blank">
+			<span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="m13.105 19.696-4.677-.088c-1.515-.03-3.033.03-4.518-.285-2.259-.471-2.419-2.783-2.586-4.723a33.9 33.9 0 0 1 .294-8.206C1.864 4.876 2.83 3.97 4.327 3.873c5.05-.358 10.133-.315 15.172-.149.532.016 1.068.1 1.592.194 2.59.464 2.653 3.084 2.821 5.29a30.6 30.6 0 0 1-.223 6.682c-.257 1.832-.748 3.369-2.821 3.517-2.598.194-5.136.35-7.74.3 0-.011-.015-.011-.023-.011m-2.75-4.64 5.824-3.418c-1.961-1.149-3.877-2.278-5.824-3.419z"/></svg></span>
+		</a>
+	</div>
+					</div>
+							</div>
+							<div class="footer__navigation col-12 col-lg-8 d-flex flex-lg-wrap flex-column flex-lg-row">
+																		<div class="footer__navigation__accordion">
+								<h2 id="footer-menu-item-heading-70" class="footer__navigation__accordion__header m-0">
+									<button class="footer__navigation__accordion__button collapsed fs-px-8"
+										data-bs-toggle="collapse"
+										data-bs-target="#footer-menu-item-body-70"
+										aria-expanded="true"
+										aria-controls="footer-menu-item-body-70">
+										Wichtiges
+										<span class="footer__navigation__accordion__chevron d-lg-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg></span>
+									</button>
+								</h2>
+																	<div id="footer-menu-item-body-70"
+										class="footer__navigation__accordion__body collapse fs-mt-4"
+										aria-labelledby="footer-menu-item-heading-70"
+										data-bs-parent="#footer-menu-item-70">
+										<div class="footer__navigation__accordion__link-wrapper d-flex flex-column">
+																																																																										
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/news/" target="_self">
+														News
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://portal.physioswiss.ch/" target="_self">
+														Inserate/Praxissuche verwalten
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/ueber-uns/kontakt/" target="_self">
+														Kontakt
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/mediencorner/" target="_self">
+														Mediencorner
+													</a>
+																																	</div>
+									</div>
+															</div>
+																								<div class="footer__navigation__accordion">
+								<h2 id="footer-menu-item-heading-74" class="footer__navigation__accordion__header m-0">
+									<button class="footer__navigation__accordion__button collapsed fs-px-8"
+										data-bs-toggle="collapse"
+										data-bs-target="#footer-menu-item-body-74"
+										aria-expanded="true"
+										aria-controls="footer-menu-item-body-74">
+										Wissen
+										<span class="footer__navigation__accordion__chevron d-lg-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg></span>
+									</button>
+								</h2>
+																	<div id="footer-menu-item-body-74"
+										class="footer__navigation__accordion__body collapse fs-mt-4"
+										aria-labelledby="footer-menu-item-heading-74"
+										data-bs-parent="#footer-menu-item-74">
+										<div class="footer__navigation__accordion__link-wrapper d-flex flex-column">
+																																																																										
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/tarif/" target="_self">
+														Tarif
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/profession/" target="_self">
+														Profession
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/qualitaet/" target="_self">
+														Qualität
+													</a>
+																																	</div>
+									</div>
+															</div>
+																								<div class="footer__navigation__accordion">
+								<h2 id="footer-menu-item-heading-78" class="footer__navigation__accordion__header m-0">
+									<button class="footer__navigation__accordion__button collapsed fs-px-8"
+										data-bs-toggle="collapse"
+										data-bs-target="#footer-menu-item-body-78"
+										aria-expanded="true"
+										aria-controls="footer-menu-item-body-78">
+										Dienstleistungen
+										<span class="footer__navigation__accordion__chevron d-lg-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg></span>
+									</button>
+								</h2>
+																	<div id="footer-menu-item-body-78"
+										class="footer__navigation__accordion__body collapse fs-mt-4"
+										aria-labelledby="footer-menu-item-heading-78"
+										data-bs-parent="#footer-menu-item-78">
+										<div class="footer__navigation__accordion__link-wrapper d-flex flex-column">
+																																																																										
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/fuer-physiotherapeutinnen/" target="_self">
+														Für Physiotherapeut:innen
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/fuer-inserentinnen/" target="_self">
+														Für Inserent:innen
+													</a>
+																																	</div>
+									</div>
+															</div>
+																								<div class="footer__navigation__accordion">
+								<h2 id="footer-menu-item-heading-82" class="footer__navigation__accordion__header m-0">
+									<button class="footer__navigation__accordion__button collapsed fs-px-8"
+										data-bs-toggle="collapse"
+										data-bs-target="#footer-menu-item-body-82"
+										aria-expanded="true"
+										aria-controls="footer-menu-item-body-82">
+										Über Physioswiss
+										<span class="footer__navigation__accordion__chevron d-lg-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg></span>
+									</button>
+								</h2>
+																	<div id="footer-menu-item-body-82"
+										class="footer__navigation__accordion__body collapse fs-mt-4"
+										aria-labelledby="footer-menu-item-heading-82"
+										data-bs-parent="#footer-menu-item-82">
+										<div class="footer__navigation__accordion__link-wrapper d-flex flex-column">
+																																																																										
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/ueber-uns/" target="_self">
+														Über uns
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/mitgliedschaft/mitgliedschaft-im-detail/" target="_self">
+														Mitgliedschaft im Detail
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/engagement-projekte/" target="_self">
+														Engagement / Projekte
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/politik/" target="_self">
+														Politik
+													</a>
+																																	</div>
+									</div>
+															</div>
+																								<div class="footer__navigation__accordion">
+								<h2 id="footer-menu-item-heading-90" class="footer__navigation__accordion__header m-0">
+									<button class="footer__navigation__accordion__button collapsed fs-px-8"
+										data-bs-toggle="collapse"
+										data-bs-target="#footer-menu-item-body-90"
+										aria-expanded="true"
+										aria-controls="footer-menu-item-body-90">
+										Informatives
+										<span class="footer__navigation__accordion__chevron d-lg-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4z"/></svg></span>
+									</button>
+								</h2>
+																	<div id="footer-menu-item-body-90"
+										class="footer__navigation__accordion__body collapse fs-mt-4"
+										aria-labelledby="footer-menu-item-heading-90"
+										data-bs-parent="#footer-menu-item-90">
+										<div class="footer__navigation__accordion__link-wrapper d-flex flex-column">
+																																																																										
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/impressum/" target="_self">
+														Impressum
+													</a>
+																																																																																						
+																									<a class="footer__navigation__link no-underline fs-px-8 py-2" href="https://physioswiss.ch/datenschutzerklaerung/" target="_self">
+														Datenschutzerklärung
+													</a>
+																																	</div>
+									</div>
+															</div>
+															</div>
+					</div>
+	</div>
+</footer>
+					</div>
+		<!-- Matomo --><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+/* <![CDATA[ */
+var _paq = window._paq = window._paq || [];
+_paq.push(["setCookieDomain", "*.physioswiss.ch"]);
+_paq.push(["setDomains", ["*.physioswiss.ch"]]);_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);_paq.push(['alwaysUseSendBeacon']);_paq.push(['setTrackerUrl', "\/\/physioswiss.ch\/wp-content\/plugins\/matomo\/app\/matomo.php"]);_paq.push(['setSiteId', '1']);var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.src="\/\/physioswiss.ch\/it\/\/wp-content\/uploads\/sites\/1\/matomo\/matomo.js"; s.parentNode.insertBefore(g,s);
+/* ]]> */
+</script>
+<!-- End Matomo Code --><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+/* <![CDATA[ */
+	var relevanssi_rt_regex = /(&|\?)_(rt|rt_nonce)=(\w+)/g
+	var newUrl = window.location.search.replace(relevanssi_rt_regex, '')
+	history.replaceState(null, null, window.location.pathname + newUrl + window.location.hash)
+/* ]]> */
+</script>
+				<style id="tocco-status-styles">
+					.tocco-status-error img.aligncenter {
+						display: block;
+						margin: 0 auto;
+					}
+				</style>
+				<script id="tocco-status-script">
+					(function () {
+						const removeToccoWidgets = function () {
+							var elements = document.querySelectorAll('.tocco-widget');
+							elements.forEach(function (element) {
+								var errorElement = document.createElement('div');
+								errorElement.classList.add('tocco-status-error');
+								errorElement.innerHTML = `Tocco nicht verfügbar`;
+								element.replaceWith(errorElement);
+							});
+						};
+
+						// Use the fetch with mode 'no-cors' to avoid CORS issues
+						fetch('https://tocco.physioswiss.ch/status-tocco', { mode: 'cors' })
+							.then(function (response) {
+								if (response.status !== 200) {
+									removeToccoWidgets();
+								}
+							})
+							.catch(function (error) {
+								console.error('Error fetching status-tocco and hiding widgets:', error);
+								removeToccoWidgets();
+							});
+					})();
+				</script>
+				<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link data-minify="1" rel='preload'  href='https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=1728475226' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"   media='all' />
+<script type="text/javascript" id="wpml-cookie-js-extra">
+/* <![CDATA[ */
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"fr","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"fr","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"it","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"it","expires":1,"path":"\/"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1"  data-rocket-src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=1728475226"  defer="defer" data-wp-strategy="defer"></script>
+<script  src="https://physioswiss.ch/wp-includes/js/jquery/jquery.min.js" ></script>
+<script type="text/javascript" id="consent-plugin-script-js-extra">
+/* <![CDATA[ */
+var wkConsentVars = {"text":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\\\"https:\/\/physioswiss.ch\/datenschutzerklaerung\/\\\" target=\\\"_blank\\\">Datenschutz und Widerruf<\/a>.","right_text":"Alle Cookies erlauben","left_text":"Notwendige Cookies erlauben","right_event":"consentGiven","left_event":"consentNecessary","right_consent_variable":"consentGiven","left_consent_variable":"consentNecessary","position":"bottom-right","overlay":"none","use_matomo":"on","deactivate_plugins":{"facetwp-map-facet\/facetwp-map-facet.php":"facetwp-map-facet\/facetwp-map-facet.php"}};
+/* ]]> */
+</script>
+<script  src="https://physioswiss.ch/wp-content/plugins/wk-consent-plugin/assets/dist/scripts/functions_ec5062c730c22effc90b.min.js" ></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js"  defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="wc-add-to-cart-js-extra">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"Warenkorb anzeigen","cart_url":"https:\/\/physioswiss.ch\/warenkorb\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js"  defer="defer" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js"  defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="woocommerce-js-extra">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js"  defer="defer" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/ghostkit/assets/vendor/ivent/dist/ivent.min.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="ghostkit-helper-js-extra">
+/* <![CDATA[ */
+var ghostkitVariables = {"version":"3.3.3","pro":"","themeName":"WEBKINDER Starter Theme","settings":[],"disabledBlocks":{"core\/quote":true,"core\/cover":true},"media_sizes":{"sm":576,"md":768,"lg":992,"xl":1200},"timezone":"Europe\/Zurich","googleMapsAPIKey":"","googleMapsAPIUrl":"https:\/\/maps.googleapis.com\/maps\/api\/js?v=3.exp&language=de","googleReCaptchaAPISiteKey":"","googleReCaptchaAPISecretKey":"","sidebars":[],"icons":[],"shapes":[],"fonts":[],"customTypographyList":[],"admin_url":"https:\/\/physioswiss.ch\/wp-admin\/","admin_templates_url":"https:\/\/physioswiss.ch\/wp-admin\/edit.php?post_type=ghostkit_template"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" >
+/* <![CDATA[ */
+if (ghostkitVariables) { ghostkitVariables.allowPluginColorPalette = true; }
+if (ghostkitVariables) { ghostkitVariables.allowPluginCustomizer = true; }
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1"  data-rocket-src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/ghostkit/build/assets/js/helper.js?ver=1728475226"  data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1"  data-rocket-src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/ghostkit/build/assets/js/event-fallbacks.js?ver=1728475226"  data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/ghostkit/assets/vendor/motion/dist/motion.min.js"  data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1"  data-rocket-src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/ghostkit/build/assets/js/main.js?ver=1728475226"  data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1"  data-rocket-src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/ghostkit/build/gutenberg/extend/effects/frontend.js?ver=1728475226"  data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1"  data-rocket-src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/ghostkit/build/gutenberg/style-variants/core-list/frontend.js?ver=1728475226"  data-rocket-defer defer></script>
+<script type="text/javascript" id="frontend-js-extra">
+/* <![CDATA[ */
+var wkScriptVars = {"ajaxUrl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","restUrl":"https:\/\/physioswiss.ch\/wp-json\/","i18n":{"focalPointPicker":"Focal Point Picker","cookieQuestion":"D\u00fcrfen wir Cookies benutzen?","cookieText":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\"https:\/\/www.physioswiss.ch\/datenschutzerklaerung\/\" target=\"_blank\">Datenschutz und Widerruf<\/a>.","cookieLeft":"Notwendige Cookies erlauben","cookieRight":"Alle Cookies erlauben","settings":"Einstellungen","htmlAnchor":"HTML Anker","enterText":"Text eingeben","addText":"Text hinzuf\u00fcgen","addTitle":"Titel hinzuf\u00fcgen","enterLinkText":"Link Text eingeben","linkText":"Link Text","openInNewTab":"in neuem Tab \u00f6ffnen","linkSettings":"Link Einstellungen","enterLink":"Link eingeben","link":"Link","enterLead":"Lead hinzuf\u00fcgen","backgroundColor":"Hintergrundfarbe","addSubtitle":"Subtitel hinzuf\u00fcgen","icon":"Icon","selectIconFromLibrary":"W\u00e4hle ein Icon aus deiner Mediathek.","selectIcon":"Icon ausw\u00e4hlen","changeIcon":"Icon \u00e4ndern","removeIcon":"Icon entfernen","title":"Titel","text":"Text","enterTitle":"Titel eingeben","image":"Bild","selectImageFromLibrary":"W\u00e4hle eine Bilddatei aus deiner Mediathek.","selectImage":"Bild ausw\u00e4hlen","changeImage":"Bild \u00e4ndern","removeImage":"Bild entfernen","imageDescription":"Bildbeschreibung"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/frontend.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="cookie-consent-modification-js-extra">
+/* <![CDATA[ */
+var wkScriptVars = {"ajaxUrl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","restUrl":"https:\/\/physioswiss.ch\/wp-json\/","i18n":{"focalPointPicker":"Focal Point Picker","cookieQuestion":"D\u00fcrfen wir Cookies benutzen?","cookieText":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\"https:\/\/www.physioswiss.ch\/datenschutzerklaerung\/\" target=\"_blank\">Datenschutz und Widerruf<\/a>.","cookieLeft":"Notwendige Cookies erlauben","cookieRight":"Alle Cookies erlauben","settings":"Einstellungen","htmlAnchor":"HTML Anker","enterText":"Text eingeben","addText":"Text hinzuf\u00fcgen","addTitle":"Titel hinzuf\u00fcgen","enterLinkText":"Link Text eingeben","linkText":"Link Text","openInNewTab":"in neuem Tab \u00f6ffnen","linkSettings":"Link Einstellungen","enterLink":"Link eingeben","link":"Link","enterLead":"Lead hinzuf\u00fcgen","backgroundColor":"Hintergrundfarbe","addSubtitle":"Subtitel hinzuf\u00fcgen","icon":"Icon","selectIconFromLibrary":"W\u00e4hle ein Icon aus deiner Mediathek.","selectIcon":"Icon ausw\u00e4hlen","changeIcon":"Icon \u00e4ndern","removeIcon":"Icon entfernen","title":"Titel","text":"Text","enterTitle":"Titel eingeben","image":"Bild","selectImageFromLibrary":"W\u00e4hle eine Bilddatei aus deiner Mediathek.","selectImage":"Bild ausw\u00e4hlen","changeImage":"Bild \u00e4ndern","removeImage":"Bild entfernen","imageDescription":"Bildbeschreibung"}};
+/* ]]> */
+</script>
+<script  src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/cookie-consent-modification.js" ></script>
+<script  src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/breadcrumbs-modification.js" ></script>
+<script type="text/javascript" id="shared-js-extra">
+/* <![CDATA[ */
+var wkScriptVars = {"ajaxUrl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","restUrl":"https:\/\/physioswiss.ch\/wp-json\/","i18n":{"focalPointPicker":"Focal Point Picker","cookieQuestion":"D\u00fcrfen wir Cookies benutzen?","cookieText":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\"https:\/\/www.physioswiss.ch\/datenschutzerklaerung\/\" target=\"_blank\">Datenschutz und Widerruf<\/a>.","cookieLeft":"Notwendige Cookies erlauben","cookieRight":"Alle Cookies erlauben","settings":"Einstellungen","htmlAnchor":"HTML Anker","enterText":"Text eingeben","addText":"Text hinzuf\u00fcgen","addTitle":"Titel hinzuf\u00fcgen","enterLinkText":"Link Text eingeben","linkText":"Link Text","openInNewTab":"in neuem Tab \u00f6ffnen","linkSettings":"Link Einstellungen","enterLink":"Link eingeben","link":"Link","enterLead":"Lead hinzuf\u00fcgen","backgroundColor":"Hintergrundfarbe","addSubtitle":"Subtitel hinzuf\u00fcgen","icon":"Icon","selectIconFromLibrary":"W\u00e4hle ein Icon aus deiner Mediathek.","selectIcon":"Icon ausw\u00e4hlen","changeIcon":"Icon \u00e4ndern","removeIcon":"Icon entfernen","title":"Titel","text":"Text","enterTitle":"Titel eingeben","image":"Bild","selectImageFromLibrary":"W\u00e4hle eine Bilddatei aus deiner Mediathek.","selectImage":"Bild ausw\u00e4hlen","changeImage":"Bild \u00e4ndern","removeImage":"Bild entfernen","imageDescription":"Bildbeschreibung"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/shared.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="woocommerce-script-quantity-input-js-extra">
+/* <![CDATA[ */
+var wkScriptVars = {"ajaxUrl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","restUrl":"https:\/\/physioswiss.ch\/wp-json\/","i18n":{"focalPointPicker":"Focal Point Picker","cookieQuestion":"D\u00fcrfen wir Cookies benutzen?","cookieText":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\"https:\/\/www.physioswiss.ch\/datenschutzerklaerung\/\" target=\"_blank\">Datenschutz und Widerruf<\/a>.","cookieLeft":"Notwendige Cookies erlauben","cookieRight":"Alle Cookies erlauben","settings":"Einstellungen","htmlAnchor":"HTML Anker","enterText":"Text eingeben","addText":"Text hinzuf\u00fcgen","addTitle":"Titel hinzuf\u00fcgen","enterLinkText":"Link Text eingeben","linkText":"Link Text","openInNewTab":"in neuem Tab \u00f6ffnen","linkSettings":"Link Einstellungen","enterLink":"Link eingeben","link":"Link","enterLead":"Lead hinzuf\u00fcgen","backgroundColor":"Hintergrundfarbe","addSubtitle":"Subtitel hinzuf\u00fcgen","icon":"Icon","selectIconFromLibrary":"W\u00e4hle ein Icon aus deiner Mediathek.","selectIcon":"Icon ausw\u00e4hlen","changeIcon":"Icon \u00e4ndern","removeIcon":"Icon entfernen","title":"Titel","text":"Text","enterTitle":"Titel eingeben","image":"Bild","selectImageFromLibrary":"W\u00e4hle eine Bilddatei aus deiner Mediathek.","selectImage":"Bild ausw\u00e4hlen","changeImage":"Bild \u00e4ndern","removeImage":"Bild entfernen","imageDescription":"Bildbeschreibung"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/woocommerce-script-quantity-input.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="woocommerce-script-add-to-cart-js-extra">
+/* <![CDATA[ */
+var wkScriptVars = {"ajaxUrl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","restUrl":"https:\/\/physioswiss.ch\/wp-json\/","i18n":{"focalPointPicker":"Focal Point Picker","cookieQuestion":"D\u00fcrfen wir Cookies benutzen?","cookieText":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\"https:\/\/www.physioswiss.ch\/datenschutzerklaerung\/\" target=\"_blank\">Datenschutz und Widerruf<\/a>.","cookieLeft":"Notwendige Cookies erlauben","cookieRight":"Alle Cookies erlauben","settings":"Einstellungen","htmlAnchor":"HTML Anker","enterText":"Text eingeben","addText":"Text hinzuf\u00fcgen","addTitle":"Titel hinzuf\u00fcgen","enterLinkText":"Link Text eingeben","linkText":"Link Text","openInNewTab":"in neuem Tab \u00f6ffnen","linkSettings":"Link Einstellungen","enterLink":"Link eingeben","link":"Link","enterLead":"Lead hinzuf\u00fcgen","backgroundColor":"Hintergrundfarbe","addSubtitle":"Subtitel hinzuf\u00fcgen","icon":"Icon","selectIconFromLibrary":"W\u00e4hle ein Icon aus deiner Mediathek.","selectIcon":"Icon ausw\u00e4hlen","changeIcon":"Icon \u00e4ndern","removeIcon":"Icon entfernen","title":"Titel","text":"Text","enterTitle":"Titel eingeben","image":"Bild","selectImageFromLibrary":"W\u00e4hle eine Bilddatei aus deiner Mediathek.","selectImage":"Bild ausw\u00e4hlen","changeImage":"Bild \u00e4ndern","removeImage":"Bild entfernen","imageDescription":"Bildbeschreibung"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/woocommerce-script-add-to-cart.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="woocommerce-script-hint-js-extra">
+/* <![CDATA[ */
+var wkScriptVars = {"ajaxUrl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","restUrl":"https:\/\/physioswiss.ch\/wp-json\/","i18n":{"focalPointPicker":"Focal Point Picker","cookieQuestion":"D\u00fcrfen wir Cookies benutzen?","cookieText":"Wir verwenden Cookies, um unsere Website zu optimieren. Damit diese ausgespielt werden k\u00f6nnen, ben\u00f6tigen wir Ihre ausdr\u00fcckliche Einwilligung. Weitere Informationen dazu finden Sie unter <a href=\"https:\/\/www.physioswiss.ch\/datenschutzerklaerung\/\" target=\"_blank\">Datenschutz und Widerruf<\/a>.","cookieLeft":"Notwendige Cookies erlauben","cookieRight":"Alle Cookies erlauben","settings":"Einstellungen","htmlAnchor":"HTML Anker","enterText":"Text eingeben","addText":"Text hinzuf\u00fcgen","addTitle":"Titel hinzuf\u00fcgen","enterLinkText":"Link Text eingeben","linkText":"Link Text","openInNewTab":"in neuem Tab \u00f6ffnen","linkSettings":"Link Einstellungen","enterLink":"Link eingeben","link":"Link","enterLead":"Lead hinzuf\u00fcgen","backgroundColor":"Hintergrundfarbe","addSubtitle":"Subtitel hinzuf\u00fcgen","icon":"Icon","selectIconFromLibrary":"W\u00e4hle ein Icon aus deiner Mediathek.","selectIcon":"Icon ausw\u00e4hlen","changeIcon":"Icon \u00e4ndern","removeIcon":"Icon entfernen","title":"Titel","text":"Text","enterTitle":"Titel eingeben","image":"Bild","selectImageFromLibrary":"W\u00e4hle eine Bilddatei aus deiner Mediathek.","selectImage":"Bild ausw\u00e4hlen","changeImage":"Bild \u00e4ndern","removeImage":"Bild entfernen","imageDescription":"Bildbeschreibung"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/themes/physioswiss/dist/js/woocommerce-script-hint.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="cart-widget-js-extra">
+/* <![CDATA[ */
+var actions = {"is_lang_switched":"0","force_reset":"0"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce-multilingual/res/js/cart_widget.min.js"  defer="defer" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="wc-order-attribution-js-extra">
+/* <![CDATA[ */
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://physioswiss.ch/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js"  data-rocket-defer defer></script>
+<script type="text/javascript" id="gforms_recaptcha_recaptcha-js-extra">
+/* <![CDATA[ */
+var gforms_recaptcha_recaptcha_strings = {"site_key":"6LcRa1AqAAAAAKxw7l85UOHXRSf_cbUuNQRrXwKH","ajaxurl":"https:\/\/physioswiss.ch\/wp-admin\/admin-ajax.php","nonce":"5b2d1f2bf8"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6LcRa1AqAAAAAKxw7l85UOHXRSf_cbUuNQRrXwKH"></script>
+<script type="rocketlazyloadscript" >
+/* <![CDATA[ */
+(function($){grecaptcha.ready(function(){$('.grecaptcha-badge').css('visibility','hidden');});})(jQuery);
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript">var FWP_HTTP = FWP_HTTP || {}; FWP_HTTP.lang = 'de';</script>			<link data-minify="1" href="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/facetwp/assets/vendor/fSelect/fSelect.css?ver=1728475226" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  rel="preload" type="text/css">
+			<script data-minify="1" src="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/facetwp/assets/vendor/fSelect/fSelect.js?ver=1728475226"></script>
+			<script>
+				document.addEventListener('facetwp-loaded', function () {
+					fUtil('.facetwp-sort select').fSelect({showSearch: false});
+					fUtil('.facetwp-type-sort select').fSelect({showSearch: false});
+					fUtil('.facetwp-facet-per_page_box select').fSelect({showSearch: false});
+				});
+			</script>
+		
+	<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link data-minify="1" rel='stylesheet'  href='https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/sitepress-multilingual-cms/dist/css/blocks/styles.css?ver=1728475226'  media='all' /><link rel='stylesheet'  href='https://physioswiss.ch/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.min.css'  media='all' /><link rel='stylesheet'  href='https://physioswiss.ch/wp-content/themes/physioswiss/dist/css/frontend.css'  media='all' /><link rel='stylesheet'  href='https://physioswiss.ch/wp-content/themes/physioswiss/dist/css/shared.css'  media='all' /><link rel='stylesheet'  href='https://physioswiss.ch/wp-content/themes/physioswiss/dist/blocks/block-styles-single-jobad.css'  media='all' /><link data-minify="1" rel='stylesheet'  href='https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=1728475226'  media='all' /><link data-minify="1" href="https://physioswiss.ch/wp-content/cache/min/1/wp-content/plugins/facetwp/assets/vendor/fSelect/fSelect.css?ver=1728475226" rel="stylesheet" type="text/css"></noscript></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
