@@ -119,7 +119,8 @@ def store_local(databank,latest_results,df_latest_list,df_only_databank_list,for
 
     print("Local storing complete!\n")
 
-
+def normalize_name(name):
+    return name.lower().strip()
 
 def update_company_file(gc,databank):
     print("Updating company file...")
@@ -273,10 +274,10 @@ def main():
             with open(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl", "rb") as f:
                 latest_results = pickle.load(f)
 
-        # with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
-        #     databank = pickle.load(f)
+        with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
+            databank = pickle.load(f)
 
-        databank = {}
+        # databank = {}
 
         checked_databank = check_inactive(latest_results,databank)
         updated_databank = update_databank(latest_results,checked_databank,places_key)
