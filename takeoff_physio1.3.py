@@ -273,12 +273,10 @@ def main():
             with open(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl", "rb") as f:
                 latest_results = pickle.load(f)
 
-        with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
-            databank = pickle.load(f)
+        # with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
+        #     databank = pickle.load(f)
 
-        #one-time action to correct "V1 data" because of the risk 
-        updated_dict = {str(f"V1:{key}"): value for key, value in databank.items()}
-        databank = updated_dict
+        databank = {}
 
         checked_databank = check_inactive(latest_results,databank)
         updated_databank = update_databank(latest_results,checked_databank,places_key)

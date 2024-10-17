@@ -23,11 +23,12 @@ def thread(job,zipcodes):
         title = soup3.find("h1", {"class": "single-jobad__page-header__title fs-mb-32 mb-md-48 mt-0"}).text.strip()
         grey_tags = soup3.find("div", {"class": "single-jobad__page-header__tag-wrapper d-flex align-items-center flex-wrap fs-mb-32 mb-md-48"})
         tags = grey_tags.find_all("span", {"class": "tag"})
-
-        percent = " ".join(tags[4].text.strip().split())
+        tags_texts = [tag.text.strip() for tag in tags]
+        percent = " ".join(tags[-2].text.strip().split())
         start = tags[-1].text.split(":")[1].strip()
-        duration = tags[3].text.strip()
-
+        duration = tags[-3].text.strip()
+        # print(tags_texts,webpage)
+        print(percent,start,duration,webpage)
         posted_item = soup3.find("div", {"class": "single-jobad__page-header__meta-wrapper d-flex flex-wrap fs-mb-32"})
         posted_time = posted_item.find('time').get('datetime')
         posted = datetime.strptime(posted_time, '%Y-%m-%d').strftime('%d-%m-%Y')
