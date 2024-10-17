@@ -273,8 +273,10 @@ def main():
             with open(f"{filepath}data/latest_results {sys.argv[3]}-{version}.pkl", "rb") as f:
                 latest_results = pickle.load(f)
 
-        with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
-            databank = pickle.load(f)
+        # with open(f"{filepath}data/databank-{version}.pkl", "rb") as f:
+        #     databank = pickle.load(f)
+
+        databank = {}
 
         checked_databank = check_inactive(latest_results,databank)
         updated_databank = update_databank(latest_results,checked_databank,places_key)
