@@ -27,8 +27,7 @@ def thread(job,zipcodes):
         percent = " ".join(tags[-2].text.strip().split())
         start = tags[-1].text.split(":")[1].strip()
         duration = tags[-3].text.strip()
-        # print(tags_texts,webpage)
-        print(percent,start,duration,webpage)
+
         posted_item = soup3.find("div", {"class": "single-jobad__page-header__meta-wrapper d-flex flex-wrap fs-mb-32"})
         posted_time = posted_item.find('time').get('datetime')
         posted = datetime.strptime(posted_time, '%Y-%m-%d').strftime('%d-%m-%Y')
