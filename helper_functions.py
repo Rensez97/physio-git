@@ -71,17 +71,24 @@ def inactivity_validation(webpage):
     val = False
     retries = 0
     while not success and retries < 5:
-        job_page = requests.get(webpage)
+        job_page = requests.get(webpage, allow_redirects=False)
         if job_page.status_code == 200:
-            print(webpage,job_page.status_code)
+            print(webpage, job_page.status_code)
             success = True
         elif job_page.status_code == 403:
-            print(webpage,job_page.status_code)
+            print(webpage, job_page.status_code)
             success = True
             val = True
+        elif job_page.status_code in (301, 302, 303, 307, 308):
+            print(webpage, "inactive")
+            success = True
+            val = True
+            # if job_page.headers.get('Location') == 'https://physioswiss.ch/stelleninserate/':
+            #     val = True
+            #     print(webpage,"inactive")
         else:
             retries += 1
-            print(webpage,job_page.status_code)
+            print(webpage, job_page.status_code)
             time.sleep(11)
     
     return val

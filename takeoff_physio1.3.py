@@ -280,13 +280,13 @@ def main():
         # databank = {}
 
         checked_databank = check_inactive(latest_results,databank)
-        updated_databank = update_databank(latest_results,checked_databank,places_key)
+        # updated_databank = update_databank(latest_results,checked_databank,places_key)
 
-        databank = updated_databank
+        # databank = updated_databank
 
-        df_latest_list, df_only_databank_list = create_dfs(databank)
-        store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version, filepath)
-        update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_key)
+        # df_latest_list, df_only_databank_list = create_dfs(databank)
+        # store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date, version, filepath)
+        # update_google_sheets(databank,df_latest_list,df_only_databank_list,sheets_key)
 
         if log == True:
             print("Email will be send with log report")
