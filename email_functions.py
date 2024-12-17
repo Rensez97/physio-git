@@ -3,7 +3,6 @@ import smtplib
 
 from email.message import EmailMessage
 
-
 def setup_email(text,subject):
     message = EmailMessage()
     message.set_content(text)

@@ -118,7 +118,10 @@ def physio_swiss(zipcodes):
     try:
         for i in range(1,30):
             print(i)
-            req = requests.get("https://physioswiss.ch/stelleninserate/?_paged=" + str(i))
+            if i == 1:
+                req = requests.get("https://physioswiss.ch/stelleninserate/")
+            else:
+                req = requests.get("https://physioswiss.ch/stelleninserate/?_paged=" + str(i))
             # with open("physioswiss_main.html", "w", encoding="utf-8") as file:
             #     file.write(req.text)
             # with open("physioswiss_main.html", "r", encoding="utf-8") as file:
