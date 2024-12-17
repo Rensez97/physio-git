@@ -2,6 +2,7 @@ import requests
 import time
 import concurrent.futures
 import traceback
+import random
 from datetime import datetime
 
 
@@ -9,10 +10,10 @@ from bs4 import BeautifulSoup
 from helper_functions import retry_link, convert_german_date, capitalize_first_letter
 
 
-def thread(job,zipcodes):
+def thread(job,zipcodes, user_agent):
     try:
         webpage = job["href"]
-        job_page = retry_link(webpage)
+        job_page = retry_link(webpage, user_agent)
         # req = requests.get(job["href"])
         # with open("physioswiss_stelle.html", "w", encoding="utf-8") as file:
         #     file.write(req.text)
@@ -115,13 +116,31 @@ def physio_swiss(zipcodes):
     print("Physio Swiss checken...")
     results = {}
     threaded_start = time.time()
+    user_agents = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15',
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
+    'Mozilla/5.0 (iPad; CPU OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
+    'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:60.0) Gecko/20100101 Firefox/60.0',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+    'Mozilla/5.0 (Linux; Android 9; Pixel 3 XL Build/PQ3A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36',
+    'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0',
+    'Mozilla/5.0 (Windows NT 10; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91 Safari/537',
+    'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+    'Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+    ]
     try:
+        user_agent = random.choice(user_agents)
         for i in range(1,30):
             print(i)
             if i == 1:
-                req = requests.get("https://physioswiss.ch/stelleninserate/")
+                req = requests.get("https://physioswiss.ch/stelleninserate/", headers={'User-Agent': user_agent})
             else:
-                req = requests.get("https://physioswiss.ch/stelleninserate/?_paged=" + str(i))
+                req = requests.get("https://physioswiss.ch/stelleninserate/?_paged=" + str(i), headers={'User-Agent': user_agent})
+            time.sleep(random.uniform(1, 6))
             # with open("physioswiss_main.html", "w", encoding="utf-8") as file:
             #     file.write(req.text)
             # with open("physioswiss_main.html", "r", encoding="utf-8") as file:
@@ -140,7 +159,7 @@ def physio_swiss(zipcodes):
                 futures = []
                 for job in jobs:
                     try:
-                        futures.append(executor.submit(thread, job, zipcodes))
+                        futures.append(executor.submit(thread, job, zipcodes, user_agent))
                     except Exception as e:
                         print("Exception place 2:", e)
                 for future in concurrent.futures.as_completed(futures):

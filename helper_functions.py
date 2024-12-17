@@ -1,5 +1,6 @@
 import requests
 import time
+import random
 import locale
 import datetime
 import googlesearch
@@ -26,11 +27,12 @@ def check_zipcodes():
     return zipcodes
 
 
-def retry_link(webpage):
+def retry_link(webpage, user_agent):
     success = False
     retries = 0
-    while not success and retries < 5:
-        job_page = requests.get(webpage)
+    while not success and retries < 3:
+        time.sleep(random.uniform(1, 4))
+        job_page = requests.get(webpage, headers={'User-Agent': user_agent})
         if job_page.status_code == 200:
             success = True
         else:
