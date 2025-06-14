@@ -39,9 +39,15 @@ def update_databank(latest_results,databank,places_key):
     # Check if items from latest results are new, and if so add them to the databank
     print("Updating the databank...")
     for key, value in latest_results.items():
-        if key not in databank:
-            databank[key] = value
-            databank[key]["Website Arbeitgeber"] = get_website(databank[key]["Arbeitgeber"],databank[key]["Ort"],places_key)
+        try:
+            if key not in databank:
+                databank[key] = value
+                databank[key]["Website Arbeitgeber"] = get_website(databank[key]["Arbeitgeber"],databank[key]["Ort"],places_key)
+        except Exception as e:
+            if key not in databank:
+                databank[key] = value
+            print(key, value)
+            print(e)
 
     print("Databank updated!\n")
     return databank
@@ -49,75 +55,80 @@ def update_databank(latest_results,databank,places_key):
 
 
 def create_dfs(databank):
-    print("Creating dataframes...")
-    df_full_databank = pd.DataFrame.from_dict(databank, orient='index')
-    df_full_databank["Stellenangebot online per"] = pd.to_datetime(df_full_databank["Stellenangebot online per"], format='%d-%m-%Y').dt.date
+    try:
+        print("Creating dataframes...")
+        df_full_databank = pd.DataFrame.from_dict(databank, orient='index')
+        df_full_databank["Stellenangebot online per"] = pd.to_datetime(df_full_databank["Stellenangebot online per"], format='%d-%m-%Y').dt.date
 
-    df_latest_results_unsorted = df_full_databank[df_full_databank["Aktiv"] == "Ja"]
-    df_latest_results = df_latest_results_unsorted.sort_values(by=["Stellenangebot online per", "Arbeitgeber"], ascending=[False,True])
-    df_latest_results["Stellenangebot online per"] = pd.to_datetime(df_latest_results["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
-    df_latest_results_basel = df_latest_results[df_latest_results["<25 KM"] == "Basel"]
-    df_latest_results_bern = df_latest_results[df_latest_results["<25 KM"] == "Bern"]
-    df_latest_results_geneve = df_latest_results[df_latest_results["<25 KM"] == "Geneve"]
-    df_latest_results_lausanne = df_latest_results[df_latest_results["<25 KM"] == "Lausanne"]
-    df_latest_results_luzern = df_latest_results[df_latest_results["<25 KM"] == "Luzern"]
-    df_latest_results_stgallen = df_latest_results[df_latest_results["<25 KM"] == "St. Gallen"]
-    df_latest_results_zurich = df_latest_results[df_latest_results["<25 KM"] == "Zurich"]
+        df_latest_results_unsorted = df_full_databank[df_full_databank["Aktiv"] == "Ja"]
+        df_latest_results = df_latest_results_unsorted.sort_values(by=["Stellenangebot online per", "Arbeitgeber"], ascending=[False,True])
+        df_latest_results["Stellenangebot online per"] = pd.to_datetime(df_latest_results["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
+        df_latest_results_basel = df_latest_results[df_latest_results["<25 KM"] == "Basel"]
+        df_latest_results_bern = df_latest_results[df_latest_results["<25 KM"] == "Bern"]
+        df_latest_results_geneve = df_latest_results[df_latest_results["<25 KM"] == "Geneve"]
+        df_latest_results_lausanne = df_latest_results[df_latest_results["<25 KM"] == "Lausanne"]
+        df_latest_results_luzern = df_latest_results[df_latest_results["<25 KM"] == "Luzern"]
+        df_latest_results_stgallen = df_latest_results[df_latest_results["<25 KM"] == "St. Gallen"]
+        df_latest_results_zurich = df_latest_results[df_latest_results["<25 KM"] == "Zurich"]
 
-    df_only_databank_unsorted = df_full_databank[df_full_databank["Aktiv"] == ""]
-    df_only_databank = df_only_databank_unsorted.sort_values(by=["Archivierungsdatum", "Arbeitgeber"], ascending=[False,True])
-    df_only_databank["Stellenangebot online per"] = pd.to_datetime(df_only_databank["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
-    df_only_databank_basel = df_only_databank[df_only_databank["<25 KM"] == "Basel"]
-    df_only_databank_bern = df_only_databank[df_only_databank["<25 KM"] == "Bern"]
-    df_only_databank_geneve = df_only_databank[df_only_databank["<25 KM"] == "Geneve"]
-    df_only_databank_lausanne = df_only_databank[df_only_databank["<25 KM"] == "Lausanne"]
-    df_only_databank_luzern = df_only_databank[df_only_databank["<25 KM"] == "Luzern"]
-    df_only_databank_stgallen = df_only_databank[df_only_databank["<25 KM"] == "St. Gallen"]
-    df_only_databank_zurich = df_only_databank[df_only_databank["<25 KM"] == "Zurich"]
+        df_only_databank_unsorted = df_full_databank[df_full_databank["Aktiv"] == ""]
+        df_only_databank = df_only_databank_unsorted.sort_values(by=["Archivierungsdatum", "Arbeitgeber"], ascending=[False,True])
+        df_only_databank["Stellenangebot online per"] = pd.to_datetime(df_only_databank["Stellenangebot online per"], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
+        df_only_databank_basel = df_only_databank[df_only_databank["<25 KM"] == "Basel"]
+        df_only_databank_bern = df_only_databank[df_only_databank["<25 KM"] == "Bern"]
+        df_only_databank_geneve = df_only_databank[df_only_databank["<25 KM"] == "Geneve"]
+        df_only_databank_lausanne = df_only_databank[df_only_databank["<25 KM"] == "Lausanne"]
+        df_only_databank_luzern = df_only_databank[df_only_databank["<25 KM"] == "Luzern"]
+        df_only_databank_stgallen = df_only_databank[df_only_databank["<25 KM"] == "St. Gallen"]
+        df_only_databank_zurich = df_only_databank[df_only_databank["<25 KM"] == "Zurich"]
 
-    df_latest_list = [df_latest_results, df_latest_results_basel, df_latest_results_bern, df_latest_results_geneve, df_latest_results_lausanne, df_latest_results_luzern, df_latest_results_stgallen, df_latest_results_zurich]
-    df_only_databank_list = [df_only_databank, df_only_databank_basel, df_only_databank_bern, df_only_databank_geneve, df_only_databank_lausanne, df_only_databank_luzern, df_only_databank_stgallen, df_only_databank_zurich]
+        df_latest_list = [df_latest_results, df_latest_results_basel, df_latest_results_bern, df_latest_results_geneve, df_latest_results_lausanne, df_latest_results_luzern, df_latest_results_stgallen, df_latest_results_zurich]
+        df_only_databank_list = [df_only_databank, df_only_databank_basel, df_only_databank_bern, df_only_databank_geneve, df_only_databank_lausanne, df_only_databank_luzern, df_only_databank_stgallen, df_only_databank_zurich]
 
-    print("Dataframes creation completed!\n")
+        print("Dataframes creation completed!\n")
 
-    return df_latest_list, df_only_databank_list
-
+        return df_latest_list, df_only_databank_list
+    except Exception as e:
+        print(e)
 
 
 def store_local(databank,latest_results,df_latest_list,df_only_databank_list,formatted_date,version, filepath):
-    print("Storing all data locally...")
-    with pd.ExcelWriter(f"{filepath}data/Physioswiss Stellen Aktiv {formatted_date}-{version}.xlsx") as writer:
-        df_latest_list[0].to_excel(writer, sheet_name="Alle aktiven Stellen", index=False)
-        df_latest_list[1].to_excel(writer, sheet_name="Basel", index=False)
-        df_latest_list[2].to_excel(writer, sheet_name="Bern", index=False)
-        df_latest_list[3].to_excel(writer, sheet_name="Geneve", index=False)
-        df_latest_list[4].to_excel(writer, sheet_name="Lausanne", index=False)
-        df_latest_list[5].to_excel(writer, sheet_name="Luzern", index=False)
-        df_latest_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
-        df_latest_list[7].to_excel(writer, sheet_name="Zurich", index=False)
+    try:
+        print("Storing all data locally...")
+        with pd.ExcelWriter(f"{filepath}data/Physioswiss Stellen Aktiv {formatted_date}-{version}.xlsx") as writer:
+            df_latest_list[0].to_excel(writer, sheet_name="Alle aktiven Stellen", index=False)
+            df_latest_list[1].to_excel(writer, sheet_name="Basel", index=False)
+            df_latest_list[2].to_excel(writer, sheet_name="Bern", index=False)
+            df_latest_list[3].to_excel(writer, sheet_name="Geneve", index=False)
+            df_latest_list[4].to_excel(writer, sheet_name="Lausanne", index=False)
+            df_latest_list[5].to_excel(writer, sheet_name="Luzern", index=False)
+            df_latest_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
+            df_latest_list[7].to_excel(writer, sheet_name="Zurich", index=False)
 
-    with pd.ExcelWriter(f"{filepath}data/Physioswiss Stellen Historisch {formatted_date}-{version}.xlsx") as writer:
-        df_only_databank_list[0].to_excel(writer, sheet_name="Alle historischen Stellen", index=False)
-        df_only_databank_list[1].to_excel(writer, sheet_name="Basel", index=False)
-        df_only_databank_list[2].to_excel(writer, sheet_name="Bern", index=False)
-        df_only_databank_list[3].to_excel(writer, sheet_name="Geneve", index=False)
-        df_only_databank_list[4].to_excel(writer, sheet_name="Lausanne", index=False)
-        df_only_databank_list[5].to_excel(writer, sheet_name="Luzern", index=False)
-        df_only_databank_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
-        df_only_databank_list[7].to_excel(writer, sheet_name="Zurich", index=False)
+        with pd.ExcelWriter(f"{filepath}data/Physioswiss Stellen Historisch {formatted_date}-{version}.xlsx") as writer:
+            df_only_databank_list[0].to_excel(writer, sheet_name="Alle historischen Stellen", index=False)
+            df_only_databank_list[1].to_excel(writer, sheet_name="Basel", index=False)
+            df_only_databank_list[2].to_excel(writer, sheet_name="Bern", index=False)
+            df_only_databank_list[3].to_excel(writer, sheet_name="Geneve", index=False)
+            df_only_databank_list[4].to_excel(writer, sheet_name="Lausanne", index=False)
+            df_only_databank_list[5].to_excel(writer, sheet_name="Luzern", index=False)
+            df_only_databank_list[6].to_excel(writer, sheet_name="St. Gallen", index=False)
+            df_only_databank_list[7].to_excel(writer, sheet_name="Zurich", index=False)
 
 
-    # Storing the databank in a active file, and a history file
-    with open(f"{filepath}data/databank-{version}.pkl", "wb") as f:
-        pickle.dump(databank,f)
-    with open(f"{filepath}data/databank {formatted_date}-{version}.pkl", "wb") as f:
-        pickle.dump(databank,f)
+        # Storing the databank in a active file, and a history file
+        with open(f"{filepath}data/databank-{version}.pkl", "wb") as f:
+            pickle.dump(databank,f)
+        with open(f"{filepath}data/databank {formatted_date}-{version}.pkl", "wb") as f:
+            pickle.dump(databank,f)
 
-    # # Storing the latest_results in a active file, and a history file
-    with open(f"{filepath}data/latest_results {formatted_date}-{version}.pkl", "wb") as f:
-        pickle.dump(latest_results,f)
+        # # Storing the latest_results in a active file, and a history file
+        with open(f"{filepath}data/latest_results {formatted_date}-{version}.pkl", "wb") as f:
+            pickle.dump(latest_results,f)
 
-    print("Local storing complete!\n")
+        print("Local storing complete!\n")
+    except Exception as e:
+        print(e)
 
 def normalize_name(name):
     return name.lower().strip()
@@ -130,32 +141,35 @@ def update_company_file(gc,databank):
     current_df = pd.DataFrame(data[1:], columns=data[0])
     new_rows = []
     for value in databank.values():
-        if value['Arbeitgeber'] not in current_df['Arbeitgeber'].values:
-            new_row = pd.DataFrame({
-                "Arbeitgeber": [value["Arbeitgeber"]],
-                "Schon jemand vermittelt": "",
-                "Jemand vorbei gewesen": "",
-                "Mail geschickt": "",
-                "LinkedIn hinzugefügt": "",
-                "Telefonisch Kontakt gehabt": "",
-                "Voorbijgaan moment": "",
-                "Voorbij geweest": "",
-                "Formular ausgefüllt": "",
-                "Adresse": [value["Adresse"]],
-                "Adresse extra": [value["Adresse extra"]],
-                "Postzahl": [value["Postzahl"]],
-                "Ort": [value["Ort"]],
-                "Kanton": [value["Kanton"]],
-                "<25 KM": [value["<25 KM"]],
-                "Praxis": [value["Praxis"]],
-                "Kontakt": [value["Kontakt"]],
-                "Hauptnummer": [value["Hauptnummer"]],
-                "Telefon Direkt": [value["Telefon Direkt"]],
-                "E-mail": [value["E-mail"]],
-                "Website Arbeitgeber": [value["Website Arbeitgeber"]]
-            })
+        try:
+            if value['Arbeitgeber'] not in current_df['Arbeitgeber'].values:
+                new_row = pd.DataFrame({
+                    "Arbeitgeber": [value["Arbeitgeber"]],
+                    "Schon jemand vermittelt": "",
+                    "Jemand vorbei gewesen": "",
+                    "Mail geschickt": "",
+                    "LinkedIn hinzugefügt": "",
+                    "Telefonisch Kontakt gehabt": "",
+                    "Voorbijgaan moment": "",
+                    "Voorbij geweest": "",
+                    "Formular ausgefüllt": "",
+                    "Adresse": [value["Adresse"]],
+                    "Adresse extra": [value["Adresse extra"]],
+                    "Postzahl": [value["Postzahl"]],
+                    "Ort": [value["Ort"]],
+                    "Kanton": [value["Kanton"]],
+                    "<25 KM": [value["<25 KM"]],
+                    "Praxis": [value["Praxis"]],
+                    "Kontakt": [value["Kontakt"]],
+                    "Hauptnummer": [value["Hauptnummer"]],
+                    "Telefon Direkt": [value["Telefon Direkt"]],
+                    "E-mail": [value["E-mail"]],
+                    "Website Arbeitgeber": [value["Website Arbeitgeber"]]
+                })
 
-            new_rows.append(new_row)
+                new_rows.append(new_row)
+        except Exception as e:
+            print(e)
     current_df = pd.concat([current_df] + new_rows, ignore_index=True)
     current_df.sort_values(by="Arbeitgeber", inplace=True)
     current_df_list = [current_df.columns.values.tolist()] + current_df.values.tolist()

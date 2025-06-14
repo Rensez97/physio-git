@@ -56,7 +56,9 @@ def get_website(name, place,places_key):
         'X-Goog-FieldMask': 'places.websiteUri'
         }
         response = requests.post(base, json=payload, headers=headers).json()
-        website = response['places'][0]['websiteUri']
+        website = response['places'][0].get('websiteUri')
+        if website is None:
+            website = ''
         print("MAPS:",website)
     except:
         search_str = f"{name} {place}"

@@ -107,7 +107,7 @@ def thread(job,zipcodes, user_agent):
 
     except Exception as e:
         print("Exception place 4:", e, webpage, "\n",traceback.print_exc())
-
+    print(result)
     return result
 
 
@@ -140,6 +140,7 @@ def physio_swiss(zipcodes):
                 req = requests.get("https://physioswiss.ch/stelleninserate/", headers={'User-Agent': user_agent})
             else:
                 req = requests.get("https://physioswiss.ch/stelleninserate/?_paged=" + str(i), headers={'User-Agent': user_agent})
+
             time.sleep(random.uniform(1, 6))
             # with open("physioswiss_main.html", "w", encoding="utf-8") as file:
             #     file.write(req.text)
